@@ -6,3 +6,4 @@
 		<!-- Isotope javascript -->
 		<!-- <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script> -->
 		<script type="text/javascript" src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('plugins/vue.js') }}"></script>
