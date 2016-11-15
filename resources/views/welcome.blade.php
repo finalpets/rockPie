@@ -65,6 +65,10 @@
         </style>
     </head>
     <body>
+        <div id="app">
+            <h1>@{{ message }}</h1>
+            <input type="text" v-model="message">
+        </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -92,4 +96,13 @@
             </div>
         </div>
     </body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello vue world'
+            }
+        })
+    </script>
 </html>
