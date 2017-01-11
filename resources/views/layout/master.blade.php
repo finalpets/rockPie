@@ -25,8 +25,8 @@
   
     
     <!-- footer end -->
-    
-  </body>
-  @include('partials._javascript')
+    @include('partials._javascript')
     @yield('scripts')
+  </body>
+  
 </html>
