@@ -18,8 +18,46 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>        
-        <li><a href="#">Contact</a></li>
-        <li><input type="text" name=""></li>
+        <li><a href="#">Contact</a></li>        
+        <li>
+          <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+            <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+              <div class="jp-type-single">
+                <div class="jp-gui jp-interface">
+                  <div class="jp-volume-controls">
+                    <button class="jp-mute" role="button" tabindex="0">mute</button>
+                    <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                    <div class="jp-volume-bar">
+                      <div class="jp-volume-bar-value"></div>
+                    </div>
+                  </div>
+                  <div class="jp-controls-holder">
+                    <div class="jp-controls">
+                      <button class="jp-play" role="button" tabindex="0">play</button>
+                      <button class="jp-stop" role="button" tabindex="0">stop</button>
+                    </div>
+                    <div class="jp-progress">
+                      <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                      </div>
+                    </div>
+                    <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                    <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                    <div class="jp-toggles">
+                      <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-details">
+                  <div class="jp-title" aria-label="title">&nbsp;</div>
+                </div>
+                <div class="jp-no-solution">
+                  <span>Update Required</span>
+                  To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                </div>
+            </div>
+          </div>
+        </li>        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -74,11 +112,13 @@
                   <!-- ISOTOPE -->
                     <div class="isotope-container row grid-space-20">
                       <div class="col-sm-6 col-md-3 isotope-item web">
+
                         <div class="image-box">
                           <div class="overlay-container">
+                            <kbd>Metallica - Kill Em All</kbd>
                             <div class="row">
                               <div class="col-sm-4">
-                                <img src={{ asset("images/metallica.jpg") }} alt="">
+                                <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
                               </div>
                               <div class="col-sm-8">
                                 <table class="table table-striped">
@@ -147,10 +187,37 @@
                             </div>
                             <a class="overlay" data-toggle="modal" data-target="#project-1">
                               <i class="fa fa-search-plus"></i>
-                              <span>Web Design</span>
+                              <span>Metallica</span>
                             </a>
                           </div>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="project-1-label">Metallica</h4>
+                              </div>
+                              <div class="modal-body">
+                                <h3>Kill Em All</h3>
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <img src={{ asset("images/metallica.jpg") }} alt="">
+                                  </div>
+                                  <div class="col-md-8">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+                                    <p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>                                    
+                                  </div>                                  
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Modal end -->
                       </div>
                       <div class="col-sm-6 col-md-3 isotope-item B">
                         <div class="image-box">
@@ -407,26 +474,24 @@
     <!-- END RIGHT SIDE BAR -->
 
     <!-- LEFT SIDEBAR -->
+    <div id="jquery_jplayer_1" class="cp-jplayer"></div>
       <div class="col-sm-2 sidenav">
         <div class="well">
-          <div class="filters text-center">
-            <ul class="nav nav-pills">
-              <li class="active"><a href="#" data-filter="*">ALL</a></li>
-              <li><a href="#" data-filter=".web-design">A</a></li>
-              <li><a href="#" data-filter=".web-design">B</a></li>
-              <li><a href="#" data-filter=".app-development">C</a></li>
-              <li><a href="#" data-filter=".site-building">D</a></li>
-              <li><a href="#" data-filter=".web-design">E</a></li>
-              <li><a href="#" data-filter=".app-development">F</a></li>
-              <li><a href="#" data-filter=".site-building">G</a></li>
-              <li><a href="#" data-filter=".web-design">H</a></li>
-              <li><a href="#" data-filter=".app-development">I</a></li>
-              <li><a href="#" data-filter=".site-building">J</a></li>
-              <li><a href="#" data-filter=".web-design">K</a></li>
-              <li><a href="#" data-filter=".app-development">L</a></li>
-              <li><a href="#" data-filter=".site-building">M</a></li>
+          <div id="cp_container_1" class="cp-container">
+            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
+              <div class="cp-buffer-1"></div>
+              <div class="cp-buffer-2"></div>
+            </div>
+            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
+              <div class="cp-progress-1"></div>
+              <div class="cp-progress-2"></div>
+            </div>
+            <div class="cp-circle-control"></div>
+            <ul class="cp-controls">
+              <li><a class="cp-play" tabindex="1">play</a></li>
+              <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
             </ul>
-          </div>
+          </div>          
         </div>
       </div>
     <!-- END LEFT SIDEBAR -->
@@ -471,7 +536,7 @@
     el: '#app',
     data: {
       program_name: 'RockPie',
-      music: '{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}'
+       music: '{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}'
     },
     methods: {
       playMusic: function () {
@@ -504,7 +569,7 @@
     // audio.src = "music/05 - Tifa no Theme (Piano Version).mp3";
     audio.src = app.music;
     audio.loop = false;
-    audio.play();
+    //audio.play(); //comment for a momment
 
   }
 //window.addEventListener("load",initAudioPlayer);
