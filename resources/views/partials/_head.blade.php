@@ -20,4 +20,20 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
 
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
 		
-		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>		
+		<!-- Skins Jplayer -->
+		<link type="text/css" href="{{ asset('plugins/jplayer/skin/blue.monday/css/jplayer.blue.monday.css') }}" rel="stylesheet" />
+
+		<link rel="stylesheet" href="plugins/circleplayer-master/css/not.the.skin.css">
+		<link rel="stylesheet" href="plugins/circleplayer-master/circle.skin/circle.player.css">
+		{{-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>		 --}}
+		<script type="text/javascript" src="{{ asset('plugins/jquery.min.js') }}"></script> 
+		<script type="text/javascript" src="{{ asset('plugins/jplayer/jquery.jplayer.min.js') }}"></script>
+
+		
+
+		<script type="text/javascript" src="plugins/circleplayer-master/js/jquery.transform2d.js"></script>
+		<script type="text/javascript" src="plugins/circleplayer-master/js/jquery.grab.js"></script>
+		{{-- <script type="text/javascript" src="plugins/circleplayer-master/js/jquery.jplayer.js"></script>		 --}}
+		<script type="text/javascript" src="plugins/circleplayer-master/js/mod.csstransforms.min.js"></script>
+		<script type="text/javascript" src="plugins/circleplayer-master/js/circle.player.js"></script>
+
