@@ -1,3 +1,41 @@
+.btn-danger {
+    box-shadow: 1px 2px 5px #000000; 
+}
+
+ol.example li {
+
+    margin: 5px;
+    padding: 0px;
+    border: 1px solid #cccccc;
+    color: #0088cc;
+    background: #eeeeee;
+}
+
+.well {
+	padding: 20px;
+
+}
+
+/* sortable plugin */
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+ol.example li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+ol.example li.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}
+/*end sortable*/
+
 /*  table */
 
 .table {
@@ -41,8 +79,8 @@
 .isotope-item {
 	margin-bottom: 10px;
 	margin-right: 10px;
-	width: 490px;
-	height: 350px;
+	width: 430px;
+	height: 370px;
 	margin-left: 0px;
 	border-style: solid;
 	border-color: #ddd;
@@ -101,8 +139,8 @@
 	text-align: center;
 	width: 100%;
 	color: #ffffff;
-	font-size: 13px;
-	font-weight: 300;
+	font-size: 18px;
+	font-weight: 500;
 }
 .overlay i {
 	position: absolute;

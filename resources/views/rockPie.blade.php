@@ -75,7 +75,7 @@
         <div class="well">
           <div class="filters text-center">
             <ul class="nav nav-pills">
-              <li class="active"><a href="#" data-filter="*">ALL</a></li>
+              <li class="active"><a href="#" data-filter="*">*</a></li>
               <li><a href="#" data-filter=".web">A</a></li>
               <li><a href="#" data-filter=".B">B</a></li>
               <li><a href="#" data-filter=".app-development">C</a></li>
@@ -96,7 +96,7 @@
     <!-- END LEFT SIDEBAR -->
 
     <!-- CONTENT -->
-      <div class="col-sm-8 text-left">
+      <div class="col-sm-7 text-left">
         <!-- TABS CONTENT -->
           <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
@@ -473,28 +473,16 @@
       </div>
     <!-- END RIGHT SIDE BAR -->
 
-    <!-- LEFT SIDEBAR -->
-    <div id="jquery_jplayer_1" class="cp-jplayer"></div>
-      <div class="col-sm-2 sidenav">
-        <div class="well">
-          <div id="cp_container_1" class="cp-container">
-            <div class="cp-buffer-holder"> <!-- .cp-gt50 only needed when buffer is > than 50% -->
-              <div class="cp-buffer-1"></div>
-              <div class="cp-buffer-2"></div>
-            </div>
-            <div class="cp-progress-holder"> <!-- .cp-gt50 only needed when progress is > than 50% -->
-              <div class="cp-progress-1"></div>
-              <div class="cp-progress-2"></div>
-            </div>
-            <div class="cp-circle-control"></div>
-            <ul class="cp-controls">
-              <li><a class="cp-play" tabindex="1">play</a></li>
-              <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-            </ul>
-          </div>          
-        </div>
-      </div>
-    <!-- END LEFT SIDEBAR -->
+    <!-- List SIDEBAR -->    
+      <div class="col-sm-3 sidenav">
+        {{-- <div class="well"> --}}
+          <ol class='example'>
+            <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!"><i class="fa fa-times" aria-hidden="true"></i></button></li>
+            <li>Second</li>
+            <li>Third</li>
+          </ol>
+      {{-- </div> --}}
+    <!-- END List SIDEBAR -->
   </div>
 </div>
   
