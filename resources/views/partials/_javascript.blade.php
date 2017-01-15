@@ -9,10 +9,18 @@
 		<script type="text/javascript" src="{{ asset('plugins/vue.js') }}"></script>
 
 		<script type='text/javascript' src='js/template.js'></script> 
+		<!-- sortable plugin -->
+		<script src='plugins/jquery-sortable.js'></script>
 
 
 		<script type="text/javascript">
 		    $(document).ready(function(){
+		    	 $('[data-toggle="tooltip"]').tooltip(); 
+
+				$(function  () {
+				  $("ol.example").sortable();
+				});
+
 		      $("#jquery_jplayer_1").jPlayer({
 		      	// Options
 		        ready: function () {
