@@ -10,11 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/main', function () {
-    return view('main');
-});
-
 Route::get('/', function () {
     return view('rockPie');
 });
