@@ -76,19 +76,19 @@
           <div class="filters text-center">
             <ul class="nav nav-pills">
               <li class="active"><a href="#" data-filter="*">*</a></li>
-              <li><a href="#" data-filter=".web">A</a></li>
+              <li><a href="#" data-filter=".A">A</a></li>
               <li><a href="#" data-filter=".B">B</a></li>
-              <li><a href="#" data-filter=".app-development">C</a></li>
-              <li><a href="#" data-filter=".site-building">D</a></li>
-              <li><a href="#" data-filter=".web-design">E</a></li>
-              <li><a href="#" data-filter=".app-development">F</a></li>
-              <li><a href="#" data-filter=".site-building">G</a></li>
-              <li><a href="#" data-filter=".web-design">H</a></li>
-              <li><a href="#" data-filter=".app-development">I</a></li>
-              <li><a href="#" data-filter=".site-building">J</a></li>
-              <li><a href="#" data-filter=".web-design">K</a></li>
-              <li><a href="#" data-filter=".app-development">L</a></li>
-              <li><a href="#" data-filter=".site-building">M</a></li>
+              <li><a href="#" data-filter=".C">C</a></li>
+              <li><a href="#" data-filter=".D">D</a></li>
+              <li><a href="#" data-filter=".E">E</a></li>
+              <li><a href="#" data-filter=".F">F</a></li>
+              <li><a href="#" data-filter=".G">G</a></li>
+              <li><a href="#" data-filter=".H">H</a></li>
+              <li><a href="#" data-filter=".I">I</a></li>
+              <li><a href="#" data-filter=".J">J</a></li>
+              <li><a href="#" data-filter=".K">K</a></li>
+              <li><a href="#" data-filter=".L">L</a></li>
+              <li><a href="#" data-filter=".M">M</a></li>
             </ul>
           </div>
         </div>
@@ -111,11 +111,11 @@
                 <div class="section">
                   <!-- ISOTOPE -->
                     <div class="isotope-container row grid-space-20">
-                      <div class="col-sm-6 col-md-3 isotope-item web">
-
+                                       
+                      <div class="col-sm-6 col-md-3 isotope-item M">
                         <div class="image-box">
-                          <div class="overlay-container">
-                            <kbd>Metallica - Kill Em All</kbd>
+                          <div class="overlay-container">                          
+                            <kbd>Metalica</kbd>
                             <div class="row">
                               <div class="col-sm-4">
                                 <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
@@ -128,59 +128,11 @@
                                       <th>SONG</th>                              
                                     </tr>
                                   </thead>
-                                  <tbody>
+                                  <tbody>                                                                      
                                     <tr>
                                       <th scope="row">1</th>
-                                      <td>Hit the Lights</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td>The Four Horsemen </td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td>Motorbreath</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">4</th>
-                                      <td>Jump in the Fire</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">5</th>
-                                      <td>(Anesthesia) - Pulling Teeth" (instrumental)</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">6</th>
-                                      <td>"Whiplash"</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">7</th>
-                                      <td>"Phantom Lord" </td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">8</th>
-                                      <td>"No Remorse"  </td>
-                                    </tr>
-                                     <tr>
-                                      <th scope="row">9</th>
-                                      <td>"Seek Destroy" </td>
-                                    </tr>
-                                     <tr>
-                                      <th scope="row">10</th>
-                                      <td>"Metal Militia"</td>
-                                    </tr>
-                                     <tr>
-                                      <th scope="row">11</th>
-                                      <td>Larry</td>
-                                    </tr>
-                                     <tr>
-                                      <th scope="row">12</th>
-                                      <td>Larry</td>
-                                    </tr>
-                                     <tr>
-                                      <th scope="row">13</th>
-                                      <td>Larry</td>
-                                    </tr>
+                                      <td>Master of pupptes</td>
+                                    </tr>                                                              
                                   </tbody>
                                 </table>
                               </div>
@@ -218,7 +170,7 @@
                           </div>
                         </div>
                         <!-- Modal end -->
-                      </div>
+                      </div>                      
                       <div class="col-sm-6 col-md-3 isotope-item B">
                         <div class="image-box">
                           <div class="overlay-container">
