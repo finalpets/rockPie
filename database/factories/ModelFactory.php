@@ -28,7 +28,7 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
     return [
         'album_name' => $faker->name,
         'year' => $faker->numberBetween(1970,2016),
-        'genre_id' => $faker->numberBetween(1,10),
+        'genre_id' => $faker->numberBetween(1,3),
         'img' => $faker->domainName,
 		'artist_id' => $faker->numberBetween(1,10),
     ];
