@@ -14,5 +14,5 @@
 //     return view('rockPie');
 // });
 
-Route::resource('/','musicsController');
+Route::resource('/','AlbumController');
 Route::resource('update','fileManagerController');
