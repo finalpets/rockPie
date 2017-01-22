@@ -19,8 +19,8 @@ class AlbumController extends Controller
     public function index()
     {
         $albums = Album::all();   
-        $songs = Song::all();
-        $artists = Artist::all();
+        $songs = Song::orderBy('track','asc')->get();
+        $artists = Artist::orderBy('artist_name','asc')->get();
        //  foreach($albums as $album){
 
        //                  foreach($artists as $artist){
