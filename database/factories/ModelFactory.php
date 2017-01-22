@@ -30,6 +30,15 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
         'year' => $faker->numberBetween(1970,2016),
         'genre_id' => $faker->numberBetween(1,3),
         'img' => $faker->domainName,
-		'artist_id' => $faker->numberBetween(1,10),
+		'artist_id' => $faker->numberBetween(1,8),
+    ];
+});
+
+$factory->define(App\Song::class, function (Faker\Generator $faker) {    
+
+    return [
+        'track' => $faker->numberBetween(1,10),
+        'title' => $faker->name,
+        'album_id' => $faker->numberBetween(1,50),                
     ];
 });
