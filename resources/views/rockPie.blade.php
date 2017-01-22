@@ -111,66 +111,76 @@
                 <div class="section">
                   <!-- ISOTOPE -->
                     <div class="isotope-container row grid-space-20">
-                                       
-                      <div class="col-sm-6 col-md-3 isotope-item M">
-                        <div class="image-box">
-                          <div class="overlay-container">                          
-                            <kbd>Metalica</kbd>
-                            <div class="row">
-                              <div class="col-sm-4">
-                                <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
-                              </div>
-                              <div class="col-sm-8">
-                                <table class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th>#</th>
-                                      <th>SONG</th>                              
-                                    </tr>
-                                  </thead>
-                                  <tbody>                                                                      
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td>Master of pupptes</td>
-                                    </tr>                                                              
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                            <a class="overlay" data-toggle="modal" data-target="#project-1">
-                              <i class="fa fa-search-plus"></i>
-                              <span>Metallica</span>
-                            </a>
-                          </div>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h4 class="modal-title" id="project-1-label">Metallica</h4>
-                              </div>
-                              <div class="modal-body">
-                                <h3>Kill Em All</h3>
-                                <div class="row">
-                                  <div class="col-md-4">
-                                    <img src={{ asset("images/metallica.jpg") }} alt="">
+                      @foreach($albums as $album)
+                        @foreach($artists as $artist)                        
+                          @if($album->artist->artist_name == $artist->artist_name)
+                            <div class="{{ 'col-sm-6 col-md-3 isotope-item '.$artist->letter->letter }}">
+                              <div class="image-box">
+                                <div class="overlay-container">
+                                  <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
+                                  <div class="row">
+                                    <div class="col-sm-4">
+                                      <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
+                                    </div>
+                                    <div class="col-sm-8">
+                                      <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th>#</th>
+                                            <th>SONG</th>                              
+                                          </tr>
+                                        </thead>
+                                        <tbody>                                                                      
+                                          <tr>
+                                            <th scope="row">1</th>
+                                            <td>Master of pupptes</td>
+                                          </tr>                                                              
+                                        </tbody>
+                                      </table>
+                                    </div>
                                   </div>
-                                  <div class="col-md-8">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-                                    <p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>                                    
-                                  </div>                                  
+                                  <a class="overlay" data-toggle="modal" data-target="{{ '#project-'.$album->id }}">
+                                    <i class="fa fa-search-plus"></i>
+                                    <span>{{ $artist->artist_name }}</span>
+                                  </a>
                                 </div>
                               </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                              <!-- Modal -->
+                              <div class="modal fade" id="{{'project-'.$album->id }}" tabindex="-1" role="dialog" aria-labelledby="{{'project-'.$album->id.'-label'}}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                      <h4 class="modal-title" id="project-1-label">{{ $artist->artist_name }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <h3>{{ $album->album_name }}</h3>
+                                      <div class="row">
+                                        <div class="col-md-4">
+                                          <img src={{ asset("images/metallica.jpg") }} alt="">
+                                        </div>
+                                        <div class="col-md-8">
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+                                          <p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>                                    
+                                        </div>                                  
+                                      </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
+                              <!-- Modal end -->
                             </div>
-                          </div>
-                        </div>
-                        <!-- Modal end -->
-                      </div>                      
+                          @endif
+                        @endforeach
+                                
+                                 
+                               
+                      @endforeach                    
+                      {{-- <div class="col-sm-6 col-md-3 isotope-item M"> --}}
+                                             
                       <div class="col-sm-6 col-md-3 isotope-item B">
                         <div class="image-box">
                           <div class="overlay-container">
@@ -406,19 +416,19 @@
         <div class="well">
           <div class="filters text-center">
             <ul class="nav nav-pills">
-              <li><a href="#" data-filter=".web-design">N</a></li>
-              <li><a href="#" data-filter=".web-design">O</a></li>
-              <li><a href="#" data-filter=".web-design">P</a></li>
-              <li><a href="#" data-filter=".app-development">Q</a></li>
-              <li><a href="#" data-filter=".site-building">R</a></li>
-              <li><a href="#" data-filter=".web-design">S</a></li>
-              <li><a href="#" data-filter=".app-development">T</a></li>
-              <li><a href="#" data-filter=".site-building">U</a></li>
-              <li><a href="#" data-filter=".web-design">V</a></li>
-              <li><a href="#" data-filter=".app-development">W</a></li>
-              <li><a href="#" data-filter=".site-building">X</a></li>
-              <li><a href="#" data-filter=".web-design">Y</a></li>
-              <li><a href="#" data-filter=".app-development">Z</a></li>
+              <li><a href="#" data-filter=".N">N</a></li>
+              <li><a href="#" data-filter=".O">O</a></li>
+              <li><a href="#" data-filter=".P">P</a></li>
+              <li><a href="#" data-filter=".Q">Q</a></li>
+              <li><a href="#" data-filter=".R">R</a></li>
+              <li><a href="#" data-filter=".S">S</a></li>
+              <li><a href="#" data-filter=".T">T</a></li>
+              <li><a href="#" data-filter=".U">U</a></li>
+              <li><a href="#" data-filter=".V">V</a></li>
+              <li><a href="#" data-filter=".W">W</a></li>
+              <li><a href="#" data-filter=".X">X</a></li>
+              <li><a href="#" data-filter=".Y">Y</a></li>
+              <li><a href="#" data-filter=".Z">Z</a></li>
             </ul>
           </div>
         </div>
