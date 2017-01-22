@@ -110,9 +110,9 @@
               <div class="container">
                 <div class="section">
                   <!-- ISOTOPE -->
-                    <div class="isotope-container row grid-space-20">
-                      @foreach($albums as $album)
-                        @foreach($artists as $artist)                        
+                    <div class="isotope-container row grid-space-20">                      
+                      @foreach($artists as $artist)
+                        @foreach($albums as $album)
                           @if($album->artist->artist_name == $artist->artist_name)
                             <div class="{{ 'col-sm-6 col-md-3 isotope-item '.$artist->letter->letter }}">
                               <div class="image-box">
@@ -122,7 +122,7 @@
                                     <div class="col-sm-4">
                                       <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-8">                                    
                                       <table class="table table-striped">
                                         <thead>
                                           <tr>
@@ -130,13 +130,17 @@
                                             <th>SONG</th>                              
                                           </tr>
                                         </thead>
-                                        <tbody>                                                                      
+                                        <tbody>
+                                        @foreach($songs as $song)
+                                          @if($song->album->album_name == $album->album_name)
                                           <tr>
-                                            <th scope="row">1</th>
-                                            <td>Master of pupptes</td>
-                                          </tr>                                                              
+                                            <th scope="row">{{ $song->track }}</th>
+                                            <td>{{ $song->title }}</td>
+                                          </tr>
+                                          @endif
+                                        @endforeach
                                         </tbody>
-                                      </table>
+                                      </table>                                    
                                     </div>
                                   </div>
                                   <a class="overlay" data-toggle="modal" data-target="{{ '#project-'.$album->id }}">
