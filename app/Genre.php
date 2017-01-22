@@ -8,7 +8,7 @@ class Genre extends Model
 {
 	protected $fillable = ['name'];
 	
-    public function albums()
+    public function album()
     {
     	return $this->hasMany('App\Album');
     }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Song extends Model
 {
-    public function albums()
+    public function album()
     {
-    	$this->belongsTo('App\Album');
+    	return $this->belongsTo('App\Album');
     }    
 }

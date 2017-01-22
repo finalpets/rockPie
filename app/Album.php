@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {    
 	protected $fillable = ['album','year','genre_id','img','artist_id'];
-	public function genres()
-	{
-		$this->belongsTo('App\Genre');
+	public function genre()
+	{		
+		return $this->belongsTo('App\Genre');
 	}
-	public function artists()
+	public function artist()
 	{
-		$this->belongsTo('App\Artist');
+		return $this->belongsTo('App\Artist');
 	}
-	public function songs()
+	public function song()
 	{
-		$this->hasMany('App\Song');
+		return $this->hasMany('App\Song');
 	}
 }

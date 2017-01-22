@@ -8,7 +8,7 @@ class Letter extends Model
 {
 	protected $fillable = ['letter'];
 	
-    public function artists()
+    public function artist()
     {
     	return $this->hasMany('App\Artist');
     }

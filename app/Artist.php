@@ -8,11 +8,11 @@ class Artist extends Model
 {    
 	protected $fillable = ['artist_name'];
 
-    public function letters()
-    {
+    public function letter()
+    {    	
     	return $this->belongsTo('App\Letter');
     }
-    public function albums()
+    public function album()
     {
     	return $this->hasMany('App\Album');
     }
