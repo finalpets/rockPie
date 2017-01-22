@@ -25,7 +25,7 @@ class ArtistTableSeeder extends Seeder
 
         $artist = new \App\Artist([
 		'artist_name' => 'Pantera',
-		'letter_id' => 20
+		'letter_id' => 16
 		]);
         $artist->save();
 
@@ -37,13 +37,13 @@ class ArtistTableSeeder extends Seeder
 
         $artist = new \App\Artist([
 		'artist_name' => 'Iron Maiden',
-		'letter_id' => 6
+		'letter_id' => 9
 		]);
         $artist->save();
 
         $artist = new \App\Artist([
 		'artist_name' => 'Jason Becker',
-		'letter_id' => 6
+		'letter_id' => 10
 		]);
         $artist->save();
 
@@ -55,7 +55,7 @@ class ArtistTableSeeder extends Seeder
 
         $artist = new \App\Artist([
 		'artist_name' => 'Van Halen',
-		'letter_id' => 33
+		'letter_id' => 22
 		]);
         $artist->save();
     }
