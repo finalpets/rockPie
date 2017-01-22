@@ -72,7 +72,7 @@
 
     <!-- LEFT SIDEBAR -->
       <div class="col-sm-1 sidenav">
-        <div class="well">
+        <div class="well" id="leftsidebar">
           <div class="filters text-center">
             <ul class="nav nav-pills">
               <li class="active"><a href="#" data-filter="*">*</a></li>
@@ -163,14 +163,31 @@
                                         <div class="col-md-4">
                                           <img src={{ asset("images/metallica.jpg") }} alt="">
                                         </div>
-                                        <div class="col-md-8">
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-                                          <p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>                                    
-                                        </div>                                  
-                                      </div>
+                                        <div class="col-sm-8">                                    
+                                      <table class="table table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th>#</th>
+                                            <th>SONG</th>                              
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($songs as $song)
+                                          @if($song->album->album_name == $album->album_name)
+                                          <tr>
+                                            <th scope="row">{{ $song->track }}</th>
+                                            <td>{{ $song->title }}</td>
+                                          </tr>
+                                          @endif
+                                        @endforeach
+                                        </tbody>
+                                      </table>                                    
+                                    </div>
+                                  </div>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Add Songs</button>
+                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
                                     </div>
                                   </div>
                                 </div>
@@ -192,7 +209,7 @@
 
     <!-- RIGHT SIDE BAR -->
       <div class="col-sm-1 sidenav">
-        <div class="well">
+        <div class="well" id="rightsidebar">
           <div class="filters text-center">
             <ul class="nav nav-pills">
               <li><a href="#" data-filter=".N">N</a></li>
