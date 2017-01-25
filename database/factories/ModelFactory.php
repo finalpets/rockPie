@@ -39,6 +39,7 @@ $factory->define(App\Song::class, function (Faker\Generator $faker) {
     return [
         'track' => $faker->numberBetween(1,10),
         'title' => $faker->name,
-        'album_id' => $faker->numberBetween(1,50),                
+        'album_id' => $faker->numberBetween(1,50),
+        'song_url' => $faker->domainName,
     ];
 });
