@@ -2,23 +2,22 @@
 @section('title','| Proto')
 
 @section('content')
-
 <!-- NAVBAR-->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#">RockPie</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>        
-        <li><a href="#">Contact</a></li>        
+            <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
+            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>                    
         <li>
           <div id="jquery_jplayer_1" class="jp-jplayer"></div>
             <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
@@ -32,9 +31,9 @@
                     </div>
                   </div>
                   <div class="jp-controls-holder">
-                    <div class="jp-controls">
+                    <div class="jp-controls">                    
                       <button class="jp-play" role="button" tabindex="0">play</button>
-                      <button class="jp-stop" role="button" tabindex="0">stop</button>
+                      <button class="jp-stop" role="button" tabindex="0">stop</button>                      
                     </div>
                     <div class="jp-progress">
                       <div class="jp-seek-bar">
@@ -42,10 +41,10 @@
                       </div>
                     </div>
                     <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                    <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                    <div class="jp-toggles">
+                    {{-- <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div> --}}
+                    {{-- <div class="jp-toggles">
                       <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                    </div>
+                    </div> --}}
                   </div>
                 </div>
                 <div class="jp-details">
@@ -60,11 +59,12 @@
         </li>        
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>        
       </ul>
     </div>
   </div>
 </nav>
+
 <!-- END NAVBAR-->
 
 <div class="container-fluid text-center">
@@ -96,15 +96,15 @@
     <!-- END LEFT SIDEBAR -->
 
     <!-- CONTENT -->
-      <div class="col-sm-7 text-left">
+      <div class="col-sm-7 text-left" id="istope-album">
         <!-- TABS CONTENT -->
-          <ul class="nav nav-tabs">
+          {{-- <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
             <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>    
             <li><label>Filter:</label></li>    
             <select></select>
-          </ul>
+          </ul> --}}
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
               <div class="container">
@@ -135,7 +135,8 @@
                                           @if($song->album->album_name == $album->album_name)
                                           <tr>
                                             <th scope="row">{{ $song->track }}</th>
-                                            <td>{{ $song->title }}</td>
+                                            <td>{{ $song->title }}
+                                            </td>
                                           </tr>
                                           @endif
                                         @endforeach
@@ -168,7 +169,8 @@
                                         <thead>
                                           <tr>
                                             <th>#</th>
-                                            <th>SONG</th>                              
+                                            <th>SONG</th>
+                                            <th>Adding</th>                              
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -177,6 +179,8 @@
                                           <tr>
                                             <th scope="row">{{ $song->track }}</th>
                                             <td>{{ $song->title }}</td>
+                                            <th><button type="button" class="btn btn-sm btn-success" onclick="addSong_to_playlist('{{ $album->artist->artist_name }}','{{ $song->title }}','{{ $song->song_url }}')">Add </button></th>
+                                            {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
                                           </tr>
                                           @endif
                                         @endforeach
@@ -185,9 +189,8 @@
                                     </div>
                                   </div>
                                     </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Add Songs</button>
-                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancel</button>
+                                    <div class="modal-footer">                                      
+                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Clouse</button>
                                     </div>
                                   </div>
                                 </div>
@@ -232,12 +235,13 @@
     <!-- END RIGHT SIDE BAR -->
 
     <!-- List SIDEBAR -->    
-      <div class="col-sm-3 sidenav">
+      <div class="col-sm-3 sidenav" id="listBar">
+      <button class="btn btn-primary" onclick="playList()">PLAY</button>
         {{-- <div class="well"> --}}
-          <ol class='example'>
-            <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!"><i class="fa fa-times" aria-hidden="true"></i></button></li>
+          <ol class='example' id="playerList">
+         {{--    <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!" id="playerList"><i class="fa fa-times" aria-hidden="true"></i></button></li>
             <li>Second</li>
-            <li>Third</li>
+            <li>Third</li> --}}
           </ol>
       {{-- </div> --}}
     <!-- END List SIDEBAR -->
@@ -320,6 +324,7 @@
   }
 //window.addEventListener("load",initAudioPlayer);
 });
+
 </script>
 @endsection
 
