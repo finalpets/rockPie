@@ -14,6 +14,43 @@
 
 
 		<script type="text/javascript">
+		//var playing = 0;
+			function addSong_to_playlist(artist, song, song_url) {	
+			//console.log(playing);
+			 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+			 console.log(navbar.length);
+			 if(navbar.length == 0)
+			 {
+			 	//playing = 1;			 	
+			 	$("#jquery_jplayer_1").jPlayer("option", "cssSelector.title");
+				$("ol").append("<li id="+song_url+">"+artist+" - "+song+"</li>");
+				playList();
+			 }
+			 else
+			 {
+			 	$("ol").append("<li id="+song_url+">"+artist+" - "+song+"</li>");
+			 }
+    
+    		}
+
+    		function playList(){
+    			let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+				// console.log('Get first: ', navbar[0].id);
+				// console.log('Get first: ', navbar[0].textContent);
+				// console.log('Get first: ', navbar.length);
+
+		        var music = "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}";	
+		         console.log(music);	 
+		        $('#jquery_jplayer_1').jPlayer("setMedia", {
+		            title: navbar[0].textContent,		            
+		            m4a: music,
+		            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+		          });
+
+		       	$('#jquery_jplayer_1').jPlayer("play");
+
+    		}
+
 		    $(document).ready(function(){
 		    	 $('[data-toggle="tooltip"]').tooltip(); 
 
@@ -21,9 +58,15 @@
 				  $("ol.example").sortable();
 				});
 
+				
+
 		      $("#jquery_jplayer_1").jPlayer({
 		      	// Options
+
 		        ready: function () {
+		        var music = "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}";
+		       // console.log(music);
+		        //playList();
 		          $(this).jPlayer("setMedia", {
 		            title: "RockPie",		            
 		            m4a: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
@@ -38,9 +81,9 @@
 		        smoothPlayBar: true,
 		        keyEnabled: true,
 		        remainingDuration: true,
-		        toggleDuration: true ,
+		        toggleDuration: true ,		        
 		        wmode: "window"
-		        , ended: function() { // The $.jPlayer.event.ended event				        	
+		        , ended: function() { // The $.jPlayer.event.ended event			        	
 	    			$(this).jPlayer("setMedia", {
 	    				mp3: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}",
 				        m4v: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}", // Defines the m4v url
