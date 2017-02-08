@@ -131,10 +131,12 @@
                                           </tr>
                                         </thead>
                                         <tbody>
+                                        <?php $var = 0; ?>
                                         @foreach($songs as $song)
                                           @if($song->album->album_name == $album->album_name)
+                                          <?php $var++ ; ?>
                                           <tr>
-                                            <th scope="row">{{ $song->track }}</th>
+                                            <th scope="row">{{ $var }}</th>
                                             <td>{{ $song->title }}
                                             </td>
                                           </tr>
@@ -173,13 +175,19 @@
                                             <th>Adding</th>                              
                                           </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody>             
+                                        <?php $var = 0; ?>                          
                                         @foreach($songs as $song)
                                           @if($song->album->album_name == $album->album_name)
+                                          <?php $var++ ; ?>                                          
+                                          <?php $songTitle_clean = str_replace("'","^",$song->title); ?>
+                                          <?php $artistName_clean = str_replace("'","^",$album->artist->artist_name);?>
+                                          <?php $songUrl_clean = str_replace("'","^",$song->song_url);?>
                                           <tr>
-                                            <th scope="row">{{ $song->track }}</th>
+                                            <th scope="row">{{ $var }}</th>
                                             <td>{{ $song->title }}</td>
-                                            <th><button type="button" class="btn btn-sm btn-success" onclick="addSong_to_playlist('{{ $album->artist->artist_name }}','{{ $song->title }}','{{ $song->song_url }}')">Add </button></th>
+
+                                            <th><button type="button" class="btn btn-sm btn-success" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
                                             {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
                                           </tr>
                                           @endif
