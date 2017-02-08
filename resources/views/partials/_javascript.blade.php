@@ -15,35 +15,51 @@
 
 		<script type="text/javascript">
 		//var playing = 0;
+		var playSong = "";
+		var isPlaying = false;
 			function addSong_to_playlist(artist, song, song_url) {	
 			//console.log(playing);
+			console.log('Song_url:'+song_url);
+			console.log('playSong:'+playSong);
+			 var music = song_url.replace(/ /g, "_");
 			 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 			 console.log(navbar.length);
-			 if(navbar.length == 0)
+			 if(navbar.length == 0 && isPlaying == false )
 			 {
-			 	//playing = 1;			 	
+			 	//playing = 1;		
+			 	
 			 	$("#jquery_jplayer_1").jPlayer("option", "cssSelector.title");
-				$("ol").append("<li id="+song_url+">"+artist+" - "+song+"</li>");
+				$("ol").append("<li id="+music+">"+artist+" - "+song+"</li>");
 				playList();
 			 }
 			 else
 			 {
-			 	$("ol").append("<li id="+song_url+">"+artist+" - "+song+"</li>");
+			 	$("ol").append("<li id="+music+" >"+artist+" - "+song+"</li>");
 			 }
     
     		}
 
     		function playList(){
     			let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
-				// console.log('Get first: ', navbar[0].id);
+				 console.log('Get first: ', navbar[0].id);
 				// console.log('Get first: ', navbar[0].textContent);
 				// console.log('Get first: ', navbar.length);
+				var song = navbar[0].id.split('_').join(' ');
+				console.log(song);	 
+				var musicPath = "{{ asset('music') }}";	
+		        console.log('musicPath:',musicPath);	 
+				song_url = musicPath.concat("/");
+				song_url2 = song_url.concat(song);
+				console.log('Origina Song:', song);
 
-		        var music = "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}";	
-		         console.log(music);	 
+				playSong = song_url2;
+				console.log('Origina music:', playSong);
+
+				$('#listBar>ol>li').first().remove();
+		        
 		        $('#jquery_jplayer_1').jPlayer("setMedia", {
-		            title: navbar[0].textContent,		            
-		            m4a: music,
+		            //title: "RockPi2e",
+		            m4a: playSong,
 		            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 		          });
 
@@ -68,7 +84,7 @@
 		       // console.log(music);
 		        //playList();
 		          $(this).jPlayer("setMedia", {
-		            title: "RockPie",		            
+		           // title: "RockPie",		            
 		            m4a: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
 		            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 		          });
@@ -83,13 +99,21 @@
 		        remainingDuration: true,
 		        toggleDuration: true ,		        
 		        wmode: "window"
-		        , ended: function() { // The $.jPlayer.event.ended event			        	
+		        , ended: function() { // The $.jPlayer.event.ended event	
+
+		        	isPlaying = false;
+		        	playList();
+	  				console.log("play isPlaying:"+isPlaying);	        	
+		        	console.log("songEnded:"+playSong);	
 	    			$(this).jPlayer("setMedia", {
-	    				mp3: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}",
-				        m4v: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}", // Defines the m4v url
-				        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg" 
+	    				mp3: playSong,
+				        m4v: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}" // Defines the m4v url				        
 				      }).jPlayer("play"); // Attempts to Auto-Play the media
 	  			},
+	  			 play  : function() { // The $.jPlayer.event.play  event
+	  			 	isPlaying = true;
+	  				console.log("play isPlaying:"+isPlaying);
+	  			},	
 
 		      });
 
