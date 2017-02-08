@@ -18,7 +18,11 @@
             <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
             <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>                    
-        <li>
+             
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
+      <li>
           <div id="jquery_jplayer_1" class="jp-jplayer"></div>
             <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
               <div class="jp-type-single">
@@ -47,19 +51,17 @@
                     </div> --}}
                   </div>
                 </div>
-                <div class="jp-details">
+{{--                 <div class="jp-details">
                   <div class="jp-title" aria-label="title">&nbsp;</div>
-                </div>
+                </div> --}}
                 <div class="jp-no-solution">
                   <span>Update Required</span>
                   To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
                 </div>
             </div>
           </div>
-        </li>        
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>        
+        </li>  
+               
       </ul>
     </div>
   </div>
@@ -198,7 +200,7 @@
                                   </div>
                                     </div>
                                     <div class="modal-footer">                                      
-                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Clouse</button>
+                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
                                     </div>
                                   </div>
                                 </div>
@@ -290,32 +292,32 @@
 
   $(document).ready(function(){
 
-   var app = new Vue({
-    el: '#app',
-    data: {
-      program_name: 'RockPie',
-       music: '{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}'
-    },
-    methods: {
-      playMusic: function () {
-        // document.getElementById('player').play();
-        audio.play();
-      },
-      stopMusic: function () {
-        audio.pause();
-        audio.currentTime = 0;
-        // document.getElementById('player').pause();
-        // document.getElementById('player').currentTime = 0;
-        // alert('pets');
-      },
-      volumeUp: function () {
-        document.getElementById('player').volume += 0.1;
-      },
-      volumeDown: function () {
-        document.getElementById('player').volume -= 0.1;  
-      }
-    }
-  })
+  //  var app = new Vue({
+  //   el: '#app',
+  //   data: {
+  //     program_name: 'RockPie',
+  //      music: '{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}'
+  //   },
+  //   methods: {
+  //     playMusic: function () {
+  //       // document.getElementById('player').play();
+  //       audio.play();
+  //     },
+  //     stopMusic: function () {
+  //       audio.pause();
+  //       audio.currentTime = 0;
+  //       // document.getElementById('player').pause();
+  //       // document.getElementById('player').currentTime = 0;
+  //       // alert('pets');
+  //     },
+  //     volumeUp: function () {
+  //       document.getElementById('player').volume += 0.1;
+  //     },
+  //     volumeDown: function () {
+  //       document.getElementById('player').volume -= 0.1;  
+  //     }
+  //   }
+  // })
    var audio;
 
    initAudioPlayer();
@@ -323,10 +325,10 @@
 
 
    function initAudioPlayer(){
-    audio = new Audio();
+    //audio = new Audio();
     // audio.src = "music/05 - Tifa no Theme (Piano Version).mp3";
-    audio.src = app.music;
-    audio.loop = false;
+    //audio.src = app.music;
+    //audio.loop = false;
     //audio.play(); //comment for a momment
 
   }
