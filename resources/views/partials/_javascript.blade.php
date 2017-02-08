@@ -87,8 +87,8 @@
 		        //playList();
 		          $(this).jPlayer("setMedia", {
 		           // title: "RockPie",		            
-		            m4a: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
-		            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+		          //  m4a: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
+		           // oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 		          });
 		        },
 		        cssSelectorAncestor: "#jp_container_1",
@@ -108,8 +108,7 @@
 	  				console.log("play isPlaying:"+isPlaying);	        	
 		        	console.log("songEnded:"+playSong);	
 	    			$(this).jPlayer("setMedia", {
-	    				mp3: playSong,
-				        m4v: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}" // Defines the m4v url				        
+	    				mp3: playSong,				      
 				      }).jPlayer("play"); // Attempts to Auto-Play the media
 	  			},
 	  			 play  : function() { // The $.jPlayer.event.play  event
@@ -121,7 +120,7 @@
 
 		 //    var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
 			// {
-			// 	m4a: "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}",
+		
 			// 	oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 			// }, {
 			// 	cssSelectorAncestor: "#cp_container_1"
@@ -130,7 +129,7 @@
 			// if(myCirclePlayer.player.pause())
 			// {
 			// 	myCirclePlayer.setMedia({
-			// 	m4a: "{{ asset('music/Pantera - Cementary Gates.mp3') }}",
+			
 			// 	oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 			// });	
 			// }
