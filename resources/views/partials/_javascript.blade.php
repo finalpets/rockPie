@@ -21,6 +21,7 @@
 			//console.log(playing);
 			console.log('Song_url:'+song_url);
 			console.log('playSong:'+playSong);
+			//var clean_url = song_url.replace("'", "^");
 			 var music = song_url.replace(/ /g, "_");
 			 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 			 console.log(navbar.length);
@@ -44,7 +45,8 @@
 				 console.log('Get first: ', navbar[0].id);
 				// console.log('Get first: ', navbar[0].textContent);
 				// console.log('Get first: ', navbar.length);
-				var song = navbar[0].id.split('_').join(' ');
+				var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL 
+				var song = parsedSong_url.split("^").join("'");// return to the original URL 
 				console.log(song);	 
 				var musicPath = "{{ asset('music') }}";	
 		        console.log('musicPath:',musicPath);	 
