@@ -30,7 +30,7 @@
               <div class="jp-controls">
                 {{-- <button class="jp-previous" role="button" tabindex="0">previous</button> --}}
                 <button class="jp-play" role="button" tabindex="0">play</button>
-                <button class="jp-next" role="button" tabindex="0">next</button>
+                <button class="jp-next" role="button" tabindex="0" onclick="nextSong()">next</button>
                 <button class="jp-stop" role="button" tabindex="0">stop</button>
               </div>
               <div class="jp-progress">
@@ -54,10 +54,13 @@
                 <button class="jp-shuffle" role="button" tabindex="0">shuffle</button> --}}
               </div>
             </div>
-            <div class="jp-playlist">
+           {{--  <div class="jp-playlist">
               <ul>
                 <li>&nbsp;</li>
               </ul>
+            </div> --}}
+            <div class="jp-details">
+              <div class="jp-title" aria-label="title">&nbsp;</div>
             </div>
             <div class="jp-no-solution">
               <span>Update Required</span>
@@ -250,7 +253,8 @@
 
     <!-- List SIDEBAR -->    
       <div class="col-sm-3 sidenav" id="listBar">
-      <button class="btn btn-primary" onclick="playList()">PLAY</button>
+      <h3>PlayList</h3>
+      {{-- <button class="btn btn-primary" onclick="playList()">PLAY</button> --}}
         {{-- <div class="well"> --}}
           <ol class='example' id="playerList">
          {{--    <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!" id="playerList"><i class="fa fa-times" aria-hidden="true"></i></button></li>
