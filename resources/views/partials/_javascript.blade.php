@@ -17,6 +17,8 @@
 		//var playing = 0;
 		var playSong = "";
 		var isPlaying = false;
+		var current_Artist = "";
+		var current_Song = "";
 			function addSong_to_playlist(artist, song, song_url) {	
 			//console.log(playing);
 			console.log('Song_url:'+song_url);
@@ -40,11 +42,30 @@
     
     		}
 
+    		function nextSong(){
+
+    			let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+    			if(navbar.length != 0)
+    			{
+	    			console.log("Function nextSong");
+	    			isPlaying = false;
+	    			playList();
+    			}	
+    		}
+
+    		function parsed_CurrentSong(currentSong){
+    			console.log("before currentSong:"+currentSong);	
+    			 current_Song =currentSong.substring(currentSong.lastIndexOf("/")+1,currentSong.length);
+    			console.log("after currentSong:"+current_Song);	 
+
+    		}
+
     		function playList(){
     			let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 				 console.log('Get first: ', navbar[0].id);
 				// console.log('Get first: ', navbar[0].textContent);
 				// console.log('Get first: ', navbar.length);
+
 				var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL 
 				var song = parsedSong_url.split("^").join("'");// return to the original URL 
 				console.log(song);	 
@@ -53,6 +74,7 @@
 				song_url = musicPath.concat("/");
 				song_url2 = song_url.concat(song);
 				console.log('Origina Song:', song);
+				parsed_CurrentSong(song);
 
 				playSong = song_url2;
 				console.log('Origina music:', playSong);
@@ -60,7 +82,7 @@
 				$('#listBar>ol>li').first().remove();
 		        
 		        $('#jquery_jplayer_1').jPlayer("setMedia", {
-		            //title: "RockPi2e",
+		            title: current_Song,
 		            m4a: playSong,
 		            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
 		          });
