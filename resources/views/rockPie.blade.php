@@ -129,7 +129,8 @@
                                   <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
                                   <div class="row">
                                     <div class="col-sm-4">
-                                      <img src={{ asset("images/metallica.jpg") }} alt="" class="img-rounded">
+                                      <?php $img_clean = str_replace(" ","%20",$album->img); ?>                                     
+                                      <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' alt="Oops" class="img-rounded resize">
                                     </div>
                                     <div class="col-sm-8">                                    
                                       <table class="table table-striped">
