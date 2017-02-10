@@ -34,6 +34,10 @@ class fileManagerController extends Controller
             'mp3',
             'mp4'
         );
+         $supported_img = array(
+            'png',
+            'jpg'
+        );
 
         //$files = Storage::allFiles();
         //$exists = Storage::disk('public')->exists('05 - Tifa no Theme (Piano Version).mp3');
@@ -68,6 +72,12 @@ class fileManagerController extends Controller
             $parsedAlbum = UtilsLibrary::get_string_between($album, '/', '/');
 
             $song = substr( $fullstring, strlen($parsedAlbum) + strlen($parsedArtist) + 4);
+            //$cover = $fullstring;
+           // $cover = $parsedArtist;
+            $cover = substr( $fullstring, 0,strlen($parsedArtist)+strlen($parsedAlbum)+3 ); //get the cover of the album
+            //$cover = substr( $fullstring, strlen($parsedArtist)+ strlen($album) + strlen($parsedArtist) + 4);
+            $cover = $cover.'/cover'; 
+            //print_r('Cover":'.$cover);
 
             print_r('Character1:'.strlen($parsedArtist));
             print_r('Character2:'.strlen($parsedAlbum));
@@ -120,7 +130,7 @@ class fileManagerController extends Controller
                 $db_album->album_name = $parsedAlbum;
                 $db_album->year = 0;
                 $db_album->genre_id = 1;
-                $db_album->img =  "http:public";
+                $db_album->img =  $cover;
                 $check_allArtists = Artist::all();
                 foreach ($check_allArtists as $check_allArtist) {
                     if($check_allArtist->artist_name == $parsedArtist)
