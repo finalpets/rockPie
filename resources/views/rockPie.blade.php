@@ -126,7 +126,9 @@
                             <div class="{{ 'col-sm-6 col-md-3 isotope-item '.$artist->letter->letter }}">
                               <div class="image-box">
                                 <div class="overlay-container">
-                                  <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
+                                  <div align="center">
+                                    <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
+                                  </div>
                                   <div class="row">
                                     <div class="col-sm-5">
                                       <?php $img_clean = str_replace(" ","%20",$album->img); ?>                                     
@@ -168,10 +170,12 @@
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                      <h4 class="modal-title" id="project-1-label">{{ $artist->artist_name }}</h4>
+                                      <h3 class="modal-title" id="project-1-label">{{ $artist->artist_name }}</h3>
                                     </div>
                                     <div class="modal-body">
-                                      <h3>{{ $album->album_name }}</h3>
+                                      <div align="center">
+                                        <h3>{{ $album->album_name }}</h3>
+                                      </div>
                                       <div class="row">
                                         <div class="col-md-5">
                                           <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' }} alt="" class="img-rounded resizeModal">
@@ -197,7 +201,7 @@
                                             <th scope="row">{{ $var }}</th>
                                             <td>{{ $song->title }}</td>
 
-                                            <th><button type="button" class="btn btn-sm btn-success" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
+                                            <th><button type="button" class="btn btn-sm btn-primary" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
                                             {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
                                           </tr>
                                           @endif
