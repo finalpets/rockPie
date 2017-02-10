@@ -128,11 +128,11 @@
                                 <div class="overlay-container">
                                   <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
                                   <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-5">
                                       <?php $img_clean = str_replace(" ","%20",$album->img); ?>                                     
                                       <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' alt="Oops" class="img-rounded resize">
                                     </div>
-                                    <div class="col-sm-8">                                    
+                                    <div class="col-sm-7">                                    
                                       <table class="table table-striped">
                                         <thead>
                                           <tr>
@@ -173,10 +173,10 @@
                                     <div class="modal-body">
                                       <h3>{{ $album->album_name }}</h3>
                                       <div class="row">
-                                        <div class="col-md-4">
-                                          <img src={{ asset("images/metallica.jpg") }} alt="">
+                                        <div class="col-md-5">
+                                          <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' }} alt="" class="img-rounded resizeModal">
                                         </div>
-                                        <div class="col-sm-8">                                    
+                                        <div class="col-sm-7">                                    
                                       <table class="table table-striped">
                                         <thead>
                                           <tr>
