@@ -1,6 +1,10 @@
 img.resize{
-   width:138px;
-   height:138px;
+   width:170px;
+   height:170px;
+}
+img.resizeModal{
+   width:320px;
+   height:320px;
 }
 /* Navbar styling*/
 .navbar {
@@ -143,6 +147,7 @@ ol.example li.placeholder:before {
 	border-style: solid;
 	border-color: #ddd;
     border-width: 1px;  
+    overflow: hidden;	
 
 	
 }
