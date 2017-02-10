@@ -118,7 +118,7 @@ def get_filepaths(directory):
 		for filename in files:
 			# Join the two strings in order to form the full filepath.
 			#console.writeln("{y} Orinal File Name ...\n"+os.path.join(directory,filename))
-			if filename.endswith(".mp3"):
+			if (filename.endswith(".mp3") | filename.endswith(".MP3")):
 				print filename
 				#print os.path.join(directory,filename)
 				#str	= root+"\\"+remove_accents(filename)
@@ -138,7 +138,7 @@ def main():
 	console = WTCW(sys.stdout) 
 	console.writeln("\n\n{y}Rename Files ...\n")	
 	badprefix = "cheese_"
-	fnames = os.listdir(unicode('./parsed'))	
+	#fnames = os.listdir(unicode('./parsed'))	
 	directory = os.getcwd()+"\\..\music"
 	console.writeln("\n\n{y}Directory ...\n"+directory)	
 	
