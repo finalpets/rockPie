@@ -19,7 +19,12 @@
 		var isPlaying = false;
 		var current_Artist = "";
 		var current_Song = "";
-			function addSong_to_playlist(artist, song, song_url) {	
+			function addSong_to_playlist(artist, song, song_url) {
+			var sound_click = "{{ asset('sounds/click.mp3') }}";
+			var snd = new Audio(sound_click);
+			snd.play();
+
+
 			//console.log(playing);
 			console.log('Song_url:'+song_url);
 			console.log('playSong:'+playSong);
@@ -43,15 +48,18 @@
     		}
 
     		function nextSong(){
-
     			let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
     			if(navbar.length != 0)
     			{
+    				console.log("Function closeBtn");
+    				var sound_click = "{{ asset('sounds/next.mp3') }}";
+					var snd = new Audio(sound_click);
+					snd.play();
 	    			console.log("Function nextSong");
-	    			isPlaying = false;
+	    			isPlaying = false;	    			
 	    			playList();
     			}	
-    		}
+    		}    		
 
     		function parsed_CurrentSong(currentSong){
     			console.log("before currentSong:"+currentSong);	
