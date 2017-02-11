@@ -270,37 +270,12 @@
     <!-- END List SIDEBAR -->
   </div>
 </div>
-  
 <div class="row">
-<footer class="container-fluid text-center">
-  <button class="btn btn-primary" v-on:click="volumeDown" >-</button>
-  <button class="btn btn-success" v-on:click="playMusic">PLAY</button>
-  <button class="btn btn-danger" v-on:click="stopMusic" >STOP</button>
-  <button class="btn btn-primary" v-on:click="volumeUp" >+</button>
-  <p>Footer Text</p>
-</footer>
+  <footer class="container-fluid text-center">
+    <p>By Peter Leyva</p>
+  </footer>
 </div>
-{{-- <div id="app">    
-    <h1>@{{ program_name }}</h1>
-    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-<input type="text" name="search" placeholder="Enter the Music">
-<hr>
 
-<audio id="player">
- <source :src="music"
-         type='audio/mp4'>
- <!-- The next two lines are only executed if the browser doesn't support MP4 files -->
-  The next line will only be executed if the browser doesn't support the <audio> tag
- <p>Your user agent does not support the HTML5 Audio element.</p>
-</audio>
-<button class="btn btn-primary" v-on:click="volumeDown" >-</button>
-<button class="btn btn-success" v-on:click="playMusic">PLAY</button>
-<button class="btn btn-danger" v-on:click="stopMusic" >STOP</button>
-<button class="btn btn-primary" v-on:click="volumeUp" >+</button>
-
-
-</div> --}}
-<hr>
 <script>
 
   $(document).ready(function(){
