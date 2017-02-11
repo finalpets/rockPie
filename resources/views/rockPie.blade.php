@@ -201,7 +201,7 @@
                                             <th scope="row">{{ $var }}</th>
                                             <td>{{ $song->title }}</td>
 
-                                            <th><button type="button" class="btn btn-sm btn-primary" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
+                                            <th><button type="button" class="btn btn-sm btn-primary btn-shadow" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
                                             {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
                                           </tr>
                                           @endif
@@ -212,7 +212,7 @@
                                   </div>
                                     </div>
                                     <div class="modal-footer">                                      
-                                      <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-sm btn-danger btn-shadow" data-dismiss="modal">Close</button>
                                     </div>
                                   </div>
                                 </div>
