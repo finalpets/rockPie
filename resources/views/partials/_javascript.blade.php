@@ -42,7 +42,7 @@
 			 }
 			 else
 			 {
-			 	$("ol").append("<li id="+music+" >"+artist+" - "+song+"</li>");
+			 	$("ol").append("<li id="+music+" >"+artist+" - "+song+"<button class ='btn-xs btn-danger'> X </button></li>");
 			 }
     
     		}
