@@ -15,7 +15,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-            <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
+            <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
             <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>                    
              
@@ -108,14 +108,14 @@
       <div class="col-sm-7 text-left" id="istope-album">
         <!-- TABS CONTENT -->
           {{-- <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-music"></i> Music</a></li>
+            <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
             <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>    
             <li><label>Filter:</label></li>    
             <select></select>
           </ul> --}}
           <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
+            <div id="musicTab" class="tab-pane fade in active">
               <div class="container">
                 <div class="section">
                   <!-- ISOTOPE -->
