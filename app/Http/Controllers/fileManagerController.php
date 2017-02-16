@@ -72,6 +72,8 @@ class fileManagerController extends Controller
             $parsedAlbum = UtilsLibrary::get_string_between($album, '/', '/');
 
             $song = substr( $fullstring, strlen($parsedAlbum) + strlen($parsedArtist) + 4);
+            $song_withOut_mp3 = str_replace(".mp3", "",$song);
+            //dd($song2);
             //$cover = $fullstring;
            // $cover = $parsedArtist;
             $cover = substr( $fullstring, 0,strlen($parsedArtist)+strlen($parsedAlbum)+3 ); //get the cover of the album
@@ -86,7 +88,7 @@ class fileManagerController extends Controller
 
             print_r('Artist:'.$parsedArtist);  
             print_r('Album:'.$parsedAlbum); 
-            print_r('Song:'.$song); 
+            print_r('Song:'.$song_withOut_mp3); 
             $letter = $file[0];
 
             /*ARTIST SECTION*/
@@ -157,7 +159,7 @@ class fileManagerController extends Controller
                 {                
                     $db_song = new Song;    
                     $db_song->track = 00;
-                    $db_song->title = $song;
+                    $db_song->title = $song_withOut_mp3;
                     $db_song->song_url = $fullstring;
                     $check_allAlbums = Album::all();
                     foreach ($check_allAlbums as $check_allAlbum) {

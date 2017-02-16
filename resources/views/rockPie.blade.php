@@ -129,8 +129,8 @@
                             <div class="{{ 'col-sm-6 col-md-3 isotope-item '.$artist->letter->letter }}">
                               <div class="image-box">
                                 <div class="overlay-container">
-                                  <div align="center">
-                                    <kbd>{{ $artist->artist_name }} - {{ $album->album_name }}</kbd>                            
+                                  <div align="center" class="h5_album_name">
+                                    <h5>{{ $artist->artist_name }} - {{ $album->album_name }}</h5>                            
                                   </div>
                                   <div class="row">
                                     <div class="col-sm-5">
@@ -171,9 +171,9 @@
                               <div class="modal fade" id="{{'project-'.$album->id }}" tabindex="-1" role="dialog" aria-labelledby="{{'project-'.$album->id.'-label'}}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                   <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header" align="center">
                                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                      <h3 class="modal-title" id="project-1-label">{{ $artist->artist_name }}</h3>
+                                      <h3 class="modal-title h5_album_name" id="project-1-label">{{ $artist->artist_name }}</h3>
                                     </div>
                                     <div class="modal-body">
                                       <div align="center">
@@ -184,12 +184,12 @@
                                           <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' }} alt="" class="img-rounded resizeModal">
                                         </div>
                                         <div class="col-sm-7">                                    
-                                      <table class="table table-striped">
+                                      <table class="table table-striped table_modal">
                                         <thead>
                                           <tr>
                                             <th>#</th>
                                             <th>SONG</th>
-                                            <th>Adding</th>                              
+                                            <th>ADD</th>                              
                                           </tr>
                                         </thead>
                                         <tbody>             
@@ -204,7 +204,7 @@
                                             <th scope="row">{{ $var }}</th>
                                             <td>{{ $song->title }}</td>
 
-                                            <th><button type="button" class="btn btn-sm btn-primary btn-shadow" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')">Add </button></th>
+                                            <th><button type="button" class="btn btn-sm btn-primary btn-shadow" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')"><i class="fa fa-music" aria-hidden="true"></i> </button></th>
                                             {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
                                           </tr>
                                           @endif

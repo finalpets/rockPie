@@ -1,3 +1,17 @@
+.h5_album_name {
+	background-color: black;
+	color: white;
+	-moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+}
+
+/*Button PlayList Align to the right*/
+.btn-xs, .btn-group-xs > .btn {
+
+    /*float: right;*/
+}
+
+/*RESIZE IMAGE*/
 img.resize{
    width:170px;
    height:170px;
@@ -107,9 +121,21 @@ ol.example li.placeholder:before {
 	height: 350px;
 }
 .table tbody tr td,.table tbody tr th{
-	padding: 0px;
-
+	padding: 0px;		
 }
+
+.table_modal tbody tr td,.table_modal tbody tr th{
+	padding: 5px;
+	text-align: center;
+	font-size: 16px;	
+}
+
+.table_modal thead tr td,.table_modal thead tr th{
+	padding: 5px;
+	text-align: center;	
+	font-size: 18px;	
+}
+
 /* Isotope Items
 ---------------------------------- */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
