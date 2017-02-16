@@ -106,8 +106,14 @@
 				  $("ol.example").sortable();
 				});
 
-				
-
+				 $(".nav-pills a").on('click', function(event) {
+			        event.preventDefault();
+			        window.scrollTo(0,0);// return to the top of the screen
+			        //window.scrollTo(x-coord, y-coord);
+			        //alert("hola");
+			       // $(this).parent().remove();
+			    });
+				 
 		      $("#jquery_jplayer_1").jPlayer({
 		      	// Options
 
