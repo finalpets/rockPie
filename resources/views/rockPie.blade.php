@@ -115,6 +115,9 @@
             <select></select>
           </ul> --}}
           <div class="tab-content">
+          <div id="menu1" class="tab-pane fade in">
+          <h1>TEST</h1>
+          </div>
             <div id="musicTab" class="tab-pane fade in active">
               <div class="container">
                 <div class="section">
