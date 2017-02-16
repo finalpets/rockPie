@@ -186,7 +186,7 @@
                                           <tr>
                                             <th>#</th>
                                             <th>SONG</th>
-                                            <th>Add</th>                              
+                                            <th>ADD</th>                              
                                           </tr>
                                         </thead>
                                         <tbody>             
