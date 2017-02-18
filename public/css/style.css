@@ -1,3 +1,10 @@
+/* body id myPage*/
+
+#myPage {
+	/*overflow: hidden;*/
+}
+
+
 .h5_album_name {
 	background-color: black;
 	color: white;
@@ -50,6 +57,10 @@ img.resizeModal{
 div#istope-album
 {
 	margin-top: 100px;
+	overflow-y: scroll;
+	height: 780px;
+
+
 }
 
 div#listBar.sidenav {
