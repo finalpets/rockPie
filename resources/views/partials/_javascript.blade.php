@@ -108,7 +108,16 @@
 
 				 $(".nav-pills a").on('click', function(event) {
 			        event.preventDefault();
-			        window.scrollTo(0,0);// return to the top of the screen
+			        //getting the Y position of the element you want to scroll to
+					var position = $('#istope-album').offset().top-100;
+
+					//scrolling to the element with an animation of 700 miliseconds
+					$('#istope-album').animate({
+					    scrollTop: position
+					}, 700, function(){  //callback function (executed when animation finishes)
+					    //alert("Hello there!");
+					});
+			        //window.scrollTo(0,0);// return to the top of the screen
 			        //window.scrollTo(x-coord, y-coord);
 			        //alert("hola");
 			       // $(this).parent().remove();
