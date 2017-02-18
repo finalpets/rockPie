@@ -118,7 +118,7 @@
     <!-- END LEFT SIDEBAR -->
 
     <!-- CONTENT -->
-      <div class="col-sm-8 text-left" id="istope-album" style="overflow-y: scroll; height: 800px">
+      <div class="col-sm-8 text-left" id="istope-album" >
         <!-- TABS CONTENT -->
           {{-- <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
