@@ -97,7 +97,20 @@
               <li><a href="#" data-filter=".J">J</a></li>
               <li><a href="#" data-filter=".K">K</a></li>
               <li><a href="#" data-filter=".L">L</a></li>
-              <li><a href="#" data-filter=".M">M</a></li>
+              <li><a href="#" data-filter=".M">M</a></li>    
+              <li><a href="#" data-filter=".N">N</a></li>
+              <li><a href="#" data-filter=".O">O</a></li>
+              <li><a href="#" data-filter=".P">P</a></li>
+              <li><a href="#" data-filter=".Q">Q</a></li>
+              <li><a href="#" data-filter=".R">R</a></li>
+              <li><a href="#" data-filter=".S">S</a></li>
+              <li><a href="#" data-filter=".T">T</a></li>
+              <li><a href="#" data-filter=".U">U</a></li>
+              <li><a href="#" data-filter=".V">V</a></li>
+              <li><a href="#" data-filter=".W">W</a></li>
+              <li><a href="#" data-filter=".X">X</a></li>
+              <li><a href="#" data-filter=".Y">Y</a></li>
+              <li><a href="#" data-filter=".Z">Z</a></li>          
             </ul>
           </div>
         </div>
@@ -105,7 +118,7 @@
     <!-- END LEFT SIDEBAR -->
 
     <!-- CONTENT -->
-      <div class="col-sm-7 text-left" id="istope-album">
+      <div class="col-sm-8 text-left" id="istope-album">
         <!-- TABS CONTENT -->
           {{-- <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
@@ -233,7 +246,7 @@
     <!-- END CONTENT -->
 
     <!-- RIGHT SIDE BAR -->
-      <div class="col-sm-1 sidenav">
+     {{--  <div class="col-sm-1 sidenav">
         <div class="well" id="rightsidebar">
           <div class="filters text-center">
             <ul class="nav nav-pills">
@@ -253,7 +266,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> --}}
     <!-- END RIGHT SIDE BAR -->
 
     <!-- List SIDEBAR -->    
