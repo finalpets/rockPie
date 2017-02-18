@@ -108,6 +108,7 @@
 
 				 $(".nav-pills a").on('click', function(event) {
 			        event.preventDefault();
+<<<<<<< HEAD
 			        //getting the Y position of the element you want to scroll to
 					var position = $('#istope-album').offset().top-100;
 
@@ -118,6 +119,9 @@
 					    //alert("Hello there!");
 					});
 			        //window.scrollTo(0,0);// return to the top of the screen
+=======
+			        window.scrollTo(0,0);// return to the top of the screen
+>>>>>>> 65f8ecaed4b88c5a460921b884dfb4e168a8a88e
 			        //window.scrollTo(x-coord, y-coord);
 			        //alert("hola");
 			       // $(this).parent().remove();

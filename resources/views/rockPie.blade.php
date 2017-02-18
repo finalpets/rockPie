@@ -118,7 +118,11 @@
     <!-- END LEFT SIDEBAR -->
 
     <!-- CONTENT -->
+<<<<<<< HEAD
       <div class="col-sm-8 text-left" id="istope-album" >
+=======
+      <div class="col-sm-8 text-left" id="istope-album" style="overflow-y: scroll; height: 800px">
+>>>>>>> 65f8ecaed4b88c5a460921b884dfb4e168a8a88e
         <!-- TABS CONTENT -->
           {{-- <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>

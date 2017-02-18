@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* body id myPage*/
 
 #myPage {
@@ -5,6 +6,8 @@
 }
 
 
+=======
+>>>>>>> 65f8ecaed4b88c5a460921b884dfb4e168a8a88e
 .h5_album_name {
 	background-color: black;
 	color: white;
@@ -133,6 +136,7 @@ ol.example li.placeholder:before {
 .table tbody tr td,.table tbody tr th{
 	padding: 0px;		
 }
+<<<<<<< HEAD
 
 .table_modal tbody tr td,.table_modal tbody tr th{
 	padding: 5px;
@@ -146,6 +150,21 @@ ol.example li.placeholder:before {
 	font-size: 18px;	
 }
 
+=======
+
+.table_modal tbody tr td,.table_modal tbody tr th{
+	padding: 5px;
+	text-align: center;
+	font-size: 16px;	
+}
+
+.table_modal thead tr td,.table_modal thead tr th{
+	padding: 5px;
+	text-align: center;	
+	font-size: 18px;	
+}
+
+>>>>>>> 65f8ecaed4b88c5a460921b884dfb4e168a8a88e
 /* Isotope Items
 ---------------------------------- */
 /* rounded Left side Filter*/
