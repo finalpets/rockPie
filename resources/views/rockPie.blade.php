@@ -84,7 +84,7 @@
         <div class="well" id="leftsidebar">
           <div class="filters text-center">
             <ul class="nav nav-pills">
-              <li class="active"><a href="#" data-filter="*">*</a></li>
+              <li class="active"><a href="#" data-filter="*"><i class="fa fa-list" aria-hidden="true"></i></a></li>
               <li><a href="#" data-filter=".A">A</a></li>
               <li><a href="#" data-filter=".B">B</a></li>
               <li><a href="#" data-filter=".C">C</a></li>
