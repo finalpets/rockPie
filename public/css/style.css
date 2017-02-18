@@ -47,27 +47,26 @@ img.resizeModal{
 }
 
 
-div#istope-album.col-sm-7
+div#istope-album
 {
 	margin-top: 100px;
 }
 
 div#listBar.sidenav {
 	margin-top: 110px;
-	position: fixed;	
+	position: fixed;
 	height:100%;	
 	right: 0;
 }
-div#leftsidebar.well {
-	position: fixed;
-	left: 0;	
+div#leftsidebar {
+	position: fixed;		
 	height:100%;
    	width:100px; 
    	margin-top: 120px;
 
 }
-div#rightsidebar.well {
-	position: fixed;	
+div#rightsidebar {
+	/*position: fixed;	*/
 	height:100%;
    	width:100px; 
    	margin-top: 120px;
@@ -138,6 +137,13 @@ ol.example li.placeholder:before {
 
 /* Isotope Items
 ---------------------------------- */
+/* rounded Left side Filter*/
+.nav-pills > li > a {
+    border-radius: 100px;
+    padding: 1px 16px;
+
+}
+
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #fff;
     background-color:  rgba(85, 172, 238, 0.9);;
@@ -167,7 +173,7 @@ ol.example li.placeholder:before {
 .isotope-item {
 	margin-bottom: 10px;
 	margin-right: 10px;
-	width: 430px;
+	width: 474px;
 	height: 370px;
 	margin-left: 0px;
 	border-style: solid;
