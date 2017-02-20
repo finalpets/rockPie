@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+ini_set('memory_limit', '-1');
 
 use Illuminate\Http\Request;
 use App\Album;
