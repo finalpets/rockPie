@@ -17,7 +17,11 @@
       <ul class="nav navbar-nav">
             <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
-            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>                    
+            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>
+            <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
+<!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
+<input id="hidden" type="text" style="display:none;"></li>
+<li><a href="#" data-filter=".A">A</a></li>
              
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -275,7 +279,7 @@
 
     <!-- List SIDEBAR -->    
       <div class="col-sm-3 sidenav" id="listBar">
-      <h3>PlayList</h3>
+      <span class="label label-default">PlayList</span>
       {{-- <button class="btn btn-primary" onclick="playList()">PLAY</button> --}}
         {{-- <div class="well"> --}}
           <ol class='example' id="playerList">
