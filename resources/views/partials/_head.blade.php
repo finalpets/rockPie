@@ -27,9 +27,24 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
 		{{-- <link rel="stylesheet" href="plugins/circleplayer-master/circle.skin/circle.player.css"> --}}
 		{{-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>		 --}}
 		<script type="text/javascript" src="{{ asset('plugins/jquery.min.js') }}"></script> 
+
 		<script type="text/javascript" src="{{ asset('plugins/jplayer/jquery.jplayer.min.js') }}"></script>
 
-		
+		<!-- keyboard widget css & script -->
+		<link href="{{ asset('plugins/virtualKeyboard/css/keyboard-dark.min.css') }}" rel="stylesheet">
+		<script src="{{ asset('plugins/virtualKeyboard/js/jquery.keyboard.js') }}"></script>
+
+		<!-- css for the preview keyset extension -->
+		<link href="{{ asset('plugins/virtualKeyboard/css/keyboard-previewkeyset.min.css') }}" rel="stylesheet">
+
+		<!-- keyboard optional extensions - include ALL (includes mousewheel) -->
+		<script src="{{ asset('plugins/virtualKeyboard/js/jquery.keyboard.extension-all.min.js') }}"></script>
+
+		<!-- Spin js -->
+
+		{{-- <script src="{{ asset('plugins/spin.js') }}"></script> --}}
+
+
 
 		{{-- <script type="text/javascript" src="plugins/circleplayer-master/js/jquery.transform2d.js"></script> --}}
 		{{-- <script type="text/javascript" src="plugins/circleplayer-master/js/jquery.grab.js"></script> --}}
