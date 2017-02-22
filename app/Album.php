@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {    
 	protected $fillable = ['album','year','genre_id','img','artist_id'];
+	protected $with = ['Genre','Artist'];
 	public function genre()
 	{		
 		return $this->belongsTo('App\Genre');
