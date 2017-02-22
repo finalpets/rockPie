@@ -175,7 +175,7 @@ ol.example li.placeholder:before {
 	float: none;
 }
 .isotope-container {
-	overflow: hidden;	
+	/*overflow: hidden;	*/
 
 
 }
