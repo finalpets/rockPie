@@ -21,7 +21,7 @@
             <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
 <!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
 <input id="hidden" type="text" style="display:none;"></li>
-<li><a href="#" data-filter=".A">A</a></li>
+<li><a href="#" data-filter=".A" id="ajaxTest">A</a></li>
              
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -140,109 +140,9 @@
               <div class="container">
                 <div class="section">
                   <!-- ISOTOPE -->
-                    <div class="isotope-container row grid-space-20">                      
-                      @foreach($artists as $artist)
-                        @foreach($albums as $album)
-                          @if($album->artist->artist_name == $artist->artist_name)
-                            <div class="{{ 'col-sm-6 col-md-3 isotope-item '.$artist->letter->letter }}">
-                              <div class="image-box">
-                                <div class="overlay-container">
-                                  <div align="center" class="h5_album_name">
-                                    <h5>{{ $artist->artist_name }} - {{ $album->album_name }}</h5>                            
-                                  </div>
-                                  <div class="row">
-                                    <div class="col-sm-5">
-                                      <?php $img_clean = str_replace(" ","%20",$album->img); ?>                                     
-                                      <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' alt="Oops" class="img-rounded resize">
-                                    </div>
-                                    <div class="col-sm-7">                                    
-                                      <table class="table table-striped">
-                                        <thead>
-                                          <tr>
-                                            <th>#</th>
-                                            <th>SONG</th>                              
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php $var = 0; ?>
-                                        @foreach($songs as $song)
-                                          @if($song->album->album_name == $album->album_name)
-                                          <?php $var++ ; ?>
-                                          <tr>
-                                            <th scope="row">{{ $var }}</th>
-                                            <td>{{ $song->title }}
-                                            </td>
-                                          </tr>
-                                          @endif
-                                        @endforeach
-                                        </tbody>
-                                      </table>                                    
-                                    </div>
-                                  </div>
-                                  <a class="overlay" data-toggle="modal" data-target="{{ '#project-'.$album->id }}">
-                                    <i class="fa fa-search-plus"></i>
-                                    <span>{{ $artist->artist_name }}</span>
-                                  </a>
-                                </div>
-                              </div>
-                              <!-- Modal -->
-                              <div class="modal fade" id="{{'project-'.$album->id }}" tabindex="-1" role="dialog" aria-labelledby="{{'project-'.$album->id.'-label'}}" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                  <div class="modal-content">
-                                    <div class="modal-header" align="center">
-                                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                      <h3 class="modal-title h5_album_name" id="project-1-label">{{ $artist->artist_name }}</h3>
-                                    </div>
-                                    <div class="modal-body">
-                                      <div align="center">
-                                        <h3>{{ $album->album_name }}</h3>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-md-5">
-                                          <img src='{{ asset('/music/'.$img_clean.'.jpg') }}' }} alt="" class="img-rounded resizeModal">
-                                        </div>
-                                        <div class="col-sm-7">                                    
-                                      <table class="table table-striped table_modal">
-                                        <thead>
-                                          <tr>
-                                            <th>#</th>
-                                            <th>SONG</th>
-                                            <th>ADD</th>                              
-                                          </tr>
-                                        </thead>
-                                        <tbody>             
-                                        <?php $var = 0; ?>                          
-                                        @foreach($songs as $song)
-                                          @if($song->album->album_name == $album->album_name)
-                                          <?php $var++ ; ?>                                          
-                                          <?php $songTitle_clean = str_replace("'","^",$song->title); ?>
-                                          <?php $artistName_clean = str_replace("'","^",$album->artist->artist_name);?>
-                                          <?php $songUrl_clean = str_replace("'","^",$song->song_url);?>
-                                          <tr>
-                                            <th scope="row">{{ $var }}</th>
-                                            <td>{{ $song->title }}</td>
-
-                                            <th><button type="button" class="btn btn-sm btn-primary btn-shadow" onclick="addSong_to_playlist('{{ $artistName_clean }}','{{ $songTitle_clean }}','{{ $songUrl_clean }}')"><i class="fa fa-music" aria-hidden="true"></i> </button></th>
-                                            {{-- <th><input type="checkbox" checked data-toggle="toggle" data-onstyle="success" data-offstyle="default" data-on="<i class='fa fa-play'></i>" data-off="<i class='fa fa-stop'></i>" data-size="mini" onclick="agregarLista('jason')"></th> --}}
-                                          </tr>
-                                          @endif
-                                        @endforeach
-                                        </tbody>
-                                      </table>                                    
-                                    </div>
-                                  </div>
-                                    </div>
-                                    <div class="modal-footer">                                      
-                                      <button type="button" class="btn btn-sm btn-danger btn-shadow" data-dismiss="modal">Close</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- Modal end -->
-                            </div>
-                          @endif
-                        @endforeach                               
-                      @endforeach                                                                                                 
+                    <div class="isotope-container row grid-space-20" id="isotopeAjax">
+                 
+                                                                                                                   
                     </div>
                   <!-- END ISOTOPE -->
                 </div>
