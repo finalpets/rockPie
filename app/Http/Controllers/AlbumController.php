@@ -10,6 +10,8 @@ use App\Artist;
 use App\Letter;
 use App\Song;
 
+use Illuminate\Support\Facades\DB;
+
 class AlbumController extends Controller
 {
     /**
@@ -17,11 +19,14 @@ class AlbumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $albums = Album::all();   
-        $songs = Song::orderBy('track','asc')->get();
-        $artists = Artist::orderBy('artist_name','asc')->get();
+    public function index(Request $request)
+    {         
+        // $albums = Album::orderBy('id','asc')->offset(0)->limit(16)->get();   
+        // $songs = Song::orderBy('track','asc')->get();
+        // $artists = Artist::orderBy('artist_name','asc')->get();       
+
+        //$users = Album::paginate();
+        //dd($users->nextPageUrl());
        //  foreach($albums as $album){
 
        //                  foreach($artists as $artist){
@@ -38,7 +43,23 @@ class AlbumController extends Controller
         // {
         //     dd($al->genres);
         // }
-        return view('rockPie')->with('albums',$albums)->with('songs',$songs)->with('artists',$artists);
+
+        if($request->ajax()){           
+            $albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
+            $songs = Song::orderBy('track','asc')->get();
+            $artists = Artist::orderBy('artist_name','asc')->get();              
+         //   dd($request->stream_active);
+
+            $response = array(
+            'status' => 'success',
+            'msg' => 'Setting created successfully',
+            );
+
+            return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists]);
+
+            }
+         return view('rockPie');
+       //return view('rockPie')->with('albums',$albums)->with('songs',$songs)->with('artists',$artists);
     }
 
     /**
