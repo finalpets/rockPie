@@ -15,5 +15,5 @@
 // });
 
 Route::resource('/','AlbumController');
-Route::resource('update','fileManagerController');
+Route::resource('settings','fileManagerController');
 Route::resource('ajaxText','AlbumController');
