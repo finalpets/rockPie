@@ -189,23 +189,38 @@ $('#ajaxTest1').on("click",function(e){
 		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
 	console.log(OFFSET_AJAX_REQUEST);
 	$.ajax({
-    type: "GET",
-    url: "/ajaxText",     
-    data: { offset:OFFSET_AJAX_REQUEST },
-    success: function( albums ) {
-    	if(OFFSET_AJAX_REQUEST == 0)
-    		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
-       $.each(albums, function(index,album){
+	    type: "GET",
+	    url: "/ajaxText",     
+	    data: { offset:OFFSET_AJAX_REQUEST },
+	    success: function( albums ) {
+	    	if(OFFSET_AJAX_REQUEST == 0)
+	    		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
+	       $.each(albums, function(index,album){
 
-       	console.log(album.artist.artist_name);
+	       	console.log(album.artist.artist_name);
 
-       });
-    }
+	       });
+	    }
 	});
 	// $.get('/ajaxText',function(data){
 	// 	console.log(data);
 	// });
 });
+$('#updateTab button').on("click",function(e){
+
+		//console.log(e.currentTarget.innerText);
+		var Letter = e.currentTarget.innerText;		
+		$.ajax({			
+		    type: 'GET',
+		    url: "{{ route('update.create') }}", 
+		    data: { letter:Letter },
+		    //url: "update/create", 		    
+		    success: function( msg ) {
+		    	console.log("Ajax success");
+		    	console.log(msg);
+		    }
+		});
+	});
 
 		// 		var opts = {
 		//   lines: 13 // The number of lines to draw
