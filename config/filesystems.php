@@ -50,7 +50,12 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => public_path('music'),
+            'visibility' => 'public',
+        ],
+        'letter_A' => [
+            'driver' => 'local',
+            'root' => public_path('music/A'),
             'visibility' => 'public',
         ],
 
