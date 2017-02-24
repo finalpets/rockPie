@@ -25,7 +25,7 @@
              
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
+      <li><a href="{{ route('settings.index') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
       <li>
         <div id="jquery_jplayer_1" class="jp-jplayer"></div>
         <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
