@@ -211,14 +211,20 @@ $('#updateTab button').on("click",function(e){
 		//console.log(e.currentTarget.innerText);
 		var Letter = e.currentTarget.innerText;		
 		$.ajax({			
-		    type: 'GET',
+		    type: "GET",		  
 		    url: "{{ route('update.create') }}", 
 		    data: { letter:Letter },
+		    dataType: "json",
 		    //url: "update/create", 		    
 		    success: function( msg ) {
+		    	alert("update Finish");
 		    	console.log("Ajax success");
 		    	console.log(msg);
-		    }
+		    },
+		    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        	alert("Status: " + textStatus); 
+        	alert("Error: " + errorThrown); 
+        	}
 		});
 	});
 
