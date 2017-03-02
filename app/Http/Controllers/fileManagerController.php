@@ -13,6 +13,7 @@ use App\Letter;
 use App\Album;
 use App\Song;
 
+
 class fileManagerController extends Controller
 {
     /**
@@ -20,6 +21,17 @@ class fileManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getMusicPath($letter){
+
+
+    if($letter == 'A')    
+        $files =Storage::disk('letter_A')->allfiles();
+    else
+        $files = Storage::disk('public')->allfiles();
+
+       // print_r('....................PETS......................');
+        return $files;
+    }
     public function index()
     {
         return view('settings.index');
@@ -31,8 +43,7 @@ class fileManagerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
-        
+    {        
 
         //
       //Supported files for the program
@@ -68,17 +79,19 @@ class fileManagerController extends Controller
         //dd($id3);
       
             //$files = Storage::disk('public')->allfiles();
-
-        if($request->letter == 'A')
-        {    
-            $files =Storage::disk('letter_A')->allfiles();
-            $letter = "A";
-        }
-        else
-            $files = Storage::disk('public')->allfiles();
+        $files = $this->getMusicPath($request->letter);
+        // if($request->letter == 'A')
+        // {    
+        //    // $files =Storage::disk('letter_A')->allfiles();
+        //     $letter = "A";
+        //     $files = $this->getMusicPath($request->letter);
+        // }
+        // else
+        //     $files = Storage::disk('public')->allfiles();
 
         if($request->letter != "ALL")
         {
+            $letter = $request->letter;
             foreach ($files as $file) {
                 $completeURL = $letter."/";
                 $fullstring = $file;
@@ -128,7 +141,7 @@ class fileManagerController extends Controller
                          foreach ($db_letters as $db_letter) {
                             if($db_letter->letter == $letter)
                             {                    
-                                print_r('Succes:'.$db_letter->letter);
+                               // print_r('Succes:'.$db_letter->letter);
                                 $db_artist->letter_id = $db_letter->id;
                             }
                          }
@@ -218,14 +231,14 @@ class fileManagerController extends Controller
                     $cover = $cover.'/cover'; 
                     //print_r('Cover":'.$cover);
 
-                    print_r('Character1:'.strlen($parsedArtist));
-                    print_r('Character2:'.strlen($parsedAlbum));
+                    // print_r('Character1:'.strlen($parsedArtist));
+                    // print_r('Character2:'.strlen($parsedAlbum));
 
                     //$parsedSong = UtilsLibrary::get_string_between($song, '/', '/');
 
-                    print_r('Artist:'.$parsedArtist);  
-                    print_r('Album:'.$parsedAlbum); 
-                    print_r('Song:'.$song_withOut_mp3); 
+                    // print_r('Artist:'.$parsedArtist);  
+                    // print_r('Album:'.$parsedAlbum); 
+                    // print_r('Song:'.$song_withOut_mp3); 
                     $letter = $file[0];
 
                     /*ARTIST SECTION*/
@@ -247,7 +260,7 @@ class fileManagerController extends Controller
                          foreach ($db_letters as $db_letter) {
                             if($db_letter->letter == $letter)
                             {                    
-                                print_r('Succes:'.$db_letter->letter);
+                                //print_r('Succes:'.$db_letter->letter);
                                 $db_artist->letter_id = $db_letter->id;
                             }
                          }
