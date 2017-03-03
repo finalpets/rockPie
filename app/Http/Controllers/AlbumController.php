@@ -44,8 +44,15 @@ class AlbumController extends Controller
         //     dd($al->genres);
         // }
 
-        if($request->ajax()){           
-            $albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
+        if($request->ajax()){
+             //$albums = Album::all();
+             // $albums->load(['artists' => function($query)
+             // {
+             //    $query->orderBy('letter_id', 'asc')->offset($request->offset)->limit(16)->get();
+             // }]);         
+             $albums = Album::join('artists','albums.artist_id','=','artists.id')
+             ->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(16)->get();
+            //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
             $songs = Song::orderBy('track','asc')->get();
             $artists = Artist::orderBy('artist_name','asc')->get();              
          //   dd($request->stream_active);
