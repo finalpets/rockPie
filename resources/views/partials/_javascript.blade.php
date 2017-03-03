@@ -210,6 +210,9 @@ $('#updateTab button').on("click",function(e){
 
 		//console.log(e.currentTarget.innerText);
 		var Letter = e.currentTarget.innerText;		
+		$("#updateTab button").attr("disabled", true);
+		$("#myNavbar ul").attr("hidden",true);
+		$(".navbar-header a").attr("hidden",true);
 		$.ajax({			
 		    type: "GET",		  
 		    url: "{{ route('update.create') }}", 
@@ -217,7 +220,11 @@ $('#updateTab button').on("click",function(e){
 		    dataType: "json",
 		    //url: "update/create", 		    
 		    success: function( msg ) {
+
 		    	alert("update Finish");
+		    	$("#updateTab button").attr("disabled", false);
+		    	$("#myNavbar ul").attr("hidden",false);
+		    	$(".navbar-header a").attr("hidden",false);
 		    	console.log("Ajax success");
 		    	console.log(msg);
 		    },
@@ -337,8 +344,7 @@ function playList(){
 $(document).ready(function(){
 
 
-	onloadFristAlbums(); //load the first 16 Albums when load the page
-
+	onloadFristAlbums(); //load the first 16 Albums when load the page	
 	//check if the scroll reach the botton to get another albums request
 	$('div#istope-album').scroll(function() {
 		// console.log('scrollTop:'+$('div#istope-album').scrollTop());
