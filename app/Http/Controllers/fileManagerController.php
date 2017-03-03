@@ -23,13 +23,7 @@ class fileManagerController extends Controller
      */
     public function getMusicPath($letter){
 
-
-    if($letter == 'A')    
-        $files =Storage::disk('letter_A')->allfiles();
-    else
-        $files = Storage::disk('public')->allfiles();
-
-       // print_r('....................PETS......................');
+        $files =Storage::disk('letter'.'_'.$letter)->allfiles();
         return $files;
     }
     public function index()
