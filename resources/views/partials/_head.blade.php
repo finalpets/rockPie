@@ -40,6 +40,8 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
 		<!-- keyboard optional extensions - include ALL (includes mousewheel) -->
 		<script src="{{ asset('plugins/virtualKeyboard/js/jquery.keyboard.extension-all.min.js') }}"></script>
 
+		<!-- Boostrap Modal js-->
+		<link href="{{ asset('plugins/boostrap3-dialog/css/bootstrap-dialog.css') }}" rel="stylesheet">
 		<!-- Spin js -->
 
 		{{-- <script src="{{ asset('plugins/spin.js') }}"></script> --}}

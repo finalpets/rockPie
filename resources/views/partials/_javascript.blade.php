@@ -12,6 +12,9 @@
 <!-- sortable plugin -->
 <script src='plugins/jquery-sortable.js'></script>
 
+<!--Bostrap Modal js -->
+<script type="text/javascript" src="{{ asset('plugins/boostrap3-dialog/js/bootstrap-dialog.js') }}"></script>
+
 
 <script type="text/javascript">
 	var contentLoadTriggered = false;
@@ -221,7 +224,23 @@ $('#updateTab button').on("click",function(e){
 		    //url: "update/create", 		    
 		    success: function( msg ) {
 
-		    	alert("update Finish");
+		    	 BootstrapDialog.show({
+		    	 	title: 'Updated success',
+		            message: 'Now is up to date',
+		            type: BootstrapDialog.TYPE_PRIMARY,
+					buttons: [{
+				        id: 'btn-ok',   
+				        icon: 'glyphicon glyphicon-check',       
+				        label: 'OK',
+				        cssClass: 'btn-success', 
+				        autospin: false,
+				        action: function(dialogRef){    
+				            dialogRef.close();
+				        }
+				    }]
+		        });
+		    	//alert("update Finish");
+
 		    	$("#updateTab button").attr("disabled", false);
 		    	$("#myNavbar ul").attr("hidden",false);
 		    	$(".navbar-header a").attr("hidden",false);
@@ -229,8 +248,23 @@ $('#updateTab button').on("click",function(e){
 		    	console.log(msg);
 		    },
 		    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        	alert("Status: " + textStatus); 
-        	alert("Error: " + errorThrown); 
+        	// alert("Status: " + textStatus); 
+        	// alert("Error: " + errorThrown); 
+        	BootstrapDialog.show({
+		    	 	title: 'Updated Error',
+		            message: 'Now is up to date',
+		            type: BootstrapDialog.TYPE_DANGER,
+					buttons: [{
+				        id: 'btn-ok',   
+				        icon: 'glyphicon glyphicon-check',       
+				        label: 'OK',
+				        cssClass: 'btn-danger', 
+				        autospin: false,
+				        action: function(dialogRef){    
+				            dialogRef.close();
+				        }
+				    }]
+		        });
         	}
 		});
 	});
