@@ -174,7 +174,7 @@ class fileManagerController extends Controller
                     $check_allSongs = Song::all();
                     foreach ($check_allSongs as $check_allSong) {
 
-                        if($check_allSong->song_url == $fullstring)
+                        if($check_allSong->song_url == $completeURL.$fullstring)
                         {
                             $url_songExist = true;
                         }
