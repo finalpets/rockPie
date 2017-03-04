@@ -212,7 +212,9 @@ $('#ajaxTest1').on("click",function(e){
 $('#updateTab button').on("click",function(e){
 
 		//console.log(e.currentTarget.innerText);
-		var Letter = e.currentTarget.innerText;		
+		var Letter = e.currentTarget.innerText;
+		//BootstrapDialog.alert(Letter);
+		$('#'+Letter).append('Loading...<i class="fa fa-spinner fa-spin fa fa-fw"></i><span class="sr-only">Loading...</span>');
 		$("#updateTab button").attr("disabled", true);
 		$("#myNavbar ul").attr("hidden",true);
 		$(".navbar-header a").attr("hidden",true);
@@ -223,6 +225,11 @@ $('#updateTab button').on("click",function(e){
 		    dataType: "json",
 		    //url: "update/create", 		    
 		    success: function( msg ) {
+		    	//removing all the childs inside an ID
+		    	var myNode = document.getElementById(''+Letter);
+				while (myNode.firstChild) {
+				    myNode.removeChild(myNode.firstChild);
+				}
 
 		    	 BootstrapDialog.show({
 		    	 	title: 'Updated success',

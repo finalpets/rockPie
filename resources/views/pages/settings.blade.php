@@ -46,7 +46,7 @@
               {{-- </form> --}}
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="ALL"></p>
             </div>            
           </div>
           <div class="row">
@@ -54,7 +54,7 @@
               <button class="btn btn-success btn-block">A</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="A"></p>
             </div>            
           </div>
           <div class="row">
@@ -62,7 +62,7 @@
               <button class="btn btn-success btn-block">B</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="B"></p>
             </div>            
           </div>
           <div class="row">
@@ -70,7 +70,7 @@
               <button class="btn btn-success btn-block">C</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="C"></p>
             </div>            
           </div>
           <div class="row">
@@ -78,7 +78,7 @@
               <button class="btn btn-success btn-block">D</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="D"></p>
             </div>            
           </div>
           <div class="row">
@@ -86,7 +86,7 @@
               <button class="btn btn-success btn-block">E</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="E"></p>
             </div>            
           </div>
           <div class="row">
@@ -94,7 +94,7 @@
               <button class="btn btn-success btn-block">F</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="F"></p>
             </div>            
           </div>
           <div class="row">
@@ -102,7 +102,7 @@
               <button class="btn btn-success btn-block">G</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="G"></p>
             </div>            
           </div>
           <div class="row">
@@ -110,7 +110,7 @@
               <button class="btn btn-success btn-block">H</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="H"></p>
             </div>            
           </div>
           <div class="row">
@@ -118,7 +118,7 @@
               <button class="btn btn-success btn-block">I</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="I"></p>
             </div>            
           </div>
           <div class="row">
@@ -126,7 +126,7 @@
               <button class="btn btn-success btn-block">J</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="J"></p>
             </div>            
           </div>
           <div class="row">
@@ -134,7 +134,7 @@
               <button class="btn btn-success btn-block">K</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="K"></p>
             </div>            
           </div>
           <div class="row">
@@ -142,7 +142,7 @@
               <button class="btn btn-success btn-block">L</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="L"></p>
             </div>            
           </div>
           <div class="row">
@@ -150,7 +150,7 @@
               <button class="btn btn-success btn-block">M</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="M"></p>
             </div>            
           </div>
         </div>
@@ -163,7 +163,7 @@
                 <button class="btn btn-success btn-block">N</button>
               </div>
               <div class="col-sm-8">
-                <p>Message:</p>
+                <p id="N"></p>
               </div>            
             </div>
             <div class="row">
@@ -171,7 +171,7 @@
               <button class="btn btn-success btn-block">O</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="O"></p>
             </div>            
           </div>
           <div class="row">
@@ -179,7 +179,7 @@
               <button class="btn btn-success btn-block">P</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="P" id="P"></p>
             </div>            
           </div>
           <div class="row">
@@ -187,7 +187,7 @@
               <button class="btn btn-success btn-block">Q</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="Q"></p>
             </div>            
           </div>
           <div class="row">
@@ -195,7 +195,7 @@
               <button class="btn btn-success btn-block">R</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="R"></p>
             </div>            
           </div>
           <div class="row">
@@ -203,7 +203,7 @@
               <button class="btn btn-success btn-block">S</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="S"></p>
             </div>            
           </div>
           <div class="row">
@@ -211,7 +211,7 @@
               <button class="btn btn-success btn-block">T</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="T"></p>
             </div>            
           </div>
           <div class="row">
@@ -219,7 +219,7 @@
               <button class="btn btn-success btn-block">U</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="U"></p>
             </div>            
           </div>
           <div class="row">
@@ -227,7 +227,7 @@
               <button class="btn btn-success btn-block">V</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="V"></p>
             </div>            
           </div>
           <div class="row">
@@ -235,7 +235,7 @@
               <button class="btn btn-success btn-block">W</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="W"></p>
             </div>            
           </div>
           <div class="row">
@@ -243,7 +243,7 @@
               <button class="btn btn-success btn-block">X</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="X"></p>
             </div>            
           </div>
           <div class="row">
@@ -251,7 +251,7 @@
               <button class="btn btn-success btn-block">Y</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="Y"></p>
             </div>            
           </div>
           <div class="row">
@@ -259,7 +259,7 @@
               <button class="btn btn-success btn-block">Z</button>
             </div>
             <div class="col-sm-8">
-              <p>Message:</p>
+              <p id="Z"></p>
             </div>            
           </div>
         </div>        
