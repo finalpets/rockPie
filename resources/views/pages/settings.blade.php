@@ -16,17 +16,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-            <li class="active"><a data-toggle="tab" href="#updateTab"><i class="fa fa-music"></i> Update</a></li>
-            <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
-            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>
-            <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
-			<!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
-			<input id="hidden" type="text" style="display:none;"></li>
-			<li><a href="#" data-filter=".A" id="ajaxTest">A</a></li>
-             
+            <li class="active"><a data-toggle="tab" href="#updateTab"><i class="fa fa-music"></i> Update Music</a></li>
+            <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Update Karaoke</a></li>			
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Update</a></li>                         
+      <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Advance</a></li>                         
       </ul>
     </div>
   </div>
