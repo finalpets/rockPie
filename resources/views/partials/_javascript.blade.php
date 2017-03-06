@@ -414,8 +414,39 @@ function playList(){
 
 }
 
-$(document).ready(function(){
+function removeAllSongs() {
+	BootstrapDialog.confirm({
+            title: 'WARNING',
+            message: 'Are you sure to remove All Songs?',
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+            btnOKLabel: 'Yes!', // <-- Default value is 'OK',
+            btnOKClass: 'btn-danger', // <-- If you didn't specify it, dialog type will be used,
+            callback: function(result) {
+                // result will be true if button was click, while it will be false if users close the dialog directly.
+                if(result) {
+                    $(".example").html('')
+                    
+                    let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));				    				    
+					
+						$('#editPlaylist').bootstrapToggle('off');
+						$('#editPlaylist').bootstrapToggle('disable');
 
+					
+                }else {
+                    
+                }
+            }
+        });
+	 
+    
+
+}
+
+$(document).ready(function(){
+	$("#btn_removeAllSongs").attr("hidden",true);
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 	if(navbar.length == 0)
 	{
@@ -440,10 +471,12 @@ $(document).ready(function(){
 	 	if($(this).prop('checked'))
 	 	{
 	 		$(".btn-playList").attr("hidden",false);
+	 		$("#btn_removeAllSongs").attr("hidden",false);
 	 	}
 	 	else
 	 	{
 	 		$(".btn-playList").attr("hidden",true);
+	 		$("#btn_removeAllSongs").attr("hidden",true);
 	 		//$('').hidden
 	 	}
 
