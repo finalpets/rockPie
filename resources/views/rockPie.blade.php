@@ -179,16 +179,17 @@
 
     <!-- List SIDEBAR -->    
       <div class="col-sm-3 sidenav" id="listBar">
-      <span class="label label-default">PlayList</span>
-      {{-- <button class="btn btn-primary" onclick="playList()">PLAY</button> --}}
-        {{-- <div class="well"> --}}
-          <ol class='example' id="playerList">
-         {{--    <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!" id="playerList"><i class="fa fa-times" aria-hidden="true"></i></button></li>
-            <li>Second</li>
-            <li>Third</li> --}}
-          </ol>
-      {{-- </div> --}}
-    <!-- END List SIDEBAR -->
+        <span class="label label-default">PlayList</span>        
+        <input type="checkbox" id="editPlaylist" data-toggle="toggle" data-on="On <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-off="Off <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-onstyle="success" data-offstyle="danger" data-size="mini">
+        {{-- <button class="btn btn-primary" onclick="playList()">PLAY</button> --}}
+          {{-- <div class="well"> --}}
+            <ol class='example' id="playerList">
+           {{--    <li>Metallica - Master Of puppets <button class="btn-xs btn-danger"  data-toggle="tooltip" title="Hooray!" id="playerList"><i class="fa fa-times" aria-hidden="true"></i></button></li>
+              <li>Second</li>
+              <li>Third</li> --}}
+            </ol>
+        {{-- </div> --}}
+      <!-- END List SIDEBAR -->
   </div>
 </div>
 <div class="row">
