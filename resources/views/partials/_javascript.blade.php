@@ -14,6 +14,8 @@
 
 <!--Bostrap Modal js -->
 <script type="text/javascript" src="{{ asset('plugins/boostrap3-dialog/js/bootstrap-dialog.js') }}"></script>
+<!--Bostrap toogle  -->
+<script type="text/javascript" src="{{ asset('plugins/boostrap-toogle/js/bootstrap-toggle.min.js') }}"></script>
 
 
 <script type="text/javascript">
@@ -325,13 +327,43 @@ function addSong_to_playlist(artist, song, song_url) {
 		playList();
 	 }
 	 else
-	 {
-	 	$("ol").append("<li id="+music+" >"+artist+" - "+song+"<button class ='btn-xs btn-danger'> X </button></li>");
+	 {	 	
+	 	$('#editPlaylist').bootstrapToggle('enable');
+	 	$("ol").append("<li id="+music+" ><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
+	 	$(".btn-playList").on('click', function(event) {
+       		event.preventDefault();
+       		$(this).parent().remove();
+
+       		let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+       		if(navbar.length < 1)
+			{	
+				$('#editPlaylist').bootstrapToggle('off');
+				$('#editPlaylist').bootstrapToggle('disable');
+
+			}
+    	});
 	 }
+	 
+	 	if($('#editPlaylist').prop('checked'))
+	 	{
+	 		$(".btn-playList").attr("hidden",false);
+	 	}
+	 	else
+	 		$(".btn-playList").attr("hidden",true);
+	 	
+
+	 
 }
 
 function nextSong(){
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+
+	if(navbar.length < 2)
+	{	
+		$('#editPlaylist').bootstrapToggle('off');
+		$('#editPlaylist').bootstrapToggle('disable');
+
+	}
 	if(navbar.length != 0)
 	{
 		console.log("Function closeBtn");
@@ -384,6 +416,12 @@ function playList(){
 
 $(document).ready(function(){
 
+	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+	if(navbar.length == 0)
+	{
+		$('#editPlaylist').bootstrapToggle('disable')
+	}
+
 
 	onloadFristAlbums(); //load the first 16 Albums when load the page	
 	//check if the scroll reach the botton to get another albums request
@@ -397,7 +435,19 @@ $(document).ready(function(){
 		}
 	});
 
-	
+	 $('#editPlaylist').change(function() {
+
+	 	if($(this).prop('checked'))
+	 	{
+	 		$(".btn-playList").attr("hidden",false);
+	 	}
+	 	else
+	 	{
+	 		$(".btn-playList").attr("hidden",true);
+	 		//$('').hidden
+	 	}
+
+	 });
 
 	// *** Hidden input example ***
 	// click on a link - add focus to hidden input
