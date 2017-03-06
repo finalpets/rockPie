@@ -193,11 +193,11 @@
       <!-- END List SIDEBAR -->
   </div>
 </div>
-<div class="row">
+{{-- <div class="row">
   <footer class="container-fluid text-center">
     <p>By Peter Leyva</p>
   </footer>
-</div>
+</div> --}}
 
 <script>
 
