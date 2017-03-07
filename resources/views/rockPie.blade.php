@@ -199,54 +199,6 @@
   </footer>
 </div> --}}
 
-<script>
-
-  $(document).ready(function(){
-
-  //  var app = new Vue({
-  //   el: '#app',
-  //   data: {
-  //     program_name: 'RockPie',
-  //      music: '{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}'
-  //   },
-  //   methods: {
-  //     playMusic: function () {
-  //       // document.getElementById('player').play();
-  //       audio.play();
-  //     },
-  //     stopMusic: function () {
-  //       audio.pause();
-  //       audio.currentTime = 0;
-  //       // document.getElementById('player').pause();
-  //       // document.getElementById('player').currentTime = 0;
-  //       // alert('pets');
-  //     },
-  //     volumeUp: function () {
-  //       document.getElementById('player').volume += 0.1;
-  //     },
-  //     volumeDown: function () {
-  //       document.getElementById('player').volume -= 0.1;  
-  //     }
-  //   }
-  // })
-   var audio;
-
-   initAudioPlayer();
-
-
-
-   function initAudioPlayer(){
-    //audio = new Audio();
-    // audio.src = "music/05 - Tifa no Theme (Piano Version).mp3";
-    //audio.src = app.music;
-    //audio.loop = false;
-    //audio.play(); //comment for a momment
-
-  }
-//window.addEventListener("load",initAudioPlayer);
-});
-
-</script>
 @endsection
 
 
