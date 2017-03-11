@@ -20,26 +20,29 @@
 
 <script type="text/javascript">
 	var contentLoadTriggered = false;
-	var OFFSET_SCROLL = 360;
+	var OFFSET_SCROLL = 300;
 
 	var OFFSET_AJAX_REQUEST = 0;
-	var TOTAL_ALBUM_REQUEST =16;//IMPORTANT:if you change this also change in AlbumController the Query offset
+	var TOTAL_ALBUM_REQUEST =10;//IMPORTANT:if you change this also change in AlbumController the Query offset
 	var playSong = "";
 	var isPlaying = false;
 	var current_Artist = "";
 	var current_Song = "";
+	var letterID = "LALL";
 	
-function onloadFristAlbums(){	
+function onloadFristAlbums(LetterID){	
    // ajax call get data from server and append to the div		
-   contentLoadTriggered = true;           
+   contentLoadTriggered = true;   
+   console.log(OFFSET_AJAX_REQUEST);
    if(OFFSET_AJAX_REQUEST != 0)
 		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
 	//console.log(OFFSET_AJAX_REQUEST);
 	$.ajax({
         type: "GET",
         url: "/",     
-        data: { offset:OFFSET_AJAX_REQUEST },
+        data: { offset:OFFSET_AJAX_REQUEST , letter_id: LetterID},
         success: function( data ) {
+        	console.log(data.letter_id);
         	if(OFFSET_AJAX_REQUEST == 0)
         		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
         	$.each(data.albums, function(index,album){
@@ -181,36 +184,96 @@ function onloadFristAlbums(){
            			}
            		});
 				//console.log("HTML:"+result);
-		        $('#isotopeAjax').append(result);
+				// if(data.letter_id == 'LA')
+				// 	$('#isotopeAjax_LA').append(result);
+				// else
+		  //       	$('#isotopeAjax_LALL').append(result);
+		         $('#isotopeAjax_'+data.letter_id).append(result);
 		        contentLoadTriggered = false;
+		        console.log(contentLoadTriggered);
         	});
 				
         }
-	});				           
+	});	
+
 }
 			
-$('#ajaxTest1').on("click",function(e){
-	if(OFFSET_AJAX_REQUEST != 0)
-		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
-	console.log(OFFSET_AJAX_REQUEST);
-	$.ajax({
-	    type: "GET",
-	    url: "/ajaxText",     
-	    data: { offset:OFFSET_AJAX_REQUEST },
-	    success: function( albums ) {
-	    	if(OFFSET_AJAX_REQUEST == 0)
-	    		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
-	       $.each(albums, function(index,album){
+$('#leftsidebar a').on("click",function(e){
 
-	       	console.log(album.artist.artist_name);
+	// if(contentLoadTriggered) //prevent alot of clicks
+	// 	return;
+	e.preventDefault();
+	OFFSET_AJAX_REQUEST = 0;
+	letterID = e.target.id;
+	console.log(e.target.id);
+	
+	console.log('isotopeAjax_'+letterID);
+	
+	var myNode = document.getElementById('isotopeAjax_LALL');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LA');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LB');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LC');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LD');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LE');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LF');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LG');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LH');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LI');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LJ');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LK');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LL');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LM');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LN');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LO');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LP');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LQ');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LR');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LS');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LT');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LU');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LV');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LW');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LX');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LY');
+	removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_LZ');
+	removeIsotopeAjaxDivs(myNode);
 
-	       });
-	    }
-	});
-	// $.get('/ajaxText',function(data){
-	// 	console.log(data);
-	// });
+	onloadFristAlbums(letterID);
+				// while (myNode.firstChild) {
+				//     myNode.removeChild(myNode.firstChild);
+				// }				
 });
+function removeIsotopeAjaxDivs(myNode){
+	while (myNode.firstChild) {		
+		myNode.removeChild(myNode.firstChild);
+	}
+}
 $('#updateTab button').on("click",function(e){
 
 		//console.log(e.currentTarget.innerText);
@@ -428,7 +491,7 @@ function removeAllSongs() {
                 // result will be true if button was click, while it will be false if users close the dialog directly.
                 if(result) {
                     $(".example").html('')
-                    
+
                     let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));				    				    
 					
 						$('#editPlaylist').bootstrapToggle('off');
@@ -454,16 +517,17 @@ $(document).ready(function(){
 	}
 
 
-	onloadFristAlbums(); //load the first 16 Albums when load the page	
+	onloadFristAlbums(letterID); //load the first 16 Albums when load the page	
 	//check if the scroll reach the botton to get another albums request
-	$('div#istope-album').scroll(function() {
+	$('div#istope-album').scroll(function(e) {
 		// console.log('scrollTop:'+$('div#istope-album').scrollTop());
 		// console.log('heightAlbum:'+$('div#istope-album').height());
 		// console.log('heightMusicTab:'+$('div#musicTab').height());
 		if($('div#istope-album').scrollTop() + OFFSET_SCROLL >= $('div#musicTab').height() - $('div#istope-album').height()  && contentLoadTriggered == false) 
-		{
-	    		onloadFristAlbums();
+		{		console.log(letterID);
+	    		onloadFristAlbums(letterID);
 		}
+
 	});
 
 	 $('#editPlaylist').change(function() {
@@ -508,22 +572,22 @@ $(document).ready(function(){
 		$("ol.example").sortable();
 	});
 
-	 $(".nav-pills a").on('click', function(event) {
-        event.preventDefault();
-        //getting the Y position of the element you want to scroll to
-		var position = $('#istope-album').offset().top-100;
+	 // $(".nav-pills a").on('click', function(event) {
+  //       event.preventDefault();
+  //       //getting the Y position of the element you want to scroll to
+		// var position = $('#istope-album').offset().top-100;
 
-		//scrolling to the element with an animation of 700 miliseconds
-		$('#istope-album').animate({
-		    scrollTop: position
-		}, 700, function(){  //callback function (executed when animation finishes)
-		    //alert("Hello there!");
-		});
-        window.scrollTo(0,0);// return to the top of the screen
-        //window.scrollTo(x-coord, y-coord);
-        //alert("hola");
-       // $(this).parent().remove();
-    });
+		// //scrolling to the element with an animation of 700 miliseconds
+		// $('#istope-album').animate({
+		//     scrollTop: position
+		// }, 700, function(){  //callback function (executed when animation finishes)
+		//     //alert("Hello there!");
+		// });
+  //       window.scrollTo(0,0);// return to the top of the screen
+  //       //window.scrollTo(x-coord, y-coord);
+  //       //alert("hola");
+  //      // $(this).parent().remove();
+  //   });
 	 
   $("#jquery_jplayer_1").jPlayer({
   	// Options
