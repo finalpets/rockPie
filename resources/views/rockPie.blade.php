@@ -86,18 +86,13 @@
 </div>
 
 </div>
-<!-- END NAVBAR-->
-<div class="tab-content">
+<div class="row" id="letternav">
+    <!-- Letter Bar -->
+          
+            
+              
+                  <ul class="nav nav-pills">
 
-  <div id="musicTab" class="tab-pane fade in active">
-    <div class="container-fluid text-center">
-      <div class="row content">
-
-        <!-- LEFT SIDEBAR -->
-          <div class="col-sm-1 sidenav">
-            <div class="well" id="leftsidebar">
-              <div class="text-center">
-                <ul class="nav nav-pills">                  
                   <li class="active"><a href="#ALL" data-toggle="tab"><i id="LALL" class="fa fa-list" aria-hidden="true"></i></a></li>
                   <li><a id="LA" data-toggle="tab" href="#LetterA">A</a></li>
                   <li><a id="LB" data-toggle="tab" href="#LetterB">B</a></li>   
@@ -126,10 +121,18 @@
                   <li><a id="LY" data-toggle="tab" href="#LetterY">Y</a></li>   
                   <li><a id="LZ" data-toggle="tab" href="#LetterZ">Z</a></li>
                 </ul>
-              </div>
-            </div>
-          </div>
+              
+            
+          
         <!-- END LEFT SIDEBAR -->
+</div>
+<!-- END NAVBAR-->
+<div class="tab-content">
+
+  <div id="musicTab" class="tab-pane fade in active">
+    <div class="container-fluid text-center">
+      <div class="row content">
+        
 
         <!-- CONTENT -->
           <div class="col-sm-8 text-left" id="istope-album" >
@@ -291,7 +294,13 @@
           </div> --}}
         <!-- END RIGHT SIDE BAR -->
 
-        <!-- List SIDEBAR -->    
+        <!-- List SIDEBAR -->  
+        <div class="col-sm-1 sidenav">
+            <div id="leftsidebar">
+              <button class="btn btn-default"><i class="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i></button>
+              <button class="btn btn-default"><i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i></button>
+            </div>
+          </div>  
           <div class="col-sm-3 sidenav" id="listBar">
             <span class="label label-default">PlayList</span>        
             <input type="checkbox" id="editPlaylist" data-toggle="toggle" data-on="On <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-off="Off <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-onstyle="success" data-offstyle="danger" data-size="mini">

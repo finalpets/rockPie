@@ -81,9 +81,10 @@ div#listBar.sidenav  {
 
 div#leftsidebar {
 	/*position: fixed;*/
-	height:100%;
-   	width:100px; 
+	/*height:100%;*/
+   	/*width:100px; 
    	margin-top: 0px;
+   	height: 700px;*/
 
 
 }
@@ -161,7 +162,7 @@ ol.example li.placeholder:before {
 /* rounded Left side Filter*/
 .nav-pills > li > a {
     border-radius: 100px;
-    padding: 1px 16px;
+    padding: 1px 15px;
 
 }
 
@@ -185,6 +186,41 @@ ol.example li.placeholder:before {
 	margin-bottom: 2px;
 	display: inline-block;
 	float: none;
+}
+.letter_nav {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+	/*float: none;
+	display: inline;*/
+}
+.letter_nav li {
+	float: left;
+	padding-right: 30px;
+}
+.letter_nav li a{
+	display: block;    
+    text-align: center;    
+    text-decoration: none;
+    /*padding-right: 30px;*/
+}
+.letter_nav > li.active > a, .letter_nav > li.active > a:hover, .letter_nav > li.active > a:focus {
+    color: #fff;
+    background-color:  rgba(85, 172, 238, 0.9);;
+}
+.letter_nav > li > a {
+    border-radius: 100px;    
+}
+#letternav {
+	text-align: center;
+}
+#leftsidebar {
+	height: 700px;
+}
+#leftsidebar button {
+	height: 50%;
+	width: 50%;
+
 }
 .isotope-container {
 	/*overflow: hidden;	*/
