@@ -62,7 +62,7 @@ img.resizeModal{
 
 div#istope-album
 {
-	margin-top: 100px;
+	margin-top: 0px;
 	overflow-y: scroll;
 	height: 780px;
 
@@ -70,7 +70,7 @@ div#istope-album
 }
 
 div#listBar.sidenav  {
-	margin-top: 130px;
+	margin-top: 10px;
 	/*position: fixed;*/
 	height:100%;	
 	right: 0;
@@ -83,7 +83,7 @@ div#leftsidebar {
 	/*position: fixed;*/
 	height:100%;
    	width:100px; 
-   	margin-top: 120px;
+   	margin-top: 0px;
 
 
 }
@@ -91,7 +91,7 @@ div#rightsidebar {
 	/*position: fixed;	*/
 	height:100%;
    	width:100px; 
-   	margin-top: 120px;
+   	margin-top: 0px;
 
 }
 
