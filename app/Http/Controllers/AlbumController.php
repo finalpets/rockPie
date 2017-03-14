@@ -131,9 +131,9 @@ class AlbumController extends Controller
             if($request->letter_id == 'LALL')
             {
 
-            
-                 $albums = Album::join('artists','albums.artist_id','=','artists.id')
-                 ->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(10)->get();
+                $max_albums = Album::all()->count();
+                $albums = Album::join('artists','albums.artist_id','=','artists.id')
+                 ->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                 //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
                 $songs = Song::orderBy('track','asc')->get();
                 $artists = Artist::orderBy('artist_name','asc')->get();              
@@ -145,12 +145,13 @@ class AlbumController extends Controller
                 'letter_id' => $request->letter_id,
                 );
 
-                return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id]);
+                return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums ]);
             }
             else
                 //if($request->letter_id == 'LA')
                 {
-                    $albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(10)->get();
+                    $max_albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->count();
+                    $albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                     //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
                     $songs = Song::orderBy('track','asc')->get();
                     $artists = Artist::orderBy('artist_name','asc')->get();              
@@ -162,7 +163,7 @@ class AlbumController extends Controller
                     'letter_id' => $request->letter_id,
                     );
 
-                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id]);
+                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums]);
 
                 }
             }

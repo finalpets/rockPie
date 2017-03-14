@@ -23,19 +23,22 @@
 	var OFFSET_SCROLL = 300;
 
 	var OFFSET_AJAX_REQUEST = 0;
-	var TOTAL_ALBUM_REQUEST =10;//IMPORTANT:if you change this also change in AlbumController the Query offset
+	var TOTAL_ALBUM_REQUEST =4;//IMPORTANT:if you change this also change in AlbumController the Query offset
+	var MAX_ALBUMS=0;
 	var playSong = "";
 	var isPlaying = false;
 	var current_Artist = "";
 	var current_Song = "";
 	var letterID = "LALL";
+	var array_Albums ;
+	var array_Artists ;
 	
 function onloadFristAlbums(LetterID){	
    // ajax call get data from server and append to the div		
    contentLoadTriggered = true;   
    console.log(OFFSET_AJAX_REQUEST);
-   if(OFFSET_AJAX_REQUEST != 0)
-		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
+  //  if(OFFSET_AJAX_REQUEST != 0)
+		// OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
 	//console.log(OFFSET_AJAX_REQUEST);
 	$.ajax({
         type: "GET",
@@ -43,8 +46,11 @@ function onloadFristAlbums(LetterID){
         data: { offset:OFFSET_AJAX_REQUEST , letter_id: LetterID},
         success: function( data ) {
         	console.log(data.letter_id);
-        	if(OFFSET_AJAX_REQUEST == 0)
-        		OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
+        	console.log('max_albums'+data.max_albums);
+        	MAX_ALBUMS = data.max_albums;
+        	// if(OFFSET_AJAX_REQUEST == 0)
+        	// 	OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
+        	console.log("Albumnes:"+data.albums.length);
         	$.each(data.albums, function(index,album){
         	$.each(data.artists, function(index,artist){
         		 
@@ -197,8 +203,35 @@ function onloadFristAlbums(LetterID){
 	});	
 
 }
-			
-$('#leftsidebar a').on("click",function(e){
+
+$('#leftsidebar button').on("click",function(e){
+
+	if(OFFSET_AJAX_REQUEST < MAX_ALBUMS)
+	{
+		if(e.currentTarget.id == "UP")
+			{
+				if(OFFSET_AJAX_REQUEST !=0)
+					OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST - TOTAL_ALBUM_REQUEST;
+				console.log("CLICK UP: "+OFFSET_AJAX_REQUEST);
+			}
+		else
+		{		temp	= OFFSET_AJAX_REQUEST;
+				OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
+
+			console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);		
+		}
+		var myNode = document.getElementById('isotopeAjax_LALL');
+		removeIsotopeAjaxDivs(myNode);
+		onloadFristAlbums(letterID);
+		if(OFFSET_AJAX_REQUEST > MAX_ALBUMS)
+		{
+			OFFSET_AJAX_REQUEST =temp ;
+		}
+	}
+	
+});
+
+$('#letternav > ul >li a').on("click",function(e){
 
 	// if(contentLoadTriggered) //prevent alot of clicks
 	// 	return;

@@ -297,8 +297,8 @@
         <!-- List SIDEBAR -->  
         <div class="col-sm-1 sidenav">
             <div id="leftsidebar">
-              <button class="btn btn-default"><i class="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i></button>
-              <button class="btn btn-default"><i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i></button>
+              <button class="btn btn-default" id="UP"><i class="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i></button>
+              <button class="btn btn-default" id="DOWN"><i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i></button>
             </div>
           </div>  
           <div class="col-sm-3 sidenav" id="listBar">
