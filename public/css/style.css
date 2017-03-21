@@ -9,6 +9,7 @@
 
 #myPage {
 	/*overflow: hidden;*/
+	overflow-x: hidden;
 }
 
 .h5_album_name {
@@ -163,6 +164,8 @@ ol.example li.placeholder:before {
 .nav-pills > li > a {
     border-radius: 100px;
     padding: 1px 15px;
+    margin-top: -50px;
+    left: 15px;
 
 }
 
@@ -212,7 +215,7 @@ ol.example li.placeholder:before {
     border-radius: 100px;    
 }
 #letternav {
-	text-align: center;
+	text-align: center;	
 }
 #leftsidebar {
 	height: 700px;
