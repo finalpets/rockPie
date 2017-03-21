@@ -1,14 +1,14 @@
 <!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
 <!-- Jquery and Bootstap core js files -->
- 
- <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script> 
+
+ <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- Isotope javascript -->
 <!-- <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script> -->
 <script type="text/javascript" src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('plugins/vue.js') }}"></script>
 
-<script type='text/javascript' src='js/template.js'></script> 
+<script type='text/javascript' src='js/template.js'></script>
 <!-- sortable plugin -->
 <script src='plugins/jquery-sortable.js'></script>
 
@@ -30,19 +30,177 @@
 	var current_Artist = "";
 	var current_Song = "";
 	var letterID = "LALL";
-	var array_Albums ;
-	var array_Artists ;
-	
-function onloadFristAlbums(LetterID){	
-   // ajax call get data from server and append to the div		
-   contentLoadTriggered = true;   
+	var array_Albums ="" ;
+	var array_Artists = "" ;
+	var array_Songs = "" ;
+	var array_letterID ="";
+	var TOTAL_SHOW_ALBUMS = 4;
+function load_Array_Albums(){
+
+	for (var i = 0; i < array_Albums.length; i++) {
+		console.log(array_Albums[i].album_name);
+        		for (var x = 0; x < array_Artists.length; x++) {
+
+        			if(array_Albums[i].artist.artist_name == array_Artists[x].artist_name)
+           			{
+           				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+array_Artists[x].letter.letter+"'>";
+
+           				result+= "\n<div class='image-box'>";
+           				result+= "\n<div class='overlay-container'>";
+           				result+= "\n<div align='center' class='h5_album_name'>";
+           				result+= "\n<h5>"+array_Artists[x].artist_name+" - "+array_Albums[i].album_name+"</h5>";
+           				result+= "\n</div>";
+           				result+= "\n<div class='row'>";
+           				result+= "\n<div class='col-sm-5'>";
+           				img_clean = "{{ asset('/music/') }}";
+           				//song_url.replace(/ /g, "_");
+           				img_clean+= "/"+array_Albums[i].img.replace(/ /g, "%20");
+           				img_clean+= ".jpg";
+           				//console.log(img_clean);
+
+           				result+= '\n<img src="'+img_clean+'" alt="Oops" class="img-rounded resize">';
+           				result+= "\n</div>";
+           				result+= "\n<div class='col-sm-7'>";
+           				result+= "\n<table class='table table-striped'>";
+           				result+= "\n<thead>";
+           				result+= "\n<tr>";
+           				result+= "\n<th>#</th>";
+           				result+= "\n<th>SONG</th>";
+           				result+= "\n</tr>";
+           				result+= "\n</thead>";
+           				result+= "\n<tbody>";
+
+           				var number = 0;
+           				 for (var y = 0; y < array_Songs.length; y++) {
+           				 	console.log(array_Artists[x].artist_name);
+           				 	if(array_Songs[y].album.album_name == array_Albums[i].album_name)
+           				 	{
+           				 		number++;
+           				 		result+= "\n<tr>";
+           				 		result+= "\n<th scope='row'>"+number+"</th>";
+           				 		result+= "\n<td>"+array_Songs[y].title+"</td>";
+           				 		result+= "\n</tr>";
+           				 	}
+           				 }
+           				 result+= "\n</tbody>";
+           				 result+= "\n</table>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+
+           				 result+= "\n<a class='overlay' data-toggle='modal' data-target='#project-"+array_Albums[i].id+"'>";
+           				 result+= "\n<i class='fa fa-search-plus'></i>";
+           				 result+= "\n<span>"+array_Artists[x].artist_name+"</span>";
+           				 result+= "\n</a>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+
+           				 //MODAL
+           				 result+= "\n<div class='modal fade' id='project-"+array_Albums[i].id+"' tabindex='-1' role='dialog' aria-labelledby='project-"+array_Albums[i].id+"-label' aria-hidden='true'>";
+           				 result+= "\n<div class='modal-dialog modal-lg'>";
+           				 result+= "\n<div class='modal-content'>";
+           				 result+= "\n<div class='modal-header' align='center'>";
+           				 result+= "\n<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
+           				 result+= "\n<h3 class='modal-title h5_album_name' id='project-"+array_Albums[i].id+"-label'>"+array_Artists[x].artist_name+"</h3>";
+           				 result+= "\n</div>";
+
+           				 result+= "\n<div class='modal-body'>";
+           				 result+= "\n<div align='center'>";
+           				 result+= "\n<h3>"+array_Albums[i].album_name+"</h3>";
+           				 result+= "\n</div>";
+           				 result+= "\n<div class='row'>";
+           				 result+= "\n<div class='col-md-5'>";
+           				 img_clean = "{{asset('/music/')}}";
+           				 //song_url.replace(/ /g, "_");
+           				 img_clean+= "/"+array_Albums[i].img.replace(/ /g, "%20");
+           				 img_clean+= ".jpg";
+           				 //result+= "\n<img src='"+img_clean+"' alt='' class='img-rounded resizeModal'>";
+           				 result+= '\n<img src="'+img_clean+'" alt="Oops" class="img-rounded resizeModal">';
+
+           				 result+= "\n</div>";
+           				 result+= "\n<div class='col-sm-7'>";
+           				 result+= "\n<table class='table table-striped table_modal'>";
+           				 result+= "\n<thead>";
+           				 result+= "\n<tr>";
+           				 result+= "\n<th>#</th>";
+           				 result+= "\n<th>SONG</th>";
+           				 result+= "\n<th>ADD</th>";
+           				 result+= "\n</tr>";
+           				 result+= "\n</thead>";
+           				 result+= "\n<tbody>";
+
+           				 number = 0;
+           				 for (var y = 0; y < array_Songs.length; y++) {
+           				 	if(array_Songs[y].album.album_name == array_Albums[i].album_name)
+           				 	{
+           				 		songTitle_clean = array_Songs[y].title.replace(/'/g, "^");
+           				 		artistName_clean = array_Albums[i].artist.artist_name.replace(/'/g,"^");
+           				 		songUrl_clean = array_Songs[y].song_url.replace(/'/g,"^");
+           				 		// console.log(songTitle_clean);
+           				 		// console.log(artistName_clean);
+           				 		 //console.log('songURL:'+songUrl_clean);
+           				 		number++;
+           				 		result+= "\n<tr>";
+           				 		result+= "\n<th scope='row'>"+number+"</th>";
+           				 		result+= "\n<td>"+array_Songs[y].title+"</td>";
+
+           				 		result+= '\n<th><button type="button" class="btn btn-sm btn-primary btn-shadow" onclick="addSong_to_playlist(\''+artistName_clean.toString()+'\',\''+songTitle_clean.toString()+'\',\''+songUrl_clean.toString()+'\')"><i class="fa fa-music" aria-hidden="true"></i> </button></th>';
+
+           				 		result+= "\n</tr>";
+           				 	}
+
+           				 }
+           				 result+= "\n</tbody>";
+           				 result+= "\n</table>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+
+           				 result+= "\n<div class='modal-footer'>";
+           				 result+= "\n<button type='button' class='btn btn-sm btn-danger btn-shadow' data-dismiss='modal'>Close</button>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+           				 result+= "\n</div>";
+           				 //End Modal
+           				 result+= "\n</div>";
+           				//$('#isotopeAjax').append(result);
+           				//div = album.id;
+           				//var a = "";
+           				//a+=""
+           				//$(div).appendChild("<div class='image-box'></div>");
+
+
+      					//var element = document.createElement("div");
+					    // element.appendChild(document.createTextNode('The man who mistook his wife for a hat'));
+					    // document.getElementById('lc').appendChild(element);
+           			}
+        		}
+
+        $('#isotopeAjax_'+array_letterID).append(result);
+		        contentLoadTriggered = false;
+		        console.log(contentLoadTriggered);
+    }
+     // array_Albums.shift();
+     // array_Albums.shift();
+     // array_Albums.shift();
+     // array_Albums.shift();
+     array_Albums = "";
+    console.log("Remove albums number:"+array_Albums.length);
+}
+
+function onloadFristAlbums(LetterID){
+   // ajax call get data from server and append to the div
+   contentLoadTriggered = true;
    console.log(OFFSET_AJAX_REQUEST);
   //  if(OFFSET_AJAX_REQUEST != 0)
-		// OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;							
+		// OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
 	//console.log(OFFSET_AJAX_REQUEST);
+	if(array_Albums.length != 0)
+		load_Array_Albums();
+	else
 	$.ajax({
         type: "GET",
-        url: "/",     
+        url: "/",
         data: { offset:OFFSET_AJAX_REQUEST , letter_id: LetterID},
         success: function( data ) {
         	console.log(data.letter_id);
@@ -50,14 +208,21 @@ function onloadFristAlbums(LetterID){
         	MAX_ALBUMS = data.max_albums;
         	// if(OFFSET_AJAX_REQUEST == 0)
         	// 	OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
+        	array_Albums = data.albums;
+        	array_Artists = data.artists;
+        	array_Songs = data.songs;
+        	array_letterID = data.letter_id;
+
         	console.log("Albumnes:"+data.albums.length);
+        	load_Array_Albums();
+        	return;
         	$.each(data.albums, function(index,album){
         	$.each(data.artists, function(index,artist){
-        		 
+
            			if(album.artist.artist_name == artist.artist_name)
-           			{				               				
+           			{
            				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+artist.letter.letter+"'>";
-           				
+
            				result+= "\n<div class='image-box'>";
            				result+= "\n<div class='overlay-container'>";
            				result+= "\n<div align='center' class='h5_album_name'>";
@@ -66,7 +231,7 @@ function onloadFristAlbums(LetterID){
            				result+= "\n<div class='row'>";
            				result+= "\n<div class='col-sm-5'>";
            				img_clean = "{{ asset('/music/') }}";
-           				//song_url.replace(/ /g, "_");	
+           				//song_url.replace(/ /g, "_");
            				img_clean+= "/"+album.img.replace(/ /g, "%20");
            				img_clean+= ".jpg";
            				//console.log(img_clean);
@@ -122,7 +287,7 @@ function onloadFristAlbums(LetterID){
            				 result+= "\n<div class='row'>";
            				 result+= "\n<div class='col-md-5'>";
            				 img_clean = "{{asset('/music/')}}";
-           				 //song_url.replace(/ /g, "_");	
+           				 //song_url.replace(/ /g, "_");
            				 img_clean+= "/"+album.img.replace(/ /g, "%20");
            				 img_clean+= ".jpg";
            				 //result+= "\n<img src='"+img_clean+"' alt='' class='img-rounded resizeModal'>";
@@ -198,37 +363,47 @@ function onloadFristAlbums(LetterID){
 		        contentLoadTriggered = false;
 		        console.log(contentLoadTriggered);
         	});
-				
+
         }
-	});	
+	});
 
 }
 
 $('#leftsidebar button').on("click",function(e){
 
-	if(OFFSET_AJAX_REQUEST < MAX_ALBUMS)
-	{
+	load_Next = false;
+
+		console.log("offsetJax:"+OFFSET_AJAX_REQUEST);
 		if(e.currentTarget.id == "UP")
 			{
 				if(OFFSET_AJAX_REQUEST !=0)
+				{
 					OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST - TOTAL_ALBUM_REQUEST;
-				console.log("CLICK UP: "+OFFSET_AJAX_REQUEST);
+					console.log("CLICK UP: "+OFFSET_AJAX_REQUEST);
+					load_Next = true;
+				}
 			}
 		else
-		{		temp	= OFFSET_AJAX_REQUEST;
-				OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
-
-			console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);		
-		}
-		var myNode = document.getElementById('isotopeAjax_LALL');
-		removeIsotopeAjaxDivs(myNode);
-		onloadFristAlbums(letterID);
-		if(OFFSET_AJAX_REQUEST > MAX_ALBUMS)
 		{
-			OFFSET_AJAX_REQUEST =temp ;
+			//load_Array_Albums();
+			if(OFFSET_AJAX_REQUEST < MAX_ALBUMS -1)
+			{	
+				temp	= OFFSET_AJAX_REQUEST;
+				OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
+				console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
+				load_Next = true;
+			}
 		}
-	}
-	
+		if(load_Next)
+		{
+			remove_ALL_IsotopeAjaxDivs();			
+			onloadFristAlbums(letterID);
+			if(OFFSET_AJAX_REQUEST > MAX_ALBUMS)
+			{
+				OFFSET_AJAX_REQUEST =temp ;
+			}
+		}
+
 });
 
 $('#letternav > ul >li a').on("click",function(e){
@@ -238,10 +413,18 @@ $('#letternav > ul >li a').on("click",function(e){
 	e.preventDefault();
 	OFFSET_AJAX_REQUEST = 0;
 	letterID = e.target.id;
-	console.log(e.target.id);
+	//console.log(e.target.id);
+
+	//console.log('isotopeAjax_'+letterID);
+
 	
-	console.log('isotopeAjax_'+letterID);
-	
+	remove_ALL_IsotopeAjaxDivs();
+	onloadFristAlbums(letterID);
+				// while (myNode.firstChild) {
+				//     myNode.removeChild(myNode.firstChild);
+				// }
+});
+function remove_ALL_IsotopeAjaxDivs(){
 	var myNode = document.getElementById('isotopeAjax_LALL');
 	removeIsotopeAjaxDivs(myNode);
 	var myNode = document.getElementById('isotopeAjax_LA');
@@ -296,14 +479,9 @@ $('#letternav > ul >li a').on("click",function(e){
 	removeIsotopeAjaxDivs(myNode);
 	var myNode = document.getElementById('isotopeAjax_LZ');
 	removeIsotopeAjaxDivs(myNode);
-
-	onloadFristAlbums(letterID);
-				// while (myNode.firstChild) {
-				//     myNode.removeChild(myNode.firstChild);
-				// }				
-});
+}
 function removeIsotopeAjaxDivs(myNode){
-	while (myNode.firstChild) {		
+	while (myNode.firstChild) {
 		myNode.removeChild(myNode.firstChild);
 	}
 }
@@ -316,12 +494,12 @@ $('#updateTab button').on("click",function(e){
 		$("#updateTab button").attr("disabled", true);
 		$("#myNavbar ul").attr("hidden",true);
 		$(".navbar-header a").attr("hidden",true);
-		$.ajax({			
-		    type: "GET",		  
-		    url: "{{ route('update.create') }}", 
+		$.ajax({
+		    type: "GET",
+		    url: "{{ route('update.create') }}",
 		    data: { letter:Letter },
 		    dataType: "json",
-		    //url: "update/create", 		    
+		    //url: "update/create",
 		    success: function( msg ) {
 		    	//removing all the childs inside an ID
 		    	var myNode = document.getElementById(''+Letter);
@@ -334,12 +512,12 @@ $('#updateTab button').on("click",function(e){
 		            message: 'Now is up to date',
 		            type: BootstrapDialog.TYPE_PRIMARY,
 					buttons: [{
-				        id: 'btn-ok',   
-				        icon: 'glyphicon glyphicon-check',       
+				        id: 'btn-ok',
+				        icon: 'glyphicon glyphicon-check',
 				        label: 'OK',
-				        cssClass: 'btn-success', 
+				        cssClass: 'btn-success',
 				        autospin: false,
-				        action: function(dialogRef){    
+				        action: function(dialogRef){
 				            dialogRef.close();
 				        }
 				    }]
@@ -352,20 +530,20 @@ $('#updateTab button').on("click",function(e){
 		    	console.log("Ajax success");
 		    	console.log(msg);
 		    },
-		    error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        	// alert("Status: " + textStatus); 
-        	// alert("Error: " + errorThrown); 
+		    error: function(XMLHttpRequest, textStatus, errorThrown) {
+        	// alert("Status: " + textStatus);
+        	// alert("Error: " + errorThrown);
         	BootstrapDialog.show({
 		    	 	title: 'Updated Error',
 		            message: 'Now is up to date',
 		            type: BootstrapDialog.TYPE_DANGER,
 					buttons: [{
-				        id: 'btn-ok',   
-				        icon: 'glyphicon glyphicon-check',       
+				        id: 'btn-ok',
+				        icon: 'glyphicon glyphicon-check',
 				        label: 'OK',
-				        cssClass: 'btn-danger', 
+				        cssClass: 'btn-danger',
 				        autospin: false,
-				        action: function(dialogRef){    
+				        action: function(dialogRef){
 				            dialogRef.close();
 				        }
 				    }]
@@ -416,14 +594,14 @@ function addSong_to_playlist(artist, song, song_url) {
 	 console.log(navbar.length);
 	 if(navbar.length == 0 && isPlaying == false )
 	 {
-	 	//playing = 1;		
-	 	
+	 	//playing = 1;
+
 	 	$("#jquery_jplayer_1").jPlayer("option", "cssSelector.title");
 		$("ol").append("<li id="+music+">"+artist+" - "+song+"</li>");
 		playList();
 	 }
 	 else
-	 {	 	
+	 {
 	 	$('#editPlaylist').bootstrapToggle('enable');
 	 	$("ol").append("<li id="+music+" ><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
 	 	$(".btn-playList").on('click', function(event) {
@@ -432,30 +610,30 @@ function addSong_to_playlist(artist, song, song_url) {
 
        		let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
        		if(navbar.length < 1)
-			{	
+			{
 				$('#editPlaylist').bootstrapToggle('off');
 				$('#editPlaylist').bootstrapToggle('disable');
 
 			}
     	});
 	 }
-	 
+
 	 	if($('#editPlaylist').prop('checked'))
 	 	{
 	 		$(".btn-playList").attr("hidden",false);
 	 	}
 	 	else
 	 		$(".btn-playList").attr("hidden",true);
-	 	
 
-	 
+
+
 }
 
 function nextSong(){
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 
 	if(navbar.length < 2)
-	{	
+	{
 		$('#editPlaylist').bootstrapToggle('off');
 		$('#editPlaylist').bootstrapToggle('disable');
 
@@ -467,15 +645,15 @@ function nextSong(){
 		var snd = new Audio(sound_click);
 		snd.play();
 		console.log("Function nextSong");
-		isPlaying = false;	    			
+		isPlaying = false;
 		playList();
-	}	
-}    		
+	}
+}
 
 function parsed_CurrentSong(currentSong){
-	console.log("before currentSong:"+currentSong);	
+	console.log("before currentSong:"+currentSong);
 	 current_Song =currentSong.substring(currentSong.lastIndexOf("/")+1,currentSong.length);
-	console.log("after currentSong:"+current_Song);	 
+	console.log("after currentSong:"+current_Song);
 
 }
 
@@ -485,11 +663,11 @@ function playList(){
 	// console.log('Get first: ', navbar[0].textContent);
 	// console.log('Get first: ', navbar.length);
 
-	var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL 
-	var song = parsedSong_url.split("^").join("'");// return to the original URL 
-	console.log(song);	 
-	var musicPath = "{{ asset('music') }}";	
-    console.log('musicPath:',musicPath);	 
+	var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL
+	var song = parsedSong_url.split("^").join("'");// return to the original URL
+	console.log(song);
+	var musicPath = "{{ asset('music') }}";
+    console.log('musicPath:',musicPath);
 	song_url = musicPath.concat("/");
 	song_url2 = song_url.concat(song);
 	console.log('Origina Song:', song);
@@ -499,7 +677,7 @@ function playList(){
 	console.log('Origina music:', playSong);
 
 	$('#listBar>ol>li').first().remove();
-    
+
     $('#jquery_jplayer_1').jPlayer("setMedia", {
         title: current_Song,
         m4a: playSong,
@@ -525,19 +703,19 @@ function removeAllSongs() {
                 if(result) {
                     $(".example").html('')
 
-                    let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));				    				    
-					
+                    let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+
 						$('#editPlaylist').bootstrapToggle('off');
 						$('#editPlaylist').bootstrapToggle('disable');
 
-					
+
                 }else {
-                    
+
                 }
             }
         });
-	 
-    
+
+
 
 }
 
@@ -550,13 +728,13 @@ $(document).ready(function(){
 	}
 
 
-	onloadFristAlbums(letterID); //load the first 16 Albums when load the page	
+	onloadFristAlbums(letterID); //load the first 16 Albums when load the page
 	//check if the scroll reach the botton to get another albums request
 	$('div#istope-album').scroll(function(e) {
 		// console.log('scrollTop:'+$('div#istope-album').scrollTop());
 		// console.log('heightAlbum:'+$('div#istope-album').height());
 		// console.log('heightMusicTab:'+$('div#musicTab').height());
-		if($('div#istope-album').scrollTop() + OFFSET_SCROLL >= $('div#musicTab').height() - $('div#istope-album').height()  && contentLoadTriggered == false) 
+		if($('div#istope-album').scrollTop() + OFFSET_SCROLL >= $('div#musicTab').height() - $('div#istope-album').height()  && contentLoadTriggered == false)
 		{		console.log(letterID);
 	    		onloadFristAlbums(letterID);
 		}
@@ -599,7 +777,7 @@ $(document).ready(function(){
 		})
 		.addTyping();
 
-	$('[data-toggle="tooltip"]').tooltip(); 
+	$('[data-toggle="tooltip"]').tooltip();
 
 	$(function  () {
 		$("ol.example").sortable();
@@ -621,7 +799,7 @@ $(document).ready(function(){
   //       //alert("hola");
   //      // $(this).parent().remove();
   //   });
-	 
+
   $("#jquery_jplayer_1").jPlayer({
   	// Options
 
@@ -631,7 +809,7 @@ $(document).ready(function(){
    // console.log(music);
     //playList();
       $(this).jPlayer("setMedia", {
-       // title: "RockPie",		            
+       // title: "RockPie",
       //  m4a: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg",
        // oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
       });
@@ -645,22 +823,22 @@ $(document).ready(function(){
     smoothPlayBar: true,
     keyEnabled: true,
     remainingDuration: true,
-    toggleDuration: true ,		        
+    toggleDuration: true ,
     wmode: "window"
-    , ended: function() { // The $.jPlayer.event.ended event	
+    , ended: function() { // The $.jPlayer.event.ended event
 
     	isPlaying = false;
     	playList();
-			console.log("play isPlaying:"+isPlaying);	        	
-    	console.log("songEnded:"+playSong);	
+			console.log("play isPlaying:"+isPlaying);
+    	console.log("songEnded:"+playSong);
 		$(this).jPlayer("setMedia", {
-			mp3: playSong,				      
+			mp3: playSong,
 	      }).jPlayer("play"); // Attempts to Auto-Play the media
 		},
 		 play  : function() { // The $.jPlayer.event.play  event
 		 	isPlaying = true;
 			console.log("play isPlaying:"+isPlaying);
-		},	
+		},
 
   });
 });
