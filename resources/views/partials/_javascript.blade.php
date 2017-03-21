@@ -37,8 +37,11 @@
 	var TOTAL_SHOW_ALBUMS = 4;
 function load_Array_Albums(){
 
+	if(MAX_ALBUMS == 0)
+		contentLoadTriggered= false;
+	
 	for (var i = 0; i < array_Albums.length; i++) {
-		console.log(array_Albums[i].album_name);
+		//console.log(array_Albums[i].album_name);
         		for (var x = 0; x < array_Artists.length; x++) {
 
         			if(array_Albums[i].artist.artist_name == array_Artists[x].artist_name)
@@ -72,7 +75,7 @@ function load_Array_Albums(){
 
            				var number = 0;
            				 for (var y = 0; y < array_Songs.length; y++) {
-           				 	console.log(array_Artists[x].artist_name);
+           				 	//console.log(array_Artists[x].artist_name);
            				 	if(array_Songs[y].album.album_name == array_Albums[i].album_name)
            				 	{
            				 		number++;
@@ -178,20 +181,20 @@ function load_Array_Albums(){
 
         $('#isotopeAjax_'+array_letterID).append(result);
 		        contentLoadTriggered = false;
-		        console.log(contentLoadTriggered);
+		        //console.log(contentLoadTriggered);
     }
      // array_Albums.shift();
      // array_Albums.shift();
      // array_Albums.shift();
      // array_Albums.shift();
      array_Albums = "";
-    console.log("Remove albums number:"+array_Albums.length);
+   // console.log("Remove albums number:"+array_Albums.length);
 }
 
 function onloadFristAlbums(LetterID){
    // ajax call get data from server and append to the div
    contentLoadTriggered = true;
-   console.log(OFFSET_AJAX_REQUEST);
+   console.log("OFFSET_AJAX_REQUEST:"+OFFSET_AJAX_REQUEST);
   //  if(OFFSET_AJAX_REQUEST != 0)
 		// OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
 	//console.log(OFFSET_AJAX_REQUEST);
@@ -203,17 +206,18 @@ function onloadFristAlbums(LetterID){
         url: "/",
         data: { offset:OFFSET_AJAX_REQUEST , letter_id: LetterID},
         success: function( data ) {
-        	console.log(data.letter_id);
-        	console.log('max_albums'+data.max_albums);
-        	MAX_ALBUMS = data.max_albums;
-        	// if(OFFSET_AJAX_REQUEST == 0)
-        	// 	OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+1;
+        	//console.log(data.letter_id);
+        	console.log('max_albums:'+data.max_albums);
+
+        		MAX_ALBUMS = data.max_albums;
+        	 // if(OFFSET_AJAX_REQUEST == 0)
+        	 // 	OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+4;
         	array_Albums = data.albums;
         	array_Artists = data.artists;
         	array_Songs = data.songs;
         	array_letterID = data.letter_id;
 
-        	console.log("Albumnes:"+data.albums.length);
+        	//console.log("Albumnes:"+data.albums.length);
         	load_Array_Albums();
         	return;
         	$.each(data.albums, function(index,album){
@@ -361,7 +365,7 @@ function onloadFristAlbums(LetterID){
 		  //       	$('#isotopeAjax_LALL').append(result);
 		         $('#isotopeAjax_'+data.letter_id).append(result);
 		        contentLoadTriggered = false;
-		        console.log(contentLoadTriggered);
+		        //console.log(contentLoadTriggered);
         	});
 
         }
@@ -370,44 +374,49 @@ function onloadFristAlbums(LetterID){
 }
 
 $('#leftsidebar button').on("click",function(e){
-
+	//prevent multiple clics
+	e.preventDefault(); 
+	 if(contentLoadTriggered | MAX_ALBUMS < 4)
+	 	return;
 	load_Next = false;
 
-		console.log("offsetJax:"+OFFSET_AJAX_REQUEST);
+		
 		if(e.currentTarget.id == "UP")
-			{
-				if(OFFSET_AJAX_REQUEST !=0)
+		{
+				if(OFFSET_AJAX_REQUEST >= 4)
 				{
 					OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST - TOTAL_ALBUM_REQUEST;
 					console.log("CLICK UP: "+OFFSET_AJAX_REQUEST);
 					load_Next = true;
 				}
-			}
+		}
 		else
-		{
-			//load_Array_Albums();
-			if(OFFSET_AJAX_REQUEST < MAX_ALBUMS -1)
-			{	
-				temp	= OFFSET_AJAX_REQUEST;
-				OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
-				console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
-				load_Next = true;
-			}
+		{			
+			if(OFFSET_AJAX_REQUEST == 0)
+				{
+					OFFSET_AJAX_REQUEST = 4;
+					load_Next = true;
+				}
+			else
+				if(OFFSET_AJAX_REQUEST < MAX_ALBUMS -4)
+				{					
+					OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
+					console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
+					load_Next = true;
+				}			
 		}
 		if(load_Next)
 		{
 			remove_ALL_IsotopeAjaxDivs();			
 			onloadFristAlbums(letterID);
-			if(OFFSET_AJAX_REQUEST > MAX_ALBUMS)
-			{
-				OFFSET_AJAX_REQUEST =temp ;
-			}
 		}
-
+	console.log("offsetJax:"+OFFSET_AJAX_REQUEST);
 });
 
 $('#letternav > ul >li a').on("click",function(e){
-
+e.preventDefault();
+	 if(contentLoadTriggered)
+	 	return;
 	// if(contentLoadTriggered) //prevent alot of clicks
 	// 	return;
 	e.preventDefault();
