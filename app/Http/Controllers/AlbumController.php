@@ -97,7 +97,7 @@ class AlbumController extends Controller
                                                                                                         if($request->letter_id == 'LY')
                                                                                                             $letter_id=25;
                                                                                                         else
-                                                                                                            if($request->letter_id == 'LY')
+                                                                                                            if($request->letter_id == 'LZ')
                                                                                                                 $letter_id=26;
 
         // $albums = Album::orderBy('id','asc')->offset(0)->limit(16)->get();   
