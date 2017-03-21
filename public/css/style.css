@@ -63,8 +63,8 @@ img.resizeModal{
 div#istope-album
 {
 	margin-top: 0px;
-	overflow-y: scroll;
-	height: 780px;
+	/*overflow-y: scroll;
+	height: 780px;*/
 
 
 }
