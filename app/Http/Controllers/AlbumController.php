@@ -20,7 +20,8 @@ class AlbumController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {       
+    {      
+
         if($request->letter_id == 'LA')
             $letter_id = 1;
         else
@@ -135,10 +136,28 @@ class AlbumController extends Controller
                 $albums = Album::join('artists','albums.artist_id','=','artists.id')
                  ->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                 //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
-                $songs = Song::orderBy('track','asc')->get();
+                //$songs = Song::orderBy('track','asc')->get();
                 $artists = Artist::orderBy('artist_name','asc')->get();              
              //   dd($request->stream_active);
 
+                $album_result_array = array();
+                $song_result_array = array();
+                foreach ($albums as $album) {
+                   //print_r($album->album_name."\n");
+                   array_push($album_result_array, $album->id);
+                   
+                }
+                //print_r($album_result_array);
+                $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
+
+                foreach ($songs as $song) {
+                    array_push($song_result_array, $song->title);                    
+                }
+                //dd($song_result_array);
+
+                //$users = DB::table('users')->whereIn('id', array(1, 2, 3))->get();
+
+                
                 $response = array(
                 'status' => 'success',
                 'msg' => 'Setting created successfully',
@@ -153,10 +172,18 @@ class AlbumController extends Controller
                     $max_albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->count();
                     $albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                     //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
-                    $songs = Song::orderBy('track','asc')->get();
+                    //$songs = Song::orderBy('track','asc')->get();
                     $artists = Artist::orderBy('artist_name','asc')->get();              
                  //   dd($request->stream_active);
-
+                    $album_result_array = array();
+                    $song_result_array = array();
+                    foreach ($albums as $album) {
+                       //print_r($album->album_name."\n");
+                       array_push($album_result_array, $album->id);
+                   
+                }
+                //print_r($album_result_array);
+                $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
                     $response = array(
                     'status' => 'success',
                     'msg' => 'Setting created successfully',
