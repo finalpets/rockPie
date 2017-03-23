@@ -115,15 +115,25 @@ def get_filepaths(directory):
 	console = WTCW(sys.stdout)
     # Walk the tree.
 	for root, directories, files in os.walk(unicode(directory)):
+		for directori in directories:
+			str_directory = os.path.join(root, remove_accents(directori))
+			print directori
+			try:
+				os.rename(os.path.join(root,directori),u""+str_directory)
+			except Exception as e:
+				print e
 		for filename in files:
 			# Join the two strings in order to form the full filepath.
 			#console.writeln("{y} Orinal File Name ...\n"+os.path.join(directory,filename))
-			if (filename.endswith(".mp3") | filename.endswith(".MP3")):
-				print filename
+			if (filename.endswith(".mp3") | filename.endswith(".MP3") | filename.endswith(".mP3") | filename.endswith(".Mp3")):
+				#print filename
 				#print os.path.join(directory,filename)
 				#str	= root+"\\"+remove_accents(filename)
 				str = os.path.join(root, remove_accents(filename))
-				print str
+				str = str.replace("?","")
+				str = str.replace("¿","")
+				
+				#print str
 				try:
 					os.rename(os.path.join(root,filename),u""+str)
 				except Exception as e:
