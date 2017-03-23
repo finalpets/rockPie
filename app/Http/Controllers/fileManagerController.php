@@ -144,7 +144,9 @@ class fileManagerController extends Controller
 
                     /*ALBUM SECTION*/
                     $albumExist = false;
-                    $check_allAlbums = Album::all();
+                    //$check_allAlbums = Album::all();
+                    $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.artist_name',"=",$parsedArtist)->orderBy('artists.artist_name','asc')->select('albums.*')->get();
+                    
                     foreach ($check_allAlbums as $check_allAlbum) {
                         if($check_allAlbum->album_name == $album)
                         {
@@ -263,7 +265,8 @@ class fileManagerController extends Controller
                     //dd($artistExist);
                     /*ALBUM SECTION*/
                     $albumExist = false;
-                    $check_allAlbums = Album::all();
+                    //$check_allAlbums = Album::all();
+                    $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.artist_name',"=",$parsedArtist)->orderBy('artists.artist_name','asc')->select('albums.*')->get();
                     foreach ($check_allAlbums as $check_allAlbum) {
                         if($check_allAlbum->album_name == $parsedAlbum)
                         {
