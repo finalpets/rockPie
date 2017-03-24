@@ -147,7 +147,7 @@ ol.example li.placeholder:before {
 	
 }
 .table tbody{	
-	height: 350px;
+	/*height: 350px;*/
 }
 .table tbody tr td,.table tbody tr th{
 	padding: 0px;		
@@ -245,7 +245,8 @@ ol.example li.placeholder:before {
 	border-style: solid;
 	border-color: #ddd;
     border-width: 1px;  
-    overflow: hidden;	
+    /*overflow: hidden;	*/
+    overflow-y: auto;
 
 	
 }
@@ -268,7 +269,7 @@ ol.example li.placeholder:before {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	margin-top: 5%;
+	/*margin-top: 5%;*/
 
 }
 .overlay {
