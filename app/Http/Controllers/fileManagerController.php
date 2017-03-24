@@ -105,6 +105,9 @@ class fileManagerController extends Controller
                     $song = substr( $fullstring, strlen($album) + strlen($parsedArtist) + 2);
                     //dd($song);
                     $song_withOut_mp3 = str_replace(".mp3", "",$song);
+                    $song_withOut_mp3 = str_replace(".Mp3", "",$song_withOut_mp3);
+                    $song_withOut_mp3 = str_replace(".MP3", "",$song_withOut_mp3);
+                    $song_withOut_mp3 = str_replace(".mP3", "",$song_withOut_mp3);
                    // dd($song_withOut_mp3);
 
 
@@ -218,7 +221,11 @@ class fileManagerController extends Controller
                     $parsedAlbum = UtilsLibrary::get_string_between($album, '/', '/');
 
                     $song = substr( $fullstring, strlen($parsedAlbum) + strlen($parsedArtist) + 4);
+                    //remove MP3 in the SONG NAME
                     $song_withOut_mp3 = str_replace(".mp3", "",$song);
+                    $song_withOut_mp3 = str_replace(".Mp3", "",$song_withOut_mp3);
+                    $song_withOut_mp3 = str_replace(".MP3", "",$song_withOut_mp3);
+                    $song_withOut_mp3 = str_replace(".mP3", "",$song_withOut_mp3);
                     //dd($song2);
                     //$cover = $fullstring;
                    // $cover = $parsedArtist;
