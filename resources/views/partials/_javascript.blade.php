@@ -46,7 +46,7 @@ function load_Array_Albums(){
 
         			if(array_Albums[i].artist.artist_name == array_Artists[x].artist_name)
            			{
-           				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+array_Artists[x].letter.letter+"'>";
+           				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+array_Artists[x].letter.letter+" btn-shadow'>";
 
            				result+= "\n<div class='image-box'>";
            				result+= "\n<div class='overlay-container'>";
@@ -617,7 +617,7 @@ function addSong_to_playlist(artist, song, song_url) {
 	 else
 	 {
 	 	$('#editPlaylist').bootstrapToggle('enable');
-	 	$("ol").append("<li id="+music+" ><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
+	 	$("ol").append("<li id="+music+"><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o btn-shadow' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
 	 	$(".btn-playList").on('click', function(event) {
        		event.preventDefault();
        		$(this).parent().remove();
@@ -666,7 +666,18 @@ function nextSong(){
 
 function parsed_CurrentSong(currentSong){
 	console.log("before currentSong:"+currentSong);
-	 current_Song =currentSong.substring(currentSong.lastIndexOf("/")+1,currentSong.length);
+	console.log("before current_Artist:"+current_Artist);
+	current_Artist = currentSong.substring(0,currentSong.lastIndexOf("/"));
+	current_Artist = current_Artist.substring(0,current_Artist.lastIndexOf("/"));
+	current_Artist = current_Artist.substring(current_Artist.lastIndexOf("/")+1,current_Artist.length);
+	//current_Artist = currentSong.substring(0,currentSong.indexOf("/"));
+	current_Song =currentSong.substring(currentSong.lastIndexOf("/")+1,currentSong.length);
+	current_Song = current_Song.replace("Mp3","");
+	current_Song = current_Song.replace("MP3","");
+	current_Song = current_Song.replace("mP3","");
+	current_Song = current_Song.replace("mp3","");
+
+	console.log("after current_Artist:"+current_Artist);
 	console.log("after currentSong:"+current_Song);
 
 }
@@ -689,11 +700,11 @@ function playList(){
 
 	playSong = song_url2;
 	console.log('Origina music:', playSong);
-
+	title_song = current_Artist +" - "+current_Song;
 	$('#listBar>ol>li').first().remove();
 
     $('#jquery_jplayer_1').jPlayer("setMedia", {
-        title: current_Song,
+        title: title_song,
         m4a: playSong,
         oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
       });
