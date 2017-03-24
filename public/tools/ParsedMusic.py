@@ -132,6 +132,9 @@ def get_filepaths(directory):
 				str = os.path.join(root, remove_accents(filename))
 				str = str.replace("?","")
 				str = str.replace("¿","")
+				str = str.replace("!","")
+				str = str.replace("¡","")
+				str = str.replace("#","")
 				
 				#print str
 				try:
