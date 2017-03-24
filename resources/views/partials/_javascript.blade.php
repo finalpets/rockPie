@@ -178,8 +178,13 @@ function load_Array_Albums(){
 					    // document.getElementById('lc').appendChild(element);
            			}
         		}
-
-        $('#isotopeAjax_'+array_letterID).append(result);
+        //$('#isotopeAjax_'+array_letterID).hide();
+        //$('#isotopeAjax_'+array_letterID).addClass('animated bounceOutLeft');
+        //$('#isotopeAjax_'+array_letterID).addClass('animated bounceInDown');
+        $('#isotopeAjax_'+array_letterID).append(result).animateCss('fadeIn');;
+        //$('#isotopeAjax_'+array_letterID).show();
+        //$('#isotopeAjax_'+array_letterID).addClass('animated wobble');
+        //$('#isotopeAjax_'+array_letterID).fadeIn(100);
 		        contentLoadTriggered = false;
 		        //console.log(contentLoadTriggered);
     }
@@ -808,7 +813,14 @@ $(document).ready(function(){
   //       //alert("hola");
   //      // $(this).parent().remove();
   //   });
-
+	$.fn.extend({
+	    animateCss: function (animationName) {
+	        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+	        this.addClass('animated ' + animationName).one(animationEnd, function() {
+	            $(this).removeClass('animated ' + animationName);
+	        });
+	    }
+	});
   $("#jquery_jplayer_1").jPlayer({
   	// Options
 

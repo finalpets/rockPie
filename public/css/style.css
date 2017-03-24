@@ -1,3 +1,9 @@
+.isotope-container {
+  -webkit-animation-duration: .2s;
+  /*-webkit-animation-delay: .01s;*/
+  /*-webkit-animation-iteration-count: infinite;*/
+}
+
 #btn_removeAllSongs {
 	float: right;
 }
