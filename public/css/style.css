@@ -23,6 +23,7 @@
 	color: white;
 	-moz-border-radius: 5px; 
     -webkit-border-radius: 5px; 
+    box-shadow: 1px 2px 5px #000000; 
 }
 
 /*Button PlayList Align to the right*/
@@ -172,6 +173,7 @@ ol.example li.placeholder:before {
     padding: 1px 15px;
     margin-top: -50px;
     left: 15px;
+    box-shadow: 1px 2px 5px #000000; 
 
 }
 
