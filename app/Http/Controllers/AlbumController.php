@@ -140,17 +140,20 @@ class AlbumController extends Controller
                  ->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                 //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
                 //$songs = Song::orderBy('track','asc')->get();
-                $artists = Artist::orderBy('artist_name','asc')->get();              
+                //$artists = Artist::orderBy('artist_name','asc')->get();              
              //   dd($request->stream_active);
 
                 $album_result_array = array();
                 $song_result_array = array();
+                $artist_result_array = array();
                 foreach ($albums as $album) {
                    //print_r($album->album_name."\n");
                    array_push($album_result_array, $album->id);
+                   array_push($artist_result_array, $album->artist_id);
                    
-                }
+                }                
                 //print_r($album_result_array);
+                $artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
                 $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
 
                 foreach ($songs as $song) {
@@ -176,15 +179,20 @@ class AlbumController extends Controller
                     $albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                     //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
                     //$songs = Song::orderBy('track','asc')->get();
-                    $artists = Artist::orderBy('artist_name','asc')->get();              
+                   // $artists = Artist::orderBy('artist_name','asc')->get();              
                  //   dd($request->stream_active);
                     $album_result_array = array();
                     $song_result_array = array();
+                    $artist_result_array = array();
+
+
                     foreach ($albums as $album) {
                        //print_r($album->album_name."\n");
                        array_push($album_result_array, $album->id);
+                       array_push($artist_result_array, $album->artist_id);
                    
                 }
+                $artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
                 //print_r($album_result_array);
                 $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
                     $response = array(
