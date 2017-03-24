@@ -297,14 +297,14 @@
         <!-- List SIDEBAR -->  
         <div class="col-sm-1 sidenav">
             <div id="leftsidebar">
-              <button class="btn btn-default" id="UP"><i class="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i></button>
-              <button class="btn btn-default" id="DOWN"><i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i></button>
+              <button class="btn btn-default btn-shadow" id="UP"><i class="fa fa-long-arrow-up fa-3x" aria-hidden="true"></i></button>
+              <button class="btn btn-default btn-shadow" id="DOWN"><i class="fa fa-long-arrow-down fa-3x" aria-hidden="true"></i></button>
             </div>
           </div>  
           <div class="col-sm-3 sidenav" id="listBar">
             <span class="label label-default">PlayList</span>        
             <input type="checkbox" id="editPlaylist" data-toggle="toggle" data-on="On <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-off="Off <i class='fa fa-pencil-square-o' aria-hidden='true'></i>" data-onstyle="success" data-offstyle="danger" data-size="mini">
-            <button id="btn_removeAllSongs" class="btn-danger btn-xs" onclick="removeAllSongs()">ALL <i class='fa fa-trash-o' aria-hidden='true'></i> </button></button>
+            <button id="btn_removeAllSongs" class="btn-danger btn-xs btn-shadow" onclick="removeAllSongs()">ALL <i class='fa fa-trash-o' aria-hidden='true'></i> </button></button>
             {{-- <button class="btn btn-primary" onclick="playList()">PLAY</button> --}}
               {{-- <div class="well"> --}}
                 <ol class='example' id="playerList">
