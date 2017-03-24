@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', -1);
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Filesystem\Filesystem;
 
