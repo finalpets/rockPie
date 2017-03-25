@@ -231,12 +231,14 @@ ol.example li.placeholder:before {
 	text-align: center;	
 }
 #leftsidebar {
-	height: 750px;
+	height: 730px;
 }
 #leftsidebar button {
 	height: 50%;
-	width: 50%;
-
+	width: 50%;	
+}
+#DOWN {
+	margin-top: 10px;
 }
 .isotope-container {
 	/*overflow: hidden;	*/
