@@ -684,6 +684,14 @@ function parsed_CurrentSong(currentSong){
 
 function playList(){
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+	if(navbar.length == 0){
+		playSong = "";
+		title_song ="";
+		$('#editPlaylist').bootstrapToggle('off');
+		$('#editPlaylist').bootstrapToggle('disable');
+		return;
+	}
+	console.log('Navbar Lenght: ', navbar.length);
 	 console.log('Get first: ', navbar[0].id);
 	// console.log('Get first: ', navbar[0].textContent);
 	// console.log('Get first: ', navbar.length);
@@ -858,12 +866,20 @@ $(document).ready(function(){
     toggleDuration: true ,
     wmode: "window"
     , ended: function() { // The $.jPlayer.event.ended event
-
+		let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+		if(navbar.length < 2){
+			
+			$('#editPlaylist').bootstrapToggle('off');
+			$('#editPlaylist').bootstrapToggle('disable');
+			
+		}
     	isPlaying = false;
     	playList();
 			console.log("play isPlaying:"+isPlaying);
     	console.log("songEnded:"+playSong);
+    	console.log("title_song:"+title_song);
 		$(this).jPlayer("setMedia", {
+			title: title_song,
 			mp3: playSong,
 	      }).jPlayer("play"); // Attempts to Auto-Play the media
 		},
