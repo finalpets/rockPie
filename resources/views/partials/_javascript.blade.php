@@ -25,15 +25,16 @@
 	var OFFSET_AJAX_REQUEST = 0;
 	var TOTAL_ALBUM_REQUEST =4;//IMPORTANT:if you change this also change in AlbumController the Query offset
 	var MAX_ALBUMS=0;
+	var MAX_ALBUMS_PRE = 0;
 	var playSong = "";
 	var isPlaying = false;
 	var current_Artist = "";
 	var current_Song = "";
-	var letterID = "LALL";
+	var letterID = 1;
 	var array_Albums ="" ;
 	var array_Artists = "" ;
 	var array_Songs = "" ;
-	var array_letterID ="";
+	var array_letterID =0;
 	var TOTAL_SHOW_ALBUMS = 4;
 function load_Array_Albums(){
 
@@ -197,6 +198,7 @@ function load_Array_Albums(){
 }
 
 function onloadFristAlbums(LetterID){
+	console.log("LetterID:"+LetterID);
    // ajax call get data from server and append to the div
    contentLoadTriggered = true;
    console.log("OFFSET_AJAX_REQUEST:"+OFFSET_AJAX_REQUEST);
@@ -213,14 +215,17 @@ function onloadFristAlbums(LetterID){
         success: function( data ) {
         	//console.log(data.letter_id);
         	console.log('max_albums:'+data.max_albums);
+        	console.log('max_albums_pre:'+data.max_albums_pre);
 
         		MAX_ALBUMS = data.max_albums;
+        		MAX_ALBUMS_PRE = data.max_albums_pre;
         	 // if(OFFSET_AJAX_REQUEST == 0)
         	 // 	OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST+4;
         	array_Albums = data.albums;
         	array_Artists = data.artists;
         	array_Songs = data.songs;
         	array_letterID = data.letter_id;
+        	console.log("array_letterID:"+array_letterID);
 
         	//console.log("Albumnes:"+data.albums.length);
         	load_Array_Albums();
@@ -394,6 +399,15 @@ $('#leftsidebar button').on("click",function(e){
 					console.log("CLICK UP: "+OFFSET_AJAX_REQUEST);
 					load_Next = true;
 				}
+				else if(Number(letterID) > 1)
+				{
+					OFFSET_AJAX_REQUEST = MAX_ALBUMS_PRE -4;
+					console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
+					load_Next = true;
+					letterID = Number(letterID)-1;
+					$('#myTabs a[href="#Letter_'+letterID+'"]').tab('show');
+
+				}
 		}
 		else
 		{			
@@ -408,7 +422,24 @@ $('#leftsidebar button').on("click",function(e){
 					OFFSET_AJAX_REQUEST = OFFSET_AJAX_REQUEST + TOTAL_ALBUM_REQUEST;
 					console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
 					load_Next = true;
+						test = "1";
+					test = Number(test) +1;
+					console.log("TEST:"+test);
+					//$(".nav-pills #2").attr('id').addClass("active");					
+
+
 				}			
+				else
+				{
+					OFFSET_AJAX_REQUEST = 0;
+					console.log("Click  DONW:"+OFFSET_AJAX_REQUEST);
+					load_Next = true;
+					// $(".nav-pills").find("li.active").removeClass("active");
+					letterID = Number(letterID)+1;
+					// $('#'+letterID).parent().addClass("active");	
+					$('#myTabs a[href="#Letter_'+letterID+'"]').tab('show');		
+					//$('#someTab').tab('show')
+				}
 		}
 		if(load_Next)
 		{
@@ -439,59 +470,59 @@ e.preventDefault();
 				// }
 });
 function remove_ALL_IsotopeAjaxDivs(){
-	var myNode = document.getElementById('isotopeAjax_LALL');
+	// var myNode = document.getElementById('isotopeAjax_LALL');
+	// removeIsotopeAjaxDivs(myNode);
+	var myNode = document.getElementById('isotopeAjax_1');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LA');
+	var myNode = document.getElementById('isotopeAjax_2');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LB');
+	var myNode = document.getElementById('isotopeAjax_3');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LC');
+	var myNode = document.getElementById('isotopeAjax_4');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LD');
+	var myNode = document.getElementById('isotopeAjax_5');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LE');
+	var myNode = document.getElementById('isotopeAjax_6');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LF');
+	var myNode = document.getElementById('isotopeAjax_7');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LG');
+	var myNode = document.getElementById('isotopeAjax_8');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LH');
+	var myNode = document.getElementById('isotopeAjax_9');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LI');
+	var myNode = document.getElementById('isotopeAjax_10');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LJ');
+	var myNode = document.getElementById('isotopeAjax_11');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LK');
+	var myNode = document.getElementById('isotopeAjax_12');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LL');
+	var myNode = document.getElementById('isotopeAjax_13');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LM');
+	var myNode = document.getElementById('isotopeAjax_14');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LN');
+	var myNode = document.getElementById('isotopeAjax_15');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LO');
+	var myNode = document.getElementById('isotopeAjax_16');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LP');
+	var myNode = document.getElementById('isotopeAjax_17');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LQ');
+	var myNode = document.getElementById('isotopeAjax_18');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LR');
+	var myNode = document.getElementById('isotopeAjax_19');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LS');
+	var myNode = document.getElementById('isotopeAjax_20');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LT');
+	var myNode = document.getElementById('isotopeAjax_21');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LU');
+	var myNode = document.getElementById('isotopeAjax_22');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LV');
+	var myNode = document.getElementById('isotopeAjax_23');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LW');
+	var myNode = document.getElementById('isotopeAjax_24');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LX');
+	var myNode = document.getElementById('isotopeAjax_25');
 	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LY');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_LZ');
+	var myNode = document.getElementById('isotopeAjax_26');
 	removeIsotopeAjaxDivs(myNode);
 }
 function removeIsotopeAjaxDivs(myNode){
@@ -759,7 +790,6 @@ $(document).ready(function(){
 	{
 		$('#editPlaylist').bootstrapToggle('disable')
 	}
-
 
 	onloadFristAlbums(letterID); //load the first 16 Albums when load the page
 	//check if the scroll reach the botton to get another albums request

@@ -21,86 +21,89 @@ class AlbumController extends Controller
      */
     public function index(Request $request)
     {      
-
-        if($request->letter_id == 'LA')
-            $letter_id = 1;
-        else
-            if($request->letter_id == 'LB')
-                $letter_id = 2;
-            else
-                if($request->letter_id == 'LC')
-                    $letter_id=3;
-                else
-                    if($request->letter_id == 'LD')
-                        $letter_id=4;
-                    else
-                        if($request->letter_id == 'LE')
-                            $letter_id=5;
-                        else
-                            if($request->letter_id == 'LF')
-                                $letter_id=6;
-                            else
-                                if($request->letter_id == 'LG')
-                                    $letter_id=7;
-                                else
-                                    if($request->letter_id == 'LH')
-                                        $letter_id=8;
-                                    else
-                                        if($request->letter_id == 'LI')
-                                            $letter_id=9;
-                                        else
-                                            if($request->letter_id == 'LJ')
-                                                $letter_id=10;
-                                            else
-                                                if($request->letter_id == 'LK')
-                                                    $letter_id=11;
-                                                else
-                                                    if($request->letter_id == 'LL')
-                                                        $letter_id=12;
-                                                    else
-                                                        if($request->letter_id == 'LM')
-                                                            $letter_id=13;
-                                                        else
-                                                            if($request->letter_id == 'LN')
-                                                                $letter_id=14;
-                                                            else
-                                                                if($request->letter_id == 'LO')
-                                                                    $letter_id=15;
-                                                                else
-                                                                    if($request->letter_id == 'LP')
-                                                                        $letter_id=16;
-                                                                    else
-                                                                        if($request->letter_id == 'LQ')
-                                                                            $letter_id=17;
-                                                                        else
-                                                                            if($request->letter_id == 'LR')
-                                                                                $letter_id=18;
-                                                                            else
-                                                                                if($request->letter_id == 'LS')
-                                                                                    $letter_id=19;
-                                                                                else
-                                                                                    if($request->letter_id == 'LT')
-                                                                                        $letter_id=20;
-                                                                                    else
-                                                                                        if($request->letter_id == 'LU')
-                                                                                            $letter_id=21;
-                                                                                        else
-                                                                                            if($request->letter_id == 'LV')
-                                                                                                $letter_id=22;
-                                                                                            else
-                                                                                                if($request->letter_id == 'LW')
-                                                                                                    $letter_id=23;
-                                                                                                else
-                                                                                                    if($request->letter_id == 'LX')
-                                                                                                        $letter_id=24;
-                                                                                                    else
-                                                                                                        if($request->letter_id == 'LY')
-                                                                                                            $letter_id=25;
-                                                                                                        else
-                                                                                                            if($request->letter_id == 'LZ')
-                                                                                                                $letter_id=26;
-                                                                                                            else
-                                                                                                                $request->letter_id ='LALL';
+        $letter_id = $request->letter_id;
+        //print_r($letter_id);
+        //dd($request->offset);
+        //dd($letter_id);
+        // if($request->letter_id == 'LA')
+        //     $letter_id = 1;
+        // else
+        //     if($request->letter_id == 'LB')
+        //         $letter_id = 2;
+        //     else
+        //         if($request->letter_id == 'LC')
+        //             $letter_id=3;
+        //         else
+        //             if($request->letter_id == 'LD')
+        //                 $letter_id=4;
+        //             else
+        //                 if($request->letter_id == 'LE')
+        //                     $letter_id=5;
+        //                 else
+        //                     if($request->letter_id == 'LF')
+        //                         $letter_id=6;
+        //                     else
+        //                         if($request->letter_id == 'LG')
+        //                             $letter_id=7;
+        //                         else
+        //                             if($request->letter_id == 'LH')
+        //                                 $letter_id=8;
+        //                             else
+        //                                 if($request->letter_id == 'LI')
+        //                                     $letter_id=9;
+        //                                 else
+        //                                     if($request->letter_id == 'LJ')
+        //                                         $letter_id=10;
+        //                                     else
+        //                                         if($request->letter_id == 'LK')
+        //                                             $letter_id=11;
+        //                                         else
+        //                                             if($request->letter_id == 'LL')
+        //                                                 $letter_id=12;
+        //                                             else
+        //                                                 if($request->letter_id == 'LM')
+        //                                                     $letter_id=13;
+        //                                                 else
+        //                                                     if($request->letter_id == 'LN')
+        //                                                         $letter_id=14;
+        //                                                     else
+        //                                                         if($request->letter_id == 'LO')
+        //                                                             $letter_id=15;
+        //                                                         else
+        //                                                             if($request->letter_id == 'LP')
+        //                                                                 $letter_id=16;
+        //                                                             else
+        //                                                                 if($request->letter_id == 'LQ')
+        //                                                                     $letter_id=17;
+        //                                                                 else
+        //                                                                     if($request->letter_id == 'LR')
+        //                                                                         $letter_id=18;
+        //                                                                     else
+        //                                                                         if($request->letter_id == 'LS')
+        //                                                                             $letter_id=19;
+        //                                                                         else
+        //                                                                             if($request->letter_id == 'LT')
+        //                                                                                 $letter_id=20;
+        //                                                                             else
+        //                                                                                 if($request->letter_id == 'LU')
+        //                                                                                     $letter_id=21;
+        //                                                                                 else
+        //                                                                                     if($request->letter_id == 'LV')
+        //                                                                                         $letter_id=22;
+        //                                                                                     else
+        //                                                                                         if($request->letter_id == 'LW')
+        //                                                                                             $letter_id=23;
+        //                                                                                         else
+        //                                                                                             if($request->letter_id == 'LX')
+        //                                                                                                 $letter_id=24;
+        //                                                                                             else
+        //                                                                                                 if($request->letter_id == 'LY')
+        //                                                                                                     $letter_id=25;
+        //                                                                                                 else
+        //                                                                                                     if($request->letter_id == 'LZ')
+        //                                                                                                         $letter_id=26;
+        //                                                                                                     else
+        //                                                                                                         $request->letter_id ='LALL';
 
 
         // $albums = Album::orderBy('id','asc')->offset(0)->limit(16)->get();   
@@ -176,6 +179,15 @@ class AlbumController extends Controller
                 //if($request->letter_id == 'LA')
                 {
                     $max_albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->count();
+                    if($letter_id !=1)
+                    {
+                        $max_albums_pre = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id-1)->count();
+                    }
+                    else
+                    {
+                        $max_albums_pre = 0;
+                    }
+
                     $albums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=",$letter_id)->orderBy('artists.artist_name','asc')->select('albums.*')->offset($request->offset)->limit(4)->get();
                     //$albums = Album::orderBy('id','asc')->offset($request->offset)->limit(16)->get();   
                     //$songs = Song::orderBy('track','asc')->get();
@@ -201,7 +213,7 @@ class AlbumController extends Controller
                     'letter_id' => $request->letter_id,
                     );
 
-                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums]);
+                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums , 'max_albums_pre' => $max_albums_pre ]);
 
                 }
             }

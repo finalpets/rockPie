@@ -91,35 +91,35 @@
           
             
               
-                  <ul class="nav nav-pills">
+                  <ul class="nav nav-pills" id="myTabs" role="tablist">
 
-                  <li class="active"><a href="#ALL" data-toggle="tab"><i id="LALL" class="fa fa-list" aria-hidden="true"></i></a></li>
-                  <li><a id="LA" data-toggle="tab" href="#LetterA">A</a></li>
-                  <li><a id="LB" data-toggle="tab" href="#LetterB">B</a></li>   
-                  <li><a id="LC" data-toggle="tab" href="#LetterC">C</a></li>   
-                  <li><a id="LD" data-toggle="tab" href="#LetterD">D</a></li>   
-                  <li><a id="LE" data-toggle="tab" href="#LetterE">E</a></li>   
-                  <li><a id="LF" data-toggle="tab" href="#LetterF">F</a></li>   
-                  <li><a id="LG" data-toggle="tab" href="#LetterG">G</a></li>   
-                  <li><a id="LH" data-toggle="tab" href="#LetterH">H</a></li>   
-                  <li><a id="LI" data-toggle="tab" href="#LetterI">I</a></li>   
-                  <li><a id="LJ" data-toggle="tab" href="#LetterJ">J</a></li>   
-                  <li><a id="LK" data-toggle="tab" href="#LetterK">K</a></li>   
-                  <li><a id="LL" data-toggle="tab" href="#LetterL">L</a></li>   
-                  <li><a id="LM" data-toggle="tab" href="#LetterM">M</a></li>
-                  <li><a id="LN" data-toggle="tab" href="#LetterN">N</a></li>   
-                  <li><a id="LO" data-toggle="tab" href="#LetterO">O</a></li>   
-                  <li><a id="LP" data-toggle="tab" href="#LetterP">P</a></li>   
-                  <li><a id="LQ" data-toggle="tab" href="#LetterQ">Q</a></li>   
-                  <li><a id="LR" data-toggle="tab" href="#LetterR">R</a></li>   
-                  <li><a id="LS" data-toggle="tab" href="#LetterS">S</a></li>   
-                  <li><a id="LT" data-toggle="tab" href="#LetterT">T</a></li>   
-                  <li><a id="LU" data-toggle="tab" href="#LetterU">U</a></li>   
-                  <li><a id="LV" data-toggle="tab" href="#LetterV">V</a></li>   
-                  <li><a id="LW" data-toggle="tab" href="#LetterW">W</a></li>   
-                  <li><a id="LX" data-toggle="tab" href="#LetterX">X</a></li>   
-                  <li><a id="LY" data-toggle="tab" href="#LetterY">Y</a></li>   
-                  <li><a id="LZ" data-toggle="tab" href="#LetterZ">Z</a></li>
+                  {{-- <li class="active"><a href="#ALL" data-toggle="tab"><i id="LALL" class="fa fa-list" aria-hidden="true"></i></a></li> --}}
+                  <li class="active"><a id="1" data-toggle="tab" href="#Letter_1">A</a></li>
+                  <li><a id="2" data-toggle="tab" href="#Letter_2">B</a></li>   
+                  <li><a id="3" data-toggle="tab" href="#Letter_3">C</a></li>   
+                  <li><a id="4" data-toggle="tab" href="#Letter_4">D</a></li>   
+                  <li><a id="5" data-toggle="tab" href="#Letter_5">E</a></li>   
+                  <li><a id="6" data-toggle="tab" href="#Letter_6">F</a></li>   
+                  <li><a id="7" data-toggle="tab" href="#Letter_7">G</a></li>   
+                  <li><a id="8" data-toggle="tab" href="#Letter_8">H</a></li>   
+                  <li><a id="9" data-toggle="tab" href="#Letter_9">I</a></li>   
+                  <li><a id="10" data-toggle="tab" href="#Letter10_">J</a></li>   
+                  <li><a id="11" data-toggle="tab" href="#Letter_11">K</a></li>   
+                  <li><a id="12" data-toggle="tab" href="#Letter_12">L</a></li>   
+                  <li><a id="13" data-toggle="tab" href="#Letter_13">M</a></li>
+                  <li><a id="14" data-toggle="tab" href="#Letter_14">N</a></li>   
+                  <li><a id="15" data-toggle="tab" href="#Letter_15">O</a></li>   
+                  <li><a id="16" data-toggle="tab" href="#Letter_16">P</a></li>   
+                  <li><a id="17" data-toggle="tab" href="#Letter_17">Q</a></li>   
+                  <li><a id="18" data-toggle="tab" href="#Letter_18">R</a></li>   
+                  <li><a id="19" data-toggle="tab" href="#Letter_19">S</a></li>   
+                  <li><a id="20" data-toggle="tab" href="#Letter_20">T</a></li>   
+                  <li><a id="21" data-toggle="tab" href="#Letter_21">U</a></li>   
+                  <li><a id="22" data-toggle="tab" href="#Letter_22">V</a></li>   
+                  <li><a id="23" data-toggle="tab" href="#Letter_23">W</a></li>   
+                  <li><a id="24" data-toggle="tab" href="#Letter_24">X</a></li>   
+                  <li><a id="25" data-toggle="tab" href="#Letter_25">Y</a></li>   
+                  <li><a id="26" data-toggle="tab" href="#Letter_26">Z</a></li>
                 </ul>
               
             
@@ -152,112 +152,112 @@
                     <div class="section">
                       <!-- ISOTOPE -->
                       <div class="tab-content">
-                        <div id="ALL" class="tab-pane fade in active">
+                        {{-- <div id="ALL" class="tab-pane fade in active">
                           <div class="isotope-container row grid-space-20" id="isotopeAjax_LALL">
                           </div>
-                        </div>
-                        <div id="LetterA" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LA">
+                        </div> --}}
+                        <div id="Letter_1" class="tab-pane fade in active">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_1">
                           </div>
                         </div>
-                        <div id="LetterB" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LB">
+                        <div id="Letter_2" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_2">
                           </div>
                         </div>
-                        <div id="LetterC" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LC">
+                        <div id="Letter_3" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_3">
                           </div>
                         </div>
-                        <div id="LetterD" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LD">
+                        <div id="Letter_4" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_4">
                           </div>
                         </div>
-                        <div id="LetterE" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LE">
+                        <div id="Letter_5" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_5">
                           </div>
                         </div>
-                        <div id="LetterF" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LF">
+                        <div id="Letter_6" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_6">
                           </div>
                         </div>
-                        <div id="LetterG" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LG">
+                        <div id="Letter_7" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_7">
                           </div>
                         </div>
-                        <div id="LetterH" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LH">
+                        <div id="Letter_8" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_8">
                           </div>
                         </div>
-                        <div id="LetterI" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LI">
+                        <div id="Letter_9" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_9">
                           </div>
                         </div>
-                        <div id="LetterJ" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LJ">
+                        <div id="Letter_10" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_10">
                           </div>
                         </div>
-                        <div id="LetterK" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LK">
+                        <div id="Letter_11" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_11">
                           </div>
                         </div>
-                        <div id="LetterL" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LL">
+                        <div id="Letter_12" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_12">
                           </div>
                         </div>
-                        <div id="LetterM" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LM">
+                        <div id="Letter_13" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_13">
                           </div>
                         </div>
-                        <div id="LetterN" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LN">
+                        <div id="Letter_14" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_14">
                           </div>
                         </div>
-                        <div id="LetterO" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LO">
+                        <div id="Letter_15" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_15">
                           </div>
                         </div>
-                        <div id="LetterP" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LP">
+                        <div id="Letter_16" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_16">
                           </div>
                         </div>
-                        <div id="LetterQ" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LQ">
+                        <div id="Letter_17" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_17">
                           </div>
                         </div>
-                        <div id="LetterR" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LR">
+                        <div id="Letter_18" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_18">
                           </div>
                         </div>
-                        <div id="LetterS" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LS">
+                        <div id="Letter_19" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_19">
                           </div>
                         </div>
-                        <div id="LetterT" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LT">
+                        <div id="Letter_20" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_20">
                           </div>
                         </div>
-                        <div id="LetterU" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LU">
+                        <div id="Letter_21" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_21">
                           </div>
                         </div>
-                        <div id="LetterV" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LV">
+                        <div id="Letter_22" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_22">
                           </div>
                         </div>
-                        <div id="LetterW" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LW">
+                        <div id="Letter_23" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_23">
                           </div>
                         </div>
-                        <div id="LetterX" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LX">
+                        <div id="Letter_24" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_24">
                           </div>
                         </div>
-                        <div id="LetterY" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LY">
+                        <div id="Letter_25" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_25">
                           </div>
                         </div>
-                        <div id="LetterZ" class="tab-pane fade in active">
-                          <div class="isotope-container row grid-space-20" id="isotopeAjax_LZ">
+                        <div id="Letter_26" class="tab-pane fade ">
+                          <div class="isotope-container row grid-space-20" id="isotopeAjax_26">
                           </div>
                         </div>
                       </div>
