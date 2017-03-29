@@ -43,3 +43,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 $Helps Commands
 
 find . -name \*.swp -type f -delete
+
+#check files to delete with name
+$ find . -type f -name foo\*
