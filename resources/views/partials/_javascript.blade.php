@@ -634,7 +634,7 @@ function addSong_to_playlist(artist, song, song_url) {
 	console.log('Song_url:'+song_url);
 	console.log('playSong:'+playSong);
 	//var clean_url = song_url.replace("'", "^");
-	 var music = song_url.replace(/ /g, "_");
+	 var music = song_url.replace(/ /g, "%20");
 	 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 	 console.log(navbar.length);
 	 if(navbar.length == 0 && isPlaying == false )
@@ -727,7 +727,8 @@ function playList(){
 	// console.log('Get first: ', navbar[0].textContent);
 	// console.log('Get first: ', navbar.length);
 
-	var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL
+	//var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL
+	var parsedSong_url = navbar[0].id;// return to the original URL
 	var song = parsedSong_url.split("^").join("'");// return to the original URL
 	console.log(song);
 	var musicPath = "{{ asset('music') }}";
@@ -739,7 +740,7 @@ function playList(){
 
 	playSong = song_url2;
 	console.log('Origina music:', playSong);
-	title_song = current_Artist +" - "+current_Song;
+	title_song = current_Artist.replace(/%20/g," ") +" - "+current_Song.replace(/%20/g," ");
 	$('#listBar>ol>li').first().remove();
 
     $('#jquery_jplayer_1').jPlayer("setMedia", {
