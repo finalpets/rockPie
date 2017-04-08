@@ -530,6 +530,18 @@ function removeIsotopeAjaxDivs(myNode){
 		myNode.removeChild(myNode.firstChild);
 	}
 }
+$('#ajaxTest').on("click",function(e){
+	
+	$.ajax({
+        type: "DELETE",
+        url: '{{ url('/update') }}' + '/' + '1',        
+        data: { offset:1 , letter_id: 2,  "_token": "{{ csrf_token() }}" },
+        success: function( data ) {    
+          console.log("success");
+        }
+     });
+
+});
 $('#updateTab button').on("click",function(e){
 
 		//console.log(e.currentTarget.innerText);
