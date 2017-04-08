@@ -136,6 +136,7 @@ def get_filepaths(directory):
 				str = str.replace("¡","")
 				str = str.replace("#","")
 				str = str.replace("+","")
+				str = str.replace("’","")
 				
 				#print str
 				try:
