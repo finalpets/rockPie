@@ -28,7 +28,8 @@ class fileManagerController extends Controller
     }
     public function index()
     {
-        return view('settings.index');
+        dd("HELLO");
+       // return view('settings.index');
     } 
 
     /**
@@ -359,6 +360,7 @@ class fileManagerController extends Controller
      */
     public function show($id)
     {
+        dd("HELLO2");
         //
     }
 
@@ -391,8 +393,46 @@ class fileManagerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+
+        if($id == "1")
+        {
+            print_r("request id:".$request->letter_id);
+            $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=","3")->select('albums.*')->get();
+
+
+            $album_result_array = array();
+
+
+                    foreach ($check_allAlbums as $album) {
+                       print_r($album->id."\n");
+                        echo '<br/>';
+                       array_push($album_result_array, $album->id);
+                       //array_push($artist_result_array, $album->artist_id);
+                   
+                }
+                $songs = Song::whereIn('album_id',$album_result_array);
+
+                
+
+                $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.letter_id',"=","3")->select('albums.*');
+
+             //$songs->album()->detach();
+            $check_allAlbums->delete();
+            $songs->delete();
+
+            // foreach ($check_allAlbums as $check_allAlbum) {
+            //         print_r("ALBUM: \n".$check_allAlbum->album_name);    
+            //         echo '<br/>';
+                                
+            //         }
+
+        }
+        else
+            print_r("id:".$id);
+
+       // $check_allAlbums->delete();
+        //dd("DESTOY");
     }
 }
