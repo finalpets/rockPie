@@ -24,8 +24,10 @@ class fileManagerController extends Controller
     public function getMusicPath($letter){
 
         $files =Storage::disk('letter'.'_'.$letter)->allfiles();
+        
         return $files;
     }
+
     public function index()
     {
         dd("HELLO");
@@ -75,6 +77,10 @@ class fileManagerController extends Controller
       
             //$files = Storage::disk('public')->allfiles();
         $files = $this->getMusicPath($request->letter);
+
+        $directories = Storage::disk('letter'.'_'.$request->letter)->allDirectories();
+
+        //dd($directories);
         // if($request->letter == 'A')
         // {    
         //    // $files =Storage::disk('letter_A')->allfiles();
@@ -87,44 +93,139 @@ class fileManagerController extends Controller
         if($request->letter != "ALL")
         {
             $letter = $request->letter;
-            foreach ($files as $file) {
-                $completeURL = $letter."/";
-                $fullstring = $file;
-                $ext = strtolower(pathinfo($fullstring, PATHINFO_EXTENSION));
-                if (in_array($ext, $supported_files)) {
-                    //print_r('ext:'.$ext);
-                    //$parsedArtist = strstr($email, '@', true);
-                    $parsedArtist = strstr($fullstring, '/', true);
-                    //dd($parsedArtist);
+              foreach ($directories as $directory) {
+               // print_r('directori:'.$directory);
+                $album2  = "";
+                $artist_name = strstr($directory, '/', true);
+                $album2 = strstr($directory, '/', false);
 
-                    //$parsedArtist = UtilsLibrary::get_string_between($fullstring, '/', '/');
-                    
-                    $album = UtilsLibrary::get_string_between($fullstring, '/', '/');
-                    //dd($album);
-                    //$parsedAlbum = UtilsLibrary::get_string_between($album, '/', '/');
+               $album2 = substr($album2, 1);
+                if(strlen($album2) != 0)
+                {
+                    /*ARTIST SECTION*/
+                            $artistExist = false;
+                            $check_allArtists = Artist::all();
+                            foreach ($check_allArtists as $check_allArtist) {
+                                if($check_allArtist->artist_name == $artist_name)
+                                {
+                                    $artistExist = true;
+                                    //dd("Exist");
+                                }
+                            }
+                            if($artistExist != true)
+                            {
+                                $db_artist = new Artist;
+                                $db_artist->artist_name = $artist_name;
 
-                    $song = substr( $fullstring, strlen($album) + strlen($parsedArtist) + 2);
-                    //dd($song);
-                    $song_withOut_mp3 = str_replace(".mp3", "",$song);
-                    $song_withOut_mp3 = str_replace(".Mp3", "",$song_withOut_mp3);
-                    $song_withOut_mp3 = str_replace(".MP3", "",$song_withOut_mp3);
-                    $song_withOut_mp3 = str_replace(".mP3", "",$song_withOut_mp3);
-                   // dd($song_withOut_mp3);
+                                $db_letters = Letter::all();
+                                 foreach ($db_letters as $db_letter) {
+                                    if($db_letter->letter == $letter)
+                                    {                    
+                                       // print_r('Succes:'.$db_letter->letter);
+                                        $db_artist->letter_id = $db_letter->id;
+                                    }
+                                 }
+                                 $db_artist->save();
+                            }
+
+                            /*ALBUM SECTION*/
+                            $albumExist = false;
+                            //$check_allAlbums = Album::all();
+                            $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.artist_name',"=",$artist_name)->orderBy('artists.artist_name','asc')->select('albums.*')->get();
+                            
+                            foreach ($check_allAlbums as $check_allAlbum) {
+                                if($check_allAlbum->album_name == $album2)
+                                {
+                                    $albumExist = true;
+                                }
+                            }
+                            if($albumExist != true)
+                            {
+                                $completeURL = $letter."/";
+                                $db_album = new Album;
+                                $db_album->album_name = $album2;
+                                $db_album->year = 0;
+                                $db_album->genre_id = 1;
+                                $db_album->img =  $completeURL.$directory.'/cover';
+                                $check_allArtists = Artist::all();
+                                foreach ($check_allArtists as $check_allArtist) {
+                                    if($check_allArtist->artist_name == $artist_name)
+                                    {
+                                        $db_album->artist_id = $check_allArtist->id;
+                                    }
+                                }
+                                $db_album->save();
+                                foreach ($files as $file) 
+                                {
+                                    
+                                    $fullstring = $file;
+                                    $ext = strtolower(pathinfo($fullstring, PATHINFO_EXTENSION));
+                                    if (in_array($ext, $supported_files)) 
+                                    {
+                                        //print_r('ext:'.$ext);
+                                        //$parsedArtist = strstr($email, '@', true);
+                                        $parsedArtist = strstr($fullstring, '/', true);
+                                        //dd($parsedArtist);
+
+                                        //$parsedArtist = UtilsLibrary::get_string_between($fullstring, '/', '/');
+                                        
+                                        $album = UtilsLibrary::get_string_between($fullstring, '/', '/');
+                                        
+                                        //dd($album);
+                                        //$parsedAlbum = UtilsLibrary::get_string_between($album, '/', '/');
+
+                                        $song = substr( $fullstring, strlen($album) + strlen($parsedArtist) + 2);
+                                        //dd($song);
+                                        $song_withOut_mp3 = str_replace(".mp3", "",$song);
+                                        $song_withOut_mp3 = str_replace(".Mp3", "",$song_withOut_mp3);
+                                        $song_withOut_mp3 = str_replace(".MP3", "",$song_withOut_mp3);
+                                        $song_withOut_mp3 = str_replace(".mP3", "",$song_withOut_mp3);
+                                       // dd($song_withOut_mp3);
 
 
-                    $cover = substr( $fullstring, 0,strlen($parsedArtist)+strlen($album) + 1 ); //get the cover of the album
-                    //dd($cover);
-                    //$cover = substr( $fullstring, strlen($parsedArtist)+ strlen($album) + strlen($parsedArtist) + 4);
-                    $cover = $cover.'/cover'; 
-                    //dd($cover);
+                                        $cover = substr( $fullstring, 0,strlen($parsedArtist)+strlen($album) + 1 ); //get the cover of the album
+                                        //dd($cover);
+                                        //$cover = substr( $fullstring, strlen($parsedArtist)+ strlen($album) + strlen($parsedArtist) + 4);
+                                        $cover = $cover.'/cover'; 
+                                        //dd($cover);
 
-                    //$letter = $file[0];
-                    //dd($completeURL);
+                                        //$letter = $file[0];
+                                        //dd($completeURL);                                        
+
+                                        /*SONG SECTION*/
+                                        if($album == $album2)
+                                        {
+                                            if (in_array($ext, $supported_music)) //Only Add Mp3 songs not Jpg npg for the Album
+                                            
+                                            {                
+                                                $db_song = new Song;    
+                                                $db_song->track = 00;
+                                                $db_song->title = $song_withOut_mp3;
+                                                //dd($completeURL.$fullstring);
+                                                $db_song->song_url = $completeURL.$fullstring;
+                                                $check_allAlbums = Album::all();
+                                                foreach ($check_allAlbums as $check_allAlbum) {
+                                                    if($check_allAlbum->album_name == $album)
+                                                    {
+                                                        $db_song->album_id = $check_allAlbum->id;
+                                                    }
+                                                }                
+                                                $db_song->save();
+                                            }
+                                        }                                 
+                                    } //End supported 
+                                }
+
+                                
+                            }
+                }
+                else         
+                {
                     /*ARTIST SECTION*/
                     $artistExist = false;
                     $check_allArtists = Artist::all();
                     foreach ($check_allArtists as $check_allArtist) {
-                        if($check_allArtist->artist_name == $parsedArtist)
+                        if($check_allArtist->artist_name == $directory)
                         {
                             $artistExist = true;
                             //dd("Exist");
@@ -133,7 +234,7 @@ class fileManagerController extends Controller
                     if($artistExist != true)
                     {
                         $db_artist = new Artist;
-                        $db_artist->artist_name = $parsedArtist;
+                        $db_artist->artist_name = $directory;
 
                         $db_letters = Letter::all();
                          foreach ($db_letters as $db_letter) {
@@ -145,68 +246,14 @@ class fileManagerController extends Controller
                          }
                          $db_artist->save();
                     }
-
-                    /*ALBUM SECTION*/
-                    $albumExist = false;
-                    //$check_allAlbums = Album::all();
-                    $check_allAlbums = Album::join('artists','albums.artist_id','=','artists.id')->where('artists.artist_name',"=",$parsedArtist)->orderBy('artists.artist_name','asc')->select('albums.*')->get();
-                    
-                    foreach ($check_allAlbums as $check_allAlbum) {
-                        if($check_allAlbum->album_name == $album)
-                        {
-                            $albumExist = true;
-                        }
-                    }
-                    if($albumExist != true)
-                    {
-                        $db_album = new Album;
-                        $db_album->album_name = $album;
-                        $db_album->year = 0;
-                        $db_album->genre_id = 1;
-                        $db_album->img =  $completeURL.$cover;
-                        $check_allArtists = Artist::all();
-                        foreach ($check_allArtists as $check_allArtist) {
-                            if($check_allArtist->artist_name == $parsedArtist)
-                            {
-                                $db_album->artist_id = $check_allArtist->id;
-                            }
-                        }
-                        $db_album->save();
-                    }
-
-                    /*SONG SECTION*/
-
-                    $url_songExist = false;
-                    $check_allSongs = Song::all();
-                    foreach ($check_allSongs as $check_allSong) {
-
-                        if($check_allSong->song_url == $completeURL.$fullstring)
-                        {
-                            $url_songExist = true;
-                        }
-                    }
-                    if (in_array($ext, $supported_music)) //Only Add Mp3 songs not Jpg npg for the Album
-                        if($url_songExist != true)
-                        {                
-                            $db_song = new Song;    
-                            $db_song->track = 00;
-                            $db_song->title = $song_withOut_mp3;
-                            //dd($completeURL.$fullstring);
-                            $db_song->song_url = $completeURL.$fullstring;
-                            $check_allAlbums = Album::all();
-                            foreach ($check_allAlbums as $check_allAlbum) {
-                                if($check_allAlbum->album_name == $album)
-                                {
-                                    $db_song->album_id = $check_allAlbum->id;
-                                }
-                            }                
-                            $db_song->save();
-                        }
-                } //End supported 
+                }
             }
+            
+            
         } //end if letter is A                    
         else 
         {
+          
             foreach ($files as $file) {
                 //dd($file);
 
