@@ -193,7 +193,7 @@ class fileManagerController extends Controller
                                         //dd($completeURL);                                        
 
                                         /*SONG SECTION*/
-                                        if($album == $album2)
+                                        if($album == $album2 && $parsedArtist == $artist_name)
                                         {
                                             if (in_array($ext, $supported_music)) //Only Add Mp3 songs not Jpg npg for the Album
                                             
