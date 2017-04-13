@@ -48,6 +48,9 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
 
 		<link href="{{ asset('plugins/boostrap-toogle/css/bootstrap-toggle.min.css') }}" rel="stylesheet">
 
+		<!-- Boostrap Select -->
+		<link href="{{ asset('plugins/bootstrap-select/css/bootstrap-select.min.css') }}" rel="stylesheet">
+
 		{{-- <script src="{{ asset('plugins/spin.js') }}"></script> --}}
 
 
