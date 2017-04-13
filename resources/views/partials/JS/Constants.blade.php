@@ -15,3 +15,11 @@ var array_Songs = "" ;
 var array_letterID =0;
 var TOTAL_SHOW_ALBUMS = 4;
 var MAX_AJAX_DIVS =26;
+var TITLE_SONG_SIZE = 60;
+
+var DEBUG = true;
+function ShowDebugMessage(message) {
+    if (DEBUG) {
+        console.log("DEBUG LOG:"+message);
+    }
+}
