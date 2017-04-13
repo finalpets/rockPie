@@ -19,25 +19,48 @@
 
 
 <script type="text/javascript">
-	var contentLoadTriggered = false;
-	var OFFSET_SCROLL = 300;
 
-	var OFFSET_AJAX_REQUEST = 0;
-	var TOTAL_ALBUM_REQUEST =4;//IMPORTANT:if you change this also change in AlbumController the Query offset
-	var MAX_ALBUMS=0;
-	var MAX_ALBUMS_PRE = 0;
-	var playSong = "";
-	var isPlaying = false;
-	var current_Artist = "";
-	var current_Song = "";
-	var letterID = 1;
-	var array_Albums ="" ;
-	var array_Artists = "" ;
-	var array_Songs = "" ;
-	var array_letterID =0;
-	var TOTAL_SHOW_ALBUMS = 4;
+class Point {
+  constructor(xPos , yPos){
+    this.xPos = xPos;
+    this.yPos = yPos;
+  }
+  getPos(){
+    console.log(this.suma());  
+    return "X:"+this.xPos + "Y:"+this.yPos;
+    
+  }
+
+  suma(){
+    var resultado = this.xPos+this.yPos;
+    return "SUMA :"+resultado;
+  }
+}
+var point = new Point(100,200);
+console.log(point.getPos());
+//console.log(point.suma());
+@include('partials.JS.Constants')
+@include('partials.JS.music_Player')
+
+	// var contentLoadTriggered = false;
+	// var OFFSET_SCROLL = 300;
+
+	// var OFFSET_AJAX_REQUEST = 0;
+	// var TOTAL_ALBUM_REQUEST =4;//IMPORTANT:if you change this also change in AlbumController the Query offset
+	// var MAX_ALBUMS=0;
+	// var MAX_ALBUMS_PRE = 0;
+	// var playSong = "";
+	// var isPlaying = false;
+	// var current_Artist = "";
+	// var current_Song = "";
+	// var letterID = 1;
+	// var array_Albums ="" ;
+	// var array_Artists = "" ;
+	// var array_Songs = "" ;
+	// var array_letterID =0;
+	// var TOTAL_SHOW_ALBUMS = 4;
 function load_Array_Albums(){
-
+//run_run();
 	if(MAX_ALBUMS == 0)
 		contentLoadTriggered= false;
 	
@@ -469,67 +492,67 @@ e.preventDefault();
 				//     myNode.removeChild(myNode.firstChild);
 				// }
 });
-function remove_ALL_IsotopeAjaxDivs(){
-	// var myNode = document.getElementById('isotopeAjax_LALL');
-	// removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_1');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_2');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_3');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_4');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_5');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_6');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_7');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_8');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_9');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_10');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_11');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_12');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_13');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_14');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_15');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_16');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_17');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_18');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_19');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_20');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_21');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_22');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_23');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_24');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_25');
-	removeIsotopeAjaxDivs(myNode);
-	var myNode = document.getElementById('isotopeAjax_26');
-	removeIsotopeAjaxDivs(myNode);
-}
-function removeIsotopeAjaxDivs(myNode){
-	while (myNode.firstChild) {
-		myNode.removeChild(myNode.firstChild);
-	}
-}
+// function remove_ALL_IsotopeAjaxDivs(){
+// 	// var myNode = document.getElementById('isotopeAjax_LALL');
+// 	// removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_1');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_2');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_3');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_4');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_5');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_6');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_7');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_8');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_9');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_10');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_11');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_12');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_13');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_14');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_15');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_16');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_17');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_18');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_19');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_20');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_21');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_22');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_23');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_24');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_25');
+// 	removeIsotopeAjaxDivs(myNode);
+// 	var myNode = document.getElementById('isotopeAjax_26');
+// 	removeIsotopeAjaxDivs(myNode);
+// }
+// function removeIsotopeAjaxDivs(myNode){
+// 	while (myNode.firstChild) {
+// 		myNode.removeChild(myNode.firstChild);
+// 	}
+// }
 $('#ajaxTest').on("click",function(e){
 	
 	$.ajax({
@@ -636,76 +659,77 @@ $('#updateTab button').on("click",function(e){
 
 		//var playing = 0;
 
-function addSong_to_playlist(artist, song, song_url) {
-	var sound_click = "{{ asset('sounds/click.mp3') }}";
-	var snd = new Audio(sound_click);
-	snd.play();
+//OBJECT PLAYER_CONTROL
+// function addSong_to_playlist(artist, song, song_url) {
+// 	var sound_click = "{{ asset('sounds/click.mp3') }}";
+// 	var snd = new Audio(sound_click);
+// 	snd.play();
 
 
-	//console.log(playing);
-	console.log('Song_url:'+song_url);
-	console.log('playSong:'+playSong);
-	//var clean_url = song_url.replace("'", "^");
-	 var music = song_url.replace(/ /g, "%20");
-	 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
-	 console.log(navbar.length);
-	 if(navbar.length == 0 && isPlaying == false )
-	 {
-	 	//playing = 1;
+// 	//console.log(playing);
+// 	console.log('Song_url:'+song_url);
+// 	console.log('playSong:'+playSong);
+// 	//var clean_url = song_url.replace("'", "^");
+// 	 var music = song_url.replace(/ /g, "%20");
+// 	 let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+// 	 console.log(navbar.length);
+// 	 if(navbar.length == 0 && isPlaying == false )
+// 	 {
+// 	 	//playing = 1;
 
-	 	$("#jquery_jplayer_1").jPlayer("option", "cssSelector.title");
-		$("ol").append("<li id="+music+">"+artist+" - "+song+"</li>");
-		playList();
-	 }
-	 else
-	 {
-	 	$('#editPlaylist').bootstrapToggle('enable');
-	 	$("ol").append("<li id="+music+"><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o btn-shadow' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
-	 	$(".btn-playList").on('click', function(event) {
-       		event.preventDefault();
-       		$(this).parent().remove();
+// 	 	$("#jquery_jplayer_1").jPlayer("option", "cssSelector.title");
+// 		$("ol").append("<li id="+music+">"+artist+" - "+song+"</li>");
+// 		playList();
+// 	 }
+// 	 else
+// 	 {
+// 	 	$('#editPlaylist').bootstrapToggle('enable');
+// 	 	$("ol").append("<li id="+music+"><button class ='btn-xs btn-danger btn-playList'> <i class='fa fa-trash-o btn-shadow' aria-hidden='true'></i> </button>"+artist+" - "+song+"</li>");
+// 	 	$(".btn-playList").on('click', function(event) {
+//        		event.preventDefault();
+//        		$(this).parent().remove();
 
-       		let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
-       		if(navbar.length < 1)
-			{
-				$('#editPlaylist').bootstrapToggle('off');
-				$('#editPlaylist').bootstrapToggle('disable');
+//        		let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+//        		if(navbar.length < 1)
+// 			{
+// 				$('#editPlaylist').bootstrapToggle('off');
+// 				$('#editPlaylist').bootstrapToggle('disable');
 
-			}
-    	});
-	 }
+// 			}
+//     	});
+// 	 }
 
-	 	if($('#editPlaylist').prop('checked'))
-	 	{
-	 		$(".btn-playList").attr("hidden",false);
-	 	}
-	 	else
-	 		$(".btn-playList").attr("hidden",true);
+// 	 	if($('#editPlaylist').prop('checked'))
+// 	 	{
+// 	 		$(".btn-playList").attr("hidden",false);
+// 	 	}
+// 	 	else
+// 	 		$(".btn-playList").attr("hidden",true);
 
 
 
-}
+// }
+//OBJECT PLAYER_CONTROL
+// function nextSong(){
+// 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 
-function nextSong(){
-	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+// 	if(navbar.length < 2)
+// 	{
+// 		$('#editPlaylist').bootstrapToggle('off');
+// 		$('#editPlaylist').bootstrapToggle('disable');
 
-	if(navbar.length < 2)
-	{
-		$('#editPlaylist').bootstrapToggle('off');
-		$('#editPlaylist').bootstrapToggle('disable');
-
-	}
-	if(navbar.length != 0)
-	{
-		console.log("Function closeBtn");
-		var sound_click = "{{ asset('sounds/next.mp3') }}";
-		var snd = new Audio(sound_click);
-		snd.play();
-		console.log("Function nextSong");
-		isPlaying = false;
-		playList();
-	}
-}
+// 	}
+// 	if(navbar.length != 0)
+// 	{
+// 		console.log("Function closeBtn");
+// 		var sound_click = "{{ asset('sounds/next.mp3') }}";
+// 		var snd = new Audio(sound_click);
+// 		snd.play();
+// 		console.log("Function nextSong");
+// 		isPlaying = false;
+// 		playList();
+// 	}
+// }
 
 function parsed_CurrentSong(currentSong){
 	console.log("before currentSong:"+currentSong);
@@ -724,77 +748,77 @@ function parsed_CurrentSong(currentSong){
 	console.log("after currentSong:"+current_Song);
 
 }
+//OBJECT PLAYER_CONTROL
+// function playList(){
+// 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
+// 	if(navbar.length == 0){
+// 		playSong = "";
+// 		title_song ="";
+// 		$('#editPlaylist').bootstrapToggle('off');
+// 		$('#editPlaylist').bootstrapToggle('disable');
+// 		return;
+// 	}
+// 	console.log('Navbar Lenght: ', navbar.length);
+// 	 console.log('Get first: ', navbar[0].id);
+// 	// console.log('Get first: ', navbar[0].textContent);
+// 	// console.log('Get first: ', navbar.length);
 
-function playList(){
-	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
-	if(navbar.length == 0){
-		playSong = "";
-		title_song ="";
-		$('#editPlaylist').bootstrapToggle('off');
-		$('#editPlaylist').bootstrapToggle('disable');
-		return;
-	}
-	console.log('Navbar Lenght: ', navbar.length);
-	 console.log('Get first: ', navbar[0].id);
-	// console.log('Get first: ', navbar[0].textContent);
-	// console.log('Get first: ', navbar.length);
+// 	//var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL
+// 	var parsedSong_url = navbar[0].id;// return to the original URL
+// 	var song = parsedSong_url.split("^").join("'");// return to the original URL
+// 	console.log(song);
+// 	var musicPath = "{{ asset('music') }}";
+//     console.log('musicPath:',musicPath);
+// 	song_url = musicPath.concat("/");
+// 	song_url2 = song_url.concat(song);
+// 	console.log('Origina Song:', song);
+// 	parsed_CurrentSong(song);
 
-	//var parsedSong_url = navbar[0].id.split('_').join(' ');// return to the original URL
-	var parsedSong_url = navbar[0].id;// return to the original URL
-	var song = parsedSong_url.split("^").join("'");// return to the original URL
-	console.log(song);
-	var musicPath = "{{ asset('music') }}";
-    console.log('musicPath:',musicPath);
-	song_url = musicPath.concat("/");
-	song_url2 = song_url.concat(song);
-	console.log('Origina Song:', song);
-	parsed_CurrentSong(song);
+// 	playSong = song_url2;
+// 	console.log('Origina music:', playSong);
+// 	title_song = current_Artist.replace(/%20/g," ") +" - "+current_Song.replace(/%20/g," ");
+// 	$('#listBar>ol>li').first().remove();
 
-	playSong = song_url2;
-	console.log('Origina music:', playSong);
-	title_song = current_Artist.replace(/%20/g," ") +" - "+current_Song.replace(/%20/g," ");
-	$('#listBar>ol>li').first().remove();
+//     $('#jquery_jplayer_1').jPlayer("setMedia", {
+//         title: title_song,
+//         m4a: playSong,
+//         oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+//       });
 
-    $('#jquery_jplayer_1').jPlayer("setMedia", {
-        title: title_song,
-        m4a: playSong,
-        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-      });
+//    	$('#jquery_jplayer_1').jPlayer("play");
 
-   	$('#jquery_jplayer_1').jPlayer("play");
+// }
+//OBJECT PLAYER_CONTROL
+// function removeAllSongs() {
+// 	BootstrapDialog.confirm({
+//             title: 'WARNING',
+//             message: 'Are you sure to remove All Songs?',
+//             type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+//             closable: true, // <-- Default value is false
+//             draggable: true, // <-- Default value is false
+//             btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+//             btnOKLabel: 'Yes!', // <-- Default value is 'OK',
+//             btnOKClass: 'btn-danger', // <-- If you didn't specify it, dialog type will be used,
+//             callback: function(result) {
+//                 // result will be true if button was click, while it will be false if users close the dialog directly.
+//                 if(result) {
+//                     $(".example").html('')
 
-}
+//                     let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 
-function removeAllSongs() {
-	BootstrapDialog.confirm({
-            title: 'WARNING',
-            message: 'Are you sure to remove All Songs?',
-            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
-            closable: true, // <-- Default value is false
-            draggable: true, // <-- Default value is false
-            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
-            btnOKLabel: 'Yes!', // <-- Default value is 'OK',
-            btnOKClass: 'btn-danger', // <-- If you didn't specify it, dialog type will be used,
-            callback: function(result) {
-                // result will be true if button was click, while it will be false if users close the dialog directly.
-                if(result) {
-                    $(".example").html('')
-
-                    let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
-
-						$('#editPlaylist').bootstrapToggle('off');
-						$('#editPlaylist').bootstrapToggle('disable');
-
-
-                }else {
-
-                }
-            }
-        });
+// 						$('#editPlaylist').bootstrapToggle('off');
+// 						$('#editPlaylist').bootstrapToggle('disable');
 
 
+//                 }else {
 
-}
+//                 }
+//             }
+//         });
+
+
+
+// }
 
 $(document).ready(function(){
 	$("#btn_removeAllSongs").attr("hidden",true);
