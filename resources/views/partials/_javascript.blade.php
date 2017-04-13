@@ -17,6 +17,11 @@
 <!--Bostrap toogle  -->
 <script type="text/javascript" src="{{ asset('plugins/boostrap-toogle/js/bootstrap-toggle.min.js') }}"></script>
 
+<!--Bostrap Select  -->
+
+<script type="text/javascript" src="{{ asset('plugins/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+
+
 
 <script type="text/javascript">
 
@@ -565,8 +570,202 @@ $('#ajaxTest').on("click",function(e){
      });
 
 });
-$('#updateTab button').on("click",function(e){
+function remove_Letter_from_DB() {
+  BootstrapDialog.confirm({
+            title: 'WARNING',
+            message: 'Are you sure to remove All Songs?',
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: true, // <-- Default value is false
+            btnCancelLabel: 'Cancel', // <-- Default value is 'Cancel',
+            btnOKLabel: 'Yes!', // <-- Default value is 'OK',
+            btnOKClass: 'btn-danger', // <-- If you didn't specify it, dialog type will be used,
+            callback: function(result) {
+                // result will be true if button was click, while it will be false if users close the dialog directly.
+                if(result) {
+                  var letter_id = select_letter.selectedIndex;
+                  $('#update_Loading').append('Loading...<i class="fa fa-spinner fa-spin fa fa-fw"></i><span class="sr-only">Loading...</span>');    
+                  $("#myNavbar ul").attr("hidden",true);
+                  $("#update_letter").attr("disabled",true);
+                  $("#delete_letter").attr("disabled",true);
+                  $(".navbar-header a").attr("hidden",true);
+                                    
+                  $.ajax({
+                        type: "DELETE",
+                        url: '{{ url('/update') }}' + '/' + '1',        
+                        data: { offset:1 , letter_id: letter_id,  "_token": "{{ csrf_token() }}" },
+                        success: function( data ) {
+                          $("#myNavbar ul").attr("hidden",false);
+                          $("#update_letter").attr("disabled",false);
+                          $("#delete_letter").attr("disabled",false);
+                          $(".navbar-header a").attr("hidden",false);
 
+                          var myNode = document.getElementById('update_Loading');
+                          while (myNode.firstChild) {
+                              myNode.removeChild(myNode.firstChild);
+                          }
+                           BootstrapDialog.show({
+                            title: 'Updated success',
+                                message: 'Remove songs success',
+                                type: BootstrapDialog.TYPE_PRIMARY,
+                          buttons: [{
+                                id: 'btn-ok',
+                                icon: 'glyphicon glyphicon-check',
+                                label: 'OK',
+                                cssClass: 'btn-success',
+                                autospin: false,
+                                action: function(dialogRef){
+                                    dialogRef.close();
+                                }
+                            }]
+                            });
+                          console.log("success");
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                          $("#myNavbar ul").attr("hidden",false);
+                          $(".navbar-header a").attr("hidden",false);
+                          $("#update_letter").attr("disabled",false);
+                          $("#delete_letter").attr("disabled",false);
+                          // alert("Status: " + textStatus);
+                          // alert("Error: " + errorThrown);
+                          BootstrapDialog.show({
+                            title: 'Updated Error',
+                                message: 'UPS! SOMETHING WRONG',
+                                type: BootstrapDialog.TYPE_DANGER,
+                          buttons: [{
+                                id: 'btn-ok',
+                                icon: 'glyphicon glyphicon-check',
+                                label: 'OK',
+                                cssClass: 'btn-danger',
+                                autospin: false,
+                                action: function(dialogRef){
+                                    dialogRef.close();
+                                }
+                            }]
+                            });
+                          }
+                        
+                  });
+                  
+                  ShowDebugMessage("RESPONSE YES");
+
+
+                }
+                else {
+                  ShowDebugMessage("RESPONSE NO");
+                  
+                }
+            }
+        });
+}
+$('#delete_letter').on("click",function(e){
+  ShowDebugMessage("delete letter Pressed");
+  var select_letter = document.getElementById("select_letter");
+  ShowDebugMessage("Selector:"+select_letter.selectedIndex);    
+
+  if(select_letter.selectedIndex == 0)
+    return;
+  remove_Letter_from_DB();
+  // $.ajax({
+  //       type: "DELETE",
+  //       url: '{{ url('/update') }}' + '/' + '1',        
+  //       data: { offset:1 , letter_id: letter_id,  "_token": "{{ csrf_token() }}" },
+  //       success: function( data ) {
+  //         console.log("success");
+  //       }
+  // });
+});
+
+$('#update_letter').on("click",function(e){
+        
+    var select_letter = document.getElementById("select_letter");
+    ShowDebugMessage("Selector:"+select_letter.selectedIndex);    
+
+    if(select_letter.selectedIndex == 0)
+      return;    
+    var text = select_letter.options[select_letter.selectedIndex].text;
+    
+    $('#update_Loading').append('Loading...<i class="fa fa-spinner fa-spin fa fa-fw"></i><span class="sr-only">Loading...</span>');
+    //$("#updateTab button").attr("disabled", true);
+    $("#myNavbar ul").attr("hidden",true);
+    $("#update_letter").attr("disabled",true);
+    $("#delete_letter").attr("disabled",true);
+    $(".navbar-header a").attr("hidden",true);
+    $.ajax({
+        type: "GET",
+        url: "{{ route('update.create') }}",
+        data: { letter:text },
+        dataType: "json",
+        //url: "update/create",
+        success: function( msg ) {
+          //removing all the childs inside an ID
+          var myNode = document.getElementById('update_Loading');
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+
+           BootstrapDialog.show({
+            title: 'Updated success',
+                message: 'Now is up to date',
+                type: BootstrapDialog.TYPE_PRIMARY,
+          buttons: [{
+                id: 'btn-ok',
+                icon: 'glyphicon glyphicon-check',
+                label: 'OK',
+                cssClass: 'btn-success',
+                autospin: false,
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+            });
+          //alert("update Finish");
+
+          //$("#updateTab button").attr("disabled", false);
+          $("#myNavbar ul").attr("hidden",false);
+          $(".navbar-header a").attr("hidden",false);
+          $("#update_letter").attr("disabled",false);
+          $("#delete_letter").attr("disabled",false);
+          console.log("Ajax success");
+          console.log(msg);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          $("#myNavbar ul").attr("hidden",false);
+          $(".navbar-header a").attr("hidden",false);
+          $("#update_letter").attr("disabled",false);
+          $("#delete_letter").attr("disabled",false);
+          // alert("Status: " + textStatus);
+          // alert("Error: " + errorThrown);
+          BootstrapDialog.show({
+            title: 'Updated Error',
+                message: 'Now is up to date',
+                type: BootstrapDialog.TYPE_DANGER,
+          buttons: [{
+                id: 'btn-ok',
+                icon: 'glyphicon glyphicon-check',
+                label: 'OK',
+                cssClass: 'btn-danger',
+                autospin: false,
+                action: function(dialogRef){
+                    dialogRef.close();
+                }
+            }]
+            });
+          }
+    });
+  // $.ajax({
+  //       type: "DELETE",
+  //       url: '{{ url('/update') }}' + '/' + '1',        
+  //       data: { offset:1 , letter_id: 2,  "_token": "{{ csrf_token() }}" },
+  //       success: function( data ) {    
+  //         console.log("success");
+  //       }
+  //    });
+
+});
+
+$('#updateTab button').on("click",function(e){
+return;
 		//console.log(e.currentTarget.innerText);
 		var Letter = e.currentTarget.innerText;
 		//BootstrapDialog.alert(Letter);
@@ -821,6 +1020,8 @@ function parsed_CurrentSong(currentSong){
 // }
 
 $(document).ready(function(){
+
+
 	$("#btn_removeAllSongs").attr("hidden",true);
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 	if(navbar.length == 0)
