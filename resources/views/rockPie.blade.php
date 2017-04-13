@@ -23,7 +23,6 @@
             <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
             <!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
             <input id="hidden" type="text" style="display:none;"></li>
-            <li><a href="#" data-filter=".A" id="ajaxTest">A</a></li>            
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/settings') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
