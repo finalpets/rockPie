@@ -96,6 +96,13 @@ function playList(){
 	playSong = song_url2;
 	console.log('Origina music:', playSong);
 	title_song = current_Artist.replace(/%20/g," ") +" - "+current_Song.replace(/%20/g," ");
+
+	if(title_song.length > TITLE_SONG_SIZE) //check if the title is too long for display in the player
+	{
+		title_song = title_song.substring(0,TITLE_SONG_SIZE);
+		title_song = title_song + "...";
+	}
+	console.log("LENGHT TITLE SONG:"+title_song.length);
 	$('#listBar>ol>li').first().remove();
 
     $('#jquery_jplayer_1').jPlayer("setMedia", {
