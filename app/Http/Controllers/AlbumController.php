@@ -22,6 +22,7 @@ class AlbumController extends Controller
     public function index(Request $request)
     {      
         $letter_id = $request->letter_id;
+        $letters = Letter::all();
         //print_r($letter_id);
         //dd($request->offset);
         //dd($letter_id);
@@ -173,7 +174,7 @@ class AlbumController extends Controller
                 'letter_id' => $request->letter_id,
                 );
 
-                return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums ]);
+                return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums, 'letters' => $letters ]);
             }
             else
                 //if($request->letter_id == 'LA')
@@ -213,11 +214,11 @@ class AlbumController extends Controller
                     'letter_id' => $request->letter_id,
                     );
 
-                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums , 'max_albums_pre' => $max_albums_pre ]);
+                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums , 'max_albums_pre' => $max_albums_pre ,'letters' => $letters]);
 
                 }
             }
-         return view('rockPie');
+         return view('rockPie')->with(['letters' => $letters]);
        //return view('rockPie')->with('albums',$albums)->with('songs',$songs)->with('artists',$artists);
     }
 

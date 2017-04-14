@@ -25,13 +25,50 @@
             <input id="hidden" type="text" style="display:none;"></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('/settings') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
+        {{-- <li><a href="{{ url('/settings') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>   --}}
+        <li><a  data-toggle='modal' data-target='#settings_modal'><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>  
       </ul>
       
     </div>
   </div>
 </nav>
 </div>
+
+<!-- Modal -->
+  <div class="modal right fade" id="settings_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Settings</h4>
+        </div>
+
+        <div class="modal-body">
+        <h3>Select the Letter Below</h3>
+        <div class="col-sm-12">      
+          <div class="row">
+            <select id="select_letter" class="selectpicker show-tick" data-width="auto" title="Choose one Letter...">
+                @foreach($letters as $letter)
+                    <option>{{ $letter->letter }}</option>
+                @endforeach
+              </select>                
+          </div> 
+          <hr>     
+              <div class="row">
+                <button class="btn btn-success" id="update_letter">UPDATE</button>
+                <button class="btn btn-danger" id="delete_letter">DELETE</button>                
+                <p id="update_Loading"></p>
+              </div>              
+          </div>
+            
+              
+            
+        </div>
+
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
 <div class="col-md-3">
 <ul class="nav navbar-nav navbar-right">      
         <li>
