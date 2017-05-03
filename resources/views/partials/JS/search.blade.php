@@ -108,3 +108,30 @@ $('#select_album').on("change",function(e){
 	
 
 });
+
+$('#select_add').on('click',function(e){
+
+	var select_song = $('#select_song').selectpicker('val');
+	console.log(select_song);
+	$.ajax({
+	        type: "GET",
+	        data : { select_song: select_song },
+	        url: "{{ route('search.songdetail') }}",	        
+	        dataType: "json",	        
+	        success: function( msg ) {	                        
+	               	//console.log(msg);  
+	        	$.each(msg.songs, function(index,song){	   
+	        		ShowDebugMessage("Search Song Title:"+song.title);            	
+	        		ShowDebugMessage("Search Song song_Url:"+song.song_url);
+	        		ShowDebugMessage("Search artist_name:"+song.album.artist.artist_name);	               	
+	               	addSong_to_playlist(song.album.artist.artist_name, song.title, song.song_url);
+	             });
+	               
+	        },
+	        error: function(XMLHttpRequest, textStatus, errorThrown) {          
+	                   
+	          }
+	    });
+
+
+});

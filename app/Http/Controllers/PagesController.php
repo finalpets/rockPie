@@ -38,4 +38,13 @@ class PagesController extends Controller
 		$songs = Song::whereIn('album_id',$request->select_albums)->orderBy('track','asc')->get();	
 		return \Response::json(['songs' => $songs]);	
 	}
+
+	public function getSongDetails(Request $request){	
+		if($request->select_song == null)
+			return;
+
+		$songs = Song::where('id',$request->select_song)->get();		
+		return \Response::json(['songs' => $songs]);
+	}
+
 }
