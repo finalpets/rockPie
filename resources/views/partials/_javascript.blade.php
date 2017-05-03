@@ -46,6 +46,7 @@ console.log(point.getPos());
 //console.log(point.suma());
 @include('partials.JS.Constants')
 @include('partials.JS.music_Player')
+@include('partials.JS.search')
 
 	// var contentLoadTriggered = false;
 	// var OFFSET_SCROLL = 300;

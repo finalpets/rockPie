@@ -23,6 +23,7 @@
             <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
             <!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
             <input id="hidden" type="text" style="display:none;"></li>
+            <li><a  data-toggle='modal' data-target='#search_modal'><i class="fa fa-cog" aria-hidden="true"></i> Search</a></li>  
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{-- <li><a href="{{ url('/settings') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>   --}}
@@ -34,6 +35,7 @@
 </nav>
 </div>
 
+  <!-- SETTINGS MODAL-->
 <!-- Modal -->
   <div class="modal right fade" id="settings_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -69,6 +71,55 @@
       </div><!-- modal-content -->
     </div><!-- modal-dialog -->
   </div><!-- modal -->
+
+
+  <!-- SEARCH MODAL-->
+  <!-- Modal -->
+  <div class="modal fade" id="search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">SEARCHING</h4>
+        </div>
+
+        <div class="modal-body">
+        <h3>Select An Artist</h3>
+        <div class="row">
+        <div class="col-sm-12">      
+          
+            <select id="select_search" class="selectpicker show-tick" data-width="auto"  data-live-search="true" title="Choose one Artist...">            
+                {{-- @foreach($letters as $letter)
+                    <option>{{ $letter->letter }}</option>
+                @endforeach --}}
+              </select>
+              <select id="select_album" class="selectpicker"  title="Album..." multiple data-actions-box="true" data-selected-text-format="count > 3">
+                
+              </select>
+              <select id="select_song" class="selectpicker show-tick" data-width="auto"  data-live-search="true" title="Choose one Song...">            
+                {{-- @foreach($letters as $letter)
+                    <option>{{ $letter->letter }}</option>
+                @endforeach --}}
+              </select>
+              <button class="btn-success" id="select_add"><i class="fa fa-music" aria-hidden="true"></i></button>
+              <hr>     
+              <div class="row">
+                                                          
+              </div>                
+          </div> 
+                   
+          </div>
+            
+              
+            
+        </div>
+
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
+
+
 <div class="col-md-3">
 <ul class="nav navbar-nav navbar-right">      
         <li>
