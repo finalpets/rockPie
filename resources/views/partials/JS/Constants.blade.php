@@ -18,8 +18,8 @@ var MAX_AJAX_DIVS =26;
 var TITLE_SONG_SIZE = 60;
 
 var DEBUG = true;
-function ShowDebugMessage(message) {
+function ShowDebugMessage(function_name,message) {
     if (DEBUG) {
-        console.log("DEBUG LOG:"+message);
+        console.log("DEBUG LOG:"+function_name+":"+message);
     }
 }

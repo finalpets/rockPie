@@ -66,11 +66,10 @@
 	// var array_letterID =0;
 	// var TOTAL_SHOW_ALBUMS = 4;
 function load_Array_Albums(){
-//run_run();
+  ShowDebugMessage("load_Array_Albums()","");
 	if(MAX_ALBUMS == 0)
 		contentLoadTriggered= false;
-  console.log(array_Albums);
-	ShowDebugMessage("ALbum_ARRAY:"+array_Albums);
+	ShowDebugMessage("load_Array_Albums()","ALbum_ARRAY:"+array_Albums);
 	for (var i = 0; i < array_Albums.length; i++) {
 		//console.log(array_Albums[i].album_name);
         		//for (var x = 0; x < array_Artists.length; x++) {
@@ -652,21 +651,21 @@ function remove_Letter_from_DB() {
                         
                   });
                   
-                  ShowDebugMessage("RESPONSE YES");
+                  ShowDebugMessage("remove_Letter_from_DB()","RESPONSE YES");
 
 
                 }
                 else {
-                  ShowDebugMessage("RESPONSE NO");
+                  ShowDebugMessage("remove_Letter_from_DB()","RESPONSE NO");
                   
                 }
             }
         });
 }
 $('#delete_letter').on("click",function(e){
-  ShowDebugMessage("delete letter Pressed");
+  ShowDebugMessage("#delete_letter","delete letter Pressed");
   var select_letter = document.getElementById("select_letter");
-  ShowDebugMessage("Selector:"+select_letter.selectedIndex);    
+  ShowDebugMessage("#delete_letter","Selector:"+select_letter.selectedIndex);    
 
   if(select_letter.selectedIndex == 0)
     return;
@@ -684,7 +683,7 @@ $('#delete_letter').on("click",function(e){
 $('#update_letter').on("click",function(e){
         
     var select_letter = document.getElementById("select_letter");
-    ShowDebugMessage("Selector:"+select_letter.selectedIndex);    
+    ShowDebugMessage("#update_letter","Selector:"+select_letter.selectedIndex);    
 
     if(select_letter.selectedIndex == 0)
       return;    

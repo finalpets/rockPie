@@ -1,5 +1,5 @@
 function addSong_to_playlist(artist, song, song_url) {
-	ShowDebugMessage("function addSong_to_playlist()");
+	ShowDebugMessage("addSong_to_playlist()","");
 	var sound_click = "{{ asset('sounds/click.mp3') }}";
 	var snd = new Audio(sound_click);
 	snd.play();
@@ -70,7 +70,7 @@ function nextSong(){
 }
 
 function playList(){
-	ShowDebugMessage("function playList()");
+	ShowDebugMessage("playList()","");
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 	if(navbar.length == 0){
 		playSong = "";
@@ -147,7 +147,7 @@ function removeAllSongs() {
 
 
 function remove_ALL_IsotopeAjaxDivs(){
-	
+
 	for (var i = 1; i <= MAX_AJAX_DIVS; i++) {		
 		var myNode = document.getElementById('isotopeAjax_'+i);
 		removeIsotopeAjaxDivs(myNode);
@@ -160,7 +160,7 @@ function removeIsotopeAjaxDivs(myNode){
 }
 
 function add_all_album_to_the_playList(album_id){
-	ShowDebugMessage("function add_all_album_to_the_playList()");
+	ShowDebugMessage("add_all_album_to_the_playList()","");
 	console.log("Album_id:"+album_id);
 	$.ajax({
 	        type: "GET",
