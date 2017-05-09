@@ -24,26 +24,26 @@
 
 
 <script type="text/javascript">
-
-class Point {
-  constructor(xPos , yPos){
-    this.xPos = xPos;
-    this.yPos = yPos;
-  }
-  getPos(){
-    console.log(this.suma());  
-    return "X:"+this.xPos + "Y:"+this.yPos;
+// EXAMPLE OF NEW CLASSES
+// class Point {
+//   constructor(xPos , yPos){
+//     this.xPos = xPos;
+//     this.yPos = yPos;
+//   }
+//   getPos(){
+//     console.log(this.suma());  
+//     return "X:"+this.xPos + "Y:"+this.yPos;
     
-  }
+//   }
 
-  suma(){
-    var resultado = this.xPos+this.yPos;
-    return "SUMA :"+resultado;
-  }
-}
-var point = new Point(100,200);
-console.log(point.getPos());
-//console.log(point.suma());
+//   suma(){
+//     var resultado = this.xPos+this.yPos;
+//     return "SUMA :"+resultado;
+//   }
+// }
+// var point = new Point(100,200);
+// console.log(point.getPos());
+
 @include('partials.JS.Constants')
 @include('partials.JS.music_Player')
 @include('partials.JS.search')
