@@ -19,11 +19,8 @@
       <ul class="nav navbar-nav">
             <li class="active"><a data-toggle="tab" href="#musicTab"><i class="fa fa-music"></i> Music</a></li>
             <li><a data-toggle="tab" href="#menu1"><i class="fa fa-microphone"></i> Karaoke</a></li>
-            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>
-            <li><a href="#" class="hiddenInput"><i class="fa fa-search" aria-hidden="true"></i> Buscar</a>
-            <!-- DON'T use type="hidden" because IE doesn't like hidden inputs -->
-            <input id="hidden" type="text" style="display:none;"></li>
-            <li><a  data-toggle='modal' data-target='#search_modal'><i class="fa fa-cog" aria-hidden="true"></i> Search</a></li>  
+            <li><a data-toggle="tab" href="#menu2"><i class="fa fa-youtube-square" aria-hidden="true"></i> Youtube</a></li>            
+            <li><a  data-toggle='modal' data-target='#search_modal'><i class="fa fa-search" aria-hidden="true"></i> Buscar</a></li>  
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{-- <li><a href="{{ url('/settings') }}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>   --}}
@@ -81,11 +78,11 @@
 
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">SEARCHING</h4>
+          <h4 class="modal-title" id="myModalLabel">Buscar</h4>
         </div>
 
         <div class="modal-body">
-        <h3>Select An Artist</h3>
+        <h3>Selecciona Un Artista</h3>
         <div class="row">
         <div class="col-sm-12">      
           

@@ -1025,6 +1025,10 @@ function parsed_CurrentSong(currentSong){
 
 $(document).ready(function(){
 
+  //hide all elements in the search section
+  $('#select_album').selectpicker('hide');
+  $('#select_song').selectpicker('hide');  
+  $("#select_add").attr("hidden",true);
 
 	$("#btn_removeAllSongs").attr("hidden",true);
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
