@@ -47,4 +47,18 @@ class PagesController extends Controller
 		return \Response::json(['songs' => $songs]);
 	}
 
+	public function getAlbum_Songs(Request $request){	
+	
+		if($request->album_id == null)
+			return;
+
+		$album_result_array = array();
+
+
+        array_push($album_result_array, $request->album_id);
+
+		$songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();	
+		return \Response::json(['songs' => $songs]);	
+	}
+
 }

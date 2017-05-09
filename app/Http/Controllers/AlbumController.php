@@ -157,7 +157,7 @@ class AlbumController extends Controller
                    
                 }                
                 //print_r($album_result_array);
-                $artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
+                //$artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
                 $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
 
                 foreach ($songs as $song) {
@@ -174,7 +174,7 @@ class AlbumController extends Controller
                 'letter_id' => $request->letter_id,
                 );
 
-                return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums, 'letters' => $letters ]);
+                return \Response::json(['albums' => $albums ,'songs' => $songs, 'letter_id' => $request->letter_id, 'max_albums' => $max_albums, 'letters' => $letters ]);
             }
             else
                 //if($request->letter_id == 'LA')
@@ -205,7 +205,7 @@ class AlbumController extends Controller
                        array_push($artist_result_array, $album->artist_id);
                    
                 }
-                $artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
+                //$artists = Artist::whereIn('id',$artist_result_array)->orderBy('artist_name','asc')->get();  
                 //print_r($album_result_array);
                 $songs = Song::whereIn('album_id',$album_result_array)->orderBy('track','asc')->get();
                     $response = array(
@@ -214,7 +214,7 @@ class AlbumController extends Controller
                     'letter_id' => $request->letter_id,
                     );
 
-                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'artists' => $artists , 'letter_id' => $request->letter_id, 'max_albums' => $max_albums , 'max_albums_pre' => $max_albums_pre ,'letters' => $letters]);
+                    return \Response::json(['albums' => $albums ,'songs' => $songs, 'letter_id' => $request->letter_id, 'max_albums' => $max_albums , 'max_albums_pre' => $max_albums_pre ,'letters' => $letters]);
 
                 }
             }

@@ -69,19 +69,20 @@ function load_Array_Albums(){
 //run_run();
 	if(MAX_ALBUMS == 0)
 		contentLoadTriggered= false;
-	
+  console.log(array_Albums);
+	ShowDebugMessage("ALbum_ARRAY:"+array_Albums);
 	for (var i = 0; i < array_Albums.length; i++) {
 		//console.log(array_Albums[i].album_name);
-        		for (var x = 0; x < array_Artists.length; x++) {
+        		//for (var x = 0; x < array_Artists.length; x++) {
 
-        			if(array_Albums[i].artist.artist_name == array_Artists[x].artist_name)
-           			{
-           				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+array_Artists[x].letter.letter+" btn-shadow'>";
+        			//if(array_Albums[i].artist.artist_name == array_Artists[x].artist_name)
+           			//{
+           				result = "<div class ="+"'col-sm-6 col-md-3 isotope-item"+" "+array_Albums[i].artist.letter.letter+" btn-shadow'>";
 
            				result+= "\n<div class='image-box'>";
            				result+= "\n<div class='overlay-container'>";
            				result+= "\n<div align='center' class='h5_album_name'>";
-           				result+= "\n<h5>"+array_Artists[x].artist_name+" - "+array_Albums[i].album_name+"</h5>";
+           				result+= "\n<h5>"+array_Albums[i].artist.artist_name+" - "+array_Albums[i].album_name+"</h5>";
            				result+= "\n</div>";
            				result+= "\n<div class='row'>";
            				result+= "\n<div class='col-sm-5'>";
@@ -122,7 +123,7 @@ function load_Array_Albums(){
 
            				 result+= "\n<a class='overlay' data-toggle='modal' data-target='#project-"+array_Albums[i].id+"'>";
            				 result+= "\n<i class='fa fa-search-plus'></i>";
-           				 result+= "\n<span>"+array_Artists[x].artist_name+"</span>";
+           				 result+= "\n<span>"+array_Albums[i].artist.artist_name+"</span>";
            				 result+= "\n</a>";
            				 result+= "\n</div>";
            				 result+= "\n</div>";
@@ -133,7 +134,7 @@ function load_Array_Albums(){
            				 result+= "\n<div class='modal-content'>";
            				 result+= "\n<div class='modal-header' align='center'>";
            				 result+= "\n<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>";
-           				 result+= "\n<h3 class='modal-title h5_album_name' id='project-"+array_Albums[i].id+"-label'>"+array_Artists[x].artist_name+"</h3>";
+           				 result+= "\n<h3 class='modal-title h5_album_name' id='project-"+array_Albums[i].id+"-label'>"+array_Albums[i].artist.artist_name+"</h3>";
            				 result+= "\n</div>";
 
            				 result+= "\n<div class='modal-body'>";
@@ -148,7 +149,10 @@ function load_Array_Albums(){
            				 img_clean+= ".jpg";
            				 //result+= "\n<img src='"+img_clean+"' alt='' class='img-rounded resizeModal'>";
            				 result+= '\n<img src="'+img_clean+'" alt="Oops" class="img-rounded resizeModal">';
-
+                   result+= "\n<hr>";
+                   result+= "\n<div align='center'>";
+                   result+= "\n<button onclick='add_all_album_to_the_playList("+array_Albums[i].id+")' class='all_album btn btn-success btn-shadow'> All Songs </button>";
+                   result+= "\n</div>";
            				 result+= "\n</div>";
            				 result+= "\n<div class='col-sm-7'>";
            				 result+= "\n<table class='table table-striped table_modal'>";
@@ -206,8 +210,8 @@ function load_Array_Albums(){
       					//var element = document.createElement("div");
 					    // element.appendChild(document.createTextNode('The man who mistook his wife for a hat'));
 					    // document.getElementById('lc').appendChild(element);
-           			}
-        		}
+           //			}
+        //		}
         //$('#isotopeAjax_'+array_letterID).hide();
         //$('#isotopeAjax_'+array_letterID).addClass('animated bounceOutLeft');
         //$('#isotopeAjax_'+array_letterID).addClass('animated bounceInDown');
@@ -1156,7 +1160,6 @@ $(document).ready(function(){
 		 	isPlaying = true;
 			console.log("play isPlaying:"+isPlaying);
 		},
-
   });
 });
 

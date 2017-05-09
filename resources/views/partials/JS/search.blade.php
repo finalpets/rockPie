@@ -1,5 +1,6 @@
 
-$('#myNavbar').on("click",function(e){
+$('#select_search').on('shown.bs.select', function (e) {
+	
 	$('#select_album').selectpicker('hide');
 	$('#select_song').selectpicker('hide');
 	//$("#select_add").attr("hidden",true);

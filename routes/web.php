@@ -21,4 +21,6 @@ Route::get('settings', 'PagesController@getSettings');
 Route::get('search', ['uses' => 'PagesController@getArtist' , 'as' => 'search.artist']);
 Route::get('search/{id}',['uses' => 'PagesController@getAlbums', 'as' => 'search.album']);
 Route::get('search_songs',['uses' => 'PagesController@getSongs', 'as' => 'search.songs']);
+Route::get('getAlbum_Songs',['uses' => 'PagesController@getAlbum_Songs', 'as' => 'getAlbum_Songs']);
+
 Route::get('search_songs_detail',['uses' => 'PagesController@getSongDetails', 'as' => 'search.songdetail']);

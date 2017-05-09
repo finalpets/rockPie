@@ -1,4 +1,5 @@
 function addSong_to_playlist(artist, song, song_url) {
+	ShowDebugMessage("function addSong_to_playlist()");
 	var sound_click = "{{ asset('sounds/click.mp3') }}";
 	var snd = new Audio(sound_click);
 	snd.play();
@@ -69,6 +70,7 @@ function nextSong(){
 }
 
 function playList(){
+	ShowDebugMessage("function playList()");
 	let navbar = Array.from(document.querySelectorAll('#listBar>ol>li'));
 	if(navbar.length == 0){
 		playSong = "";
@@ -112,6 +114,7 @@ function playList(){
       });
 
    	$('#jquery_jplayer_1').jPlayer("play");
+   	isPlaying = true;
 }
 
 function removeAllSongs() {
@@ -144,67 +147,37 @@ function removeAllSongs() {
 
 
 function remove_ALL_IsotopeAjaxDivs(){
-	// var myNode = document.getElementById('isotopeAjax_LALL');
-	// removeIsotopeAjaxDivs(myNode);
+	
 	for (var i = 1; i <= MAX_AJAX_DIVS; i++) {		
 		var myNode = document.getElementById('isotopeAjax_'+i);
 		removeIsotopeAjaxDivs(myNode);
 	}
-	// var myNode = document.getElementById('isotopeAjax_1');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_2');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_3');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_4');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_5');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_6');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_7');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_8');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_9');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_10');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_11');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_12');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_13');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_14');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_15');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_16');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_17');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_18');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_19');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_20');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_21');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_22');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_23');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_24');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_25');
-	// removeIsotopeAjaxDivs(myNode);
-	// var myNode = document.getElementById('isotopeAjax_26');
-	// removeIsotopeAjaxDivs(myNode);
 }
 function removeIsotopeAjaxDivs(myNode){
 	while (myNode.firstChild) {
 		myNode.removeChild(myNode.firstChild);
 	}
+}
+
+function add_all_album_to_the_playList(album_id){
+	ShowDebugMessage("function add_all_album_to_the_playList()");
+	console.log("Album_id:"+album_id);
+	$.ajax({
+	        type: "GET",
+	        data : { album_id: album_id },
+	        url: "{{ route('getAlbum_Songs') }}",
+	        dataType: "json",	        
+	        success: function( msg ) {
+	               console.log(msg);	                        
+	               $.each(msg.songs, function(index,song){		
+           				songTitle_clean = song.title.replace(/'/g, "^");
+   				 		artistName_clean = song.album.artist.artist_name.replace(/'/g,"^");
+   				 		songUrl_clean = song.song_url.replace(/'/g,"^");               
+	               		addSong_to_playlist(artistName_clean,songTitle_clean,songUrl_clean);
+	               });
+	        },
+	        error: function(XMLHttpRequest, textStatus, errorThrown) {          
+	                   
+	          }
+	    });
 }
