@@ -47,6 +47,7 @@
 @include('partials.JS.Constants')
 @include('partials.JS.music_Player')
 @include('partials.JS.search')
+@include('partials.JS.settingsJS');
 
 	// var contentLoadTriggered = false;
 	// var OFFSET_SCROLL = 300;
@@ -501,67 +502,7 @@ e.preventDefault();
 				//     myNode.removeChild(myNode.firstChild);
 				// }
 });
-// function remove_ALL_IsotopeAjaxDivs(){
-// 	// var myNode = document.getElementById('isotopeAjax_LALL');
-// 	// removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_1');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_2');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_3');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_4');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_5');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_6');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_7');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_8');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_9');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_10');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_11');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_12');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_13');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_14');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_15');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_16');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_17');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_18');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_19');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_20');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_21');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_22');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_23');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_24');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_25');
-// 	removeIsotopeAjaxDivs(myNode);
-// 	var myNode = document.getElementById('isotopeAjax_26');
-// 	removeIsotopeAjaxDivs(myNode);
-// }
-// function removeIsotopeAjaxDivs(myNode){
-// 	while (myNode.firstChild) {
-// 		myNode.removeChild(myNode.firstChild);
-// 	}
-// }
+
 $('#ajaxTest').on("click",function(e){
 	
 	$.ajax({
@@ -662,111 +603,6 @@ function remove_Letter_from_DB() {
             }
         });
 }
-$('#delete_letter').on("click",function(e){
-  ShowDebugMessage("#delete_letter","delete letter Pressed");
-  var select_letter = document.getElementById("select_letter");
-  ShowDebugMessage("#delete_letter","Selector:"+select_letter.selectedIndex);    
-
-  if(select_letter.selectedIndex == 0)
-    return;
-  remove_Letter_from_DB();
-  // $.ajax({
-  //       type: "DELETE",
-  //       url: '{{ url('/update') }}' + '/' + '1',        
-  //       data: { offset:1 , letter_id: letter_id,  "_token": "{{ csrf_token() }}" },
-  //       success: function( data ) {
-  //         console.log("success");
-  //       }
-  // });
-});
-
-$('#update_letter').on("click",function(e){
-        
-    var select_letter = document.getElementById("select_letter");
-    ShowDebugMessage("#update_letter","Selector:"+select_letter.selectedIndex);    
-
-    if(select_letter.selectedIndex == 0)
-      return;    
-    var text = select_letter.options[select_letter.selectedIndex].text;
-    
-    $('#update_Loading').append('Loading...<i class="fa fa-spinner fa-spin fa fa-fw"></i><span class="sr-only">Loading...</span>');
-    //$("#updateTab button").attr("disabled", true);
-    $("#myNavbar ul").attr("hidden",true);
-    $("#update_letter").attr("disabled",true);
-    $("#delete_letter").attr("disabled",true);
-    $(".navbar-header a").attr("hidden",true);
-    $.ajax({
-        type: "GET",
-        url: "{{ route('update.create') }}",
-        data: { letter:text },
-        dataType: "json",
-        //url: "update/create",
-        success: function( msg ) {
-          //removing all the childs inside an ID
-          var myNode = document.getElementById('update_Loading');
-        while (myNode.firstChild) {
-            myNode.removeChild(myNode.firstChild);
-        }
-
-           BootstrapDialog.show({
-            title: 'Updated success',
-                message: 'Now is up to date',
-                type: BootstrapDialog.TYPE_PRIMARY,
-          buttons: [{
-                id: 'btn-ok',
-                icon: 'glyphicon glyphicon-check',
-                label: 'OK',
-                cssClass: 'btn-success',
-                autospin: false,
-                action: function(dialogRef){
-                    dialogRef.close();
-                }
-            }]
-            });
-          //alert("update Finish");
-
-          //$("#updateTab button").attr("disabled", false);
-          $("#myNavbar ul").attr("hidden",false);
-          $(".navbar-header a").attr("hidden",false);
-          $("#update_letter").attr("disabled",false);
-          $("#delete_letter").attr("disabled",false);
-          console.log("Ajax success");
-          console.log(msg);
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-          $("#myNavbar ul").attr("hidden",false);
-          $(".navbar-header a").attr("hidden",false);
-          $("#update_letter").attr("disabled",false);
-          $("#delete_letter").attr("disabled",false);
-          // alert("Status: " + textStatus);
-          // alert("Error: " + errorThrown);
-          BootstrapDialog.show({
-            title: 'Updated Error',
-                message: 'Now is up to date',
-                type: BootstrapDialog.TYPE_DANGER,
-          buttons: [{
-                id: 'btn-ok',
-                icon: 'glyphicon glyphicon-check',
-                label: 'OK',
-                cssClass: 'btn-danger',
-                autospin: false,
-                action: function(dialogRef){
-                    dialogRef.close();
-                }
-            }]
-            });
-          }
-    });
-  // $.ajax({
-  //       type: "DELETE",
-  //       url: '{{ url('/update') }}' + '/' + '1',        
-  //       data: { offset:1 , letter_id: 2,  "_token": "{{ csrf_token() }}" },
-  //       success: function( data ) {    
-  //         console.log("success");
-  //       }
-  //    });
-
-});
 
 $('#updateTab button').on("click",function(e){
 return;

@@ -16,7 +16,7 @@ var array_letterID =0;
 var TOTAL_SHOW_ALBUMS = 4;
 var MAX_AJAX_DIVS =26;
 var TITLE_SONG_SIZE = 60;
-var EXTERNAL_DRIVE = 1; // Get Music from an external Drive
+var EXTERNAL_DRIVE = false; // Get Music from an external Drive
 
 var DEBUG = true;
 function ShowDebugMessage(function_name,message) {
