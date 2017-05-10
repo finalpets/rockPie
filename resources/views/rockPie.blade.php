@@ -44,9 +44,18 @@
         </div>
 
         <div class="modal-body">
+        
         <h3>Select the Letter Below</h3>
         <div class="col-sm-12">      
           <div class="row">
+
+          <i class='fa fa-floppy-o' aria-hidden='true'></i>
+          <span class="label label-default">External Drive</span>   
+          
+          <input type="checkbox" id="externalDrive" data-toggle="toggle" data-on="On" data-off="Off" data-onstyle="success" 
+          data-offstyle="danger" data-size="mini">          
+          
+            
             <select id="select_letter" class="selectpicker show-tick" data-width="auto" title="Choose one Letter...">
                 @foreach($letters as $letter)
                     <option>{{ $letter->letter }}</option>

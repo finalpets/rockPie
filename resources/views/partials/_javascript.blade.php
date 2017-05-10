@@ -1025,6 +1025,11 @@ function parsed_CurrentSong(currentSong){
 
 $(document).ready(function(){
 
+  if(EXTERNAL_DRIVE) //check if external drive is ON or OFF //Constants.blade
+    $('#externalDrive').bootstrapToggle('on');    
+  else
+    $('#externalDrive').bootstrapToggle('off');
+  
   //hide all elements in the search section
   $('#select_album').selectpicker('hide');
   $('#select_song').selectpicker('hide');  

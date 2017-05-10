@@ -47,6 +47,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'custom' => [
+            'driver' => 'local',
+            'root'   => 'G:/matriz',
+        ],
 
         'letter_ALL' => [
             'driver' => 'local',
