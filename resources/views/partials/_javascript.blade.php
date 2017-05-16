@@ -151,7 +151,7 @@ function load_Array_Albums(){
            				 result+= '\n<img src="'+img_clean+'" alt="Oops" class="img-rounded resizeModal">';
                    result+= "\n<hr>";
                    result+= "\n<div align='center'>";
-                   result+= "\n<button onclick='add_all_album_to_the_playList("+array_Albums[i].id+")' class='all_album btn btn-success btn-shadow'> All Songs </button>";
+                   result+= "\n<button onclick='add_all_album_to_the_playList("+array_Albums[i].id+")' class='all_album btn btn-success btn-shadow'> All Songs <i class='fa fa-music' aria-hidden='true'></i></button>";
                    result+= "\n</div>";
            				 result+= "\n</div>";
            				 result+= "\n<div class='col-sm-7'>";
