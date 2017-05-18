@@ -21,10 +21,13 @@ class fileManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getMusicPath($letter){
+    public function getMusicPath($letter, $external_drive){
 
-        $files =Storage::disk('letter'.'_'.$letter)->allfiles();
-        
+        if($external_drive)
+            $files =Storage::disk('external'.'_'.$letter)->allfiles();
+        else            
+            $files =Storage::disk('letter'.'_'.$letter)->allfiles();
+      //  dd($files);
         return $files;
     }
 
@@ -76,9 +79,12 @@ class fileManagerController extends Controller
         //dd($id3);
       
             //$files = Storage::disk('public')->allfiles();
-        $files = $this->getMusicPath($request->letter);
+        $files = $this->getMusicPath($request->letter , $request->external_drive);
 
-        $directories = Storage::disk('letter'.'_'.$request->letter)->allDirectories();
+        if($request->external_drive)
+            $directories = Storage::disk('external'.'_'.$request->letter)->allDirectories();
+        else
+            $directories = Storage::disk('letter'.'_'.$request->letter)->allDirectories();
 
         //dd($directories);
         // if($request->letter == 'A')

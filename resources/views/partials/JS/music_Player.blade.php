@@ -88,7 +88,11 @@ function playList(){
 	var parsedSong_url = navbar[0].id;// return to the original URL
 	var song = parsedSong_url.split("^").join("'");// return to the original URL
 	console.log(song);
-	var musicPath = "{{ asset('music') }}";
+	if(EXTERNAL_DRIVE)
+		var musicPath = "http://localhost/music";
+	else
+		var musicPath = "{{ asset('music') }}";
+
     console.log('musicPath:',musicPath);
 	song_url = musicPath.concat("/");
 	song_url2 = song_url.concat(song);

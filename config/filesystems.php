@@ -47,11 +47,110 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-        'custom' => [
+        'external_A' => [
             'driver' => 'local',
-            'root'   => 'G:/matriz',
+            'root'   => 'H:/xampp/htdocs/music/A',
         ],
-
+        'external_B' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/B',
+        ],
+        'external_C' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/C',
+        ],
+        'external_D' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/D',
+        ],
+        'external_E' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/E',
+        ],
+        'external_F' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/F',
+        ],
+        'external_G' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/G',
+        ],
+        'external_H' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/H',
+        ],
+        'external_I' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/I',
+        ],
+        'external_J' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/J',
+        ],
+        'external_K' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/K',
+        ],
+        'external_L' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/L',
+        ],
+        'external_M' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/M',
+        ],
+        'external_N' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/N',
+        ],
+        'external_O' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/O',
+        ],
+        'external_P' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/P',
+        ],
+        'external_Q' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/Q',
+        ],
+        'external_R' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/R',
+        ],
+        'external_S' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/S',
+        ],
+        'external_T' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/T',
+        ],
+        'external_U' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/U',
+        ],
+        'external_V' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/V',
+        ],
+        'external_W' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/W',
+        ],
+        'external_X' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/X',
+        ],
+        'external_Y' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/Y',
+        ],
+        'external_Z' => [
+            'driver' => 'local',
+            'root'   => 'H:/xampp/htdocs/music/Z',
+        ],        
         'letter_ALL' => [
             'driver' => 'local',
             'root' => public_path('music'),

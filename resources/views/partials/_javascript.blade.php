@@ -86,7 +86,10 @@ function load_Array_Albums(){
            				result+= "\n</div>";
            				result+= "\n<div class='row'>";
            				result+= "\n<div class='col-sm-5'>";
-           				img_clean = "{{ asset('/music/') }}";
+                  if(EXTERNAL_DRIVE)
+             				img_clean = "http://localhost/music";
+                  else
+                    img_clean = "{{ asset('/music/') }}";
            				//song_url.replace(/ /g, "_");
            				img_clean+= "/"+array_Albums[i].img.replace(/ /g, "%20");
            				img_clean+= ".jpg";
@@ -143,7 +146,10 @@ function load_Array_Albums(){
            				 result+= "\n</div>";
            				 result+= "\n<div class='row'>";
            				 result+= "\n<div class='col-md-5'>";
-           				 img_clean = "{{asset('/music/')}}";
+                   if(EXTERNAL_DRIVE)
+                      img_clean = "http://localhost/music";
+                    else
+           				   img_clean = "{{asset('/music/')}}";
            				 //song_url.replace(/ /g, "_");
            				 img_clean+= "/"+array_Albums[i].img.replace(/ /g, "%20");
            				 img_clean+= ".jpg";

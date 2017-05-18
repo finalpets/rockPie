@@ -22,7 +22,7 @@ $('#update_letter').on("click",function(e){
     $.ajax({
         type: "GET",
         url: "{{ route('update.create') }}",
-        data: { letter:text },
+        data: { letter:text , external_drive: EXTERNAL_DRIVE },
         dataType: "json",
         //url: "update/create",
         success: function( msg ) {
