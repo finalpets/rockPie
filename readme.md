@@ -46,3 +46,4 @@ find . -name \*.swp -type f -delete
 
 #check files to delete with name
 $ find . -type f -name foo\*
+$ find . -type f -nmae Album\*.jpg 
