@@ -236,6 +236,8 @@ ol.example li.placeholder:before {
 #leftsidebar button {
 	height: 50%;
 	width: 50%;	
+	border-radius: 100px;	
+	outline: none; /* remove focus in a button*/
 }
 #DOWN {
 	margin-top: 10px;
