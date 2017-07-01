@@ -1121,7 +1121,7 @@ $(document).ready(function(){
 
     ready: function () {
     var music = "{{ asset('music/05 - Tifa no Theme (Piano Version).mp3') }}";
-    $(this).jPlayer("volume", 0.50);
+    $(this).jPlayer("volume", 0.90);
    // console.log(music);
     //playList();
       $(this).jPlayer("setMedia", {
